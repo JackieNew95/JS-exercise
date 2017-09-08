@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+
+/*
+	var a = 43;
+	var b = 40;
+	var str=`
+	我们班有两个班，一个是505班，有${a}人，
+	另一个是507班，有${b}人，总共有${a+b}人。`;
+
+	console.log(str);
+
+
+	var num = 10;
+	var num1 = 20;
+	alert(num>num1);//false
+	alert(num<num1);//true
+	alert(num<=10);//true
+	alert(num==10);//true
+	alert(num=='10');//true,跟字符串比较时，数值相等即为true
+	alert(10=='10');//true,数字跟字符串比较时，字符串会转换成数字，数值相等即为true
+	alert(1==true);//true
+	alert(1===true);//false,全等时，不仅比较数值大小，还要比较数据类型
+	alert(num!=num1);//true
+
+	var str1 = "a";
+	var str2 = "b";
+	var str3 = "aa"
+	alert(str1<str2);//true
+	alert(str3<str2);//true
+	alert(str1<str2);//true
+	//字符串比较时是按照首字母的大小开始的；若相同，则逐个向后相同位比对，比较大小
+	var a = '10';
+	var b = '2';
+	var c = '2px';
+	var d = 10;
+	alert(a>b);//false,数字型的字符串也要按照字符串规则比较
+
+	alert(d<c);//false
+	alert(d>c);//false,数字跟字符串比较时，字符串会转换成数字，但无法转换时均为flase
+
+	alert(undefined==null);//true
+	alert(undefined===null);//false
+
+	alert(1==true);//true
+	alert(1=='true');//true
+	alert(true=='true');//false
+
+*/
+
+	var a = 10;
+	var b = 20;
+	console.log(a>=10&&b>20);//false
+	console.log(a<10&&b>20);//false
+	console.log(a>=10&&b<20);//false
+
+	console.log(a&&b);//10	20	20
+	console.log(b&&a);//20	10	10
+	console.log(b&&b>a);//20	true	true
+
+	console.log(a<10&&b);//false	20	false
+	console.log(b&&a<10);//20	false	false
+	console.log(0&&b);//0	20	0
+	console.log(undefined&&b);//undefined	20	undefined
+	console.log(b&&null);//20	null	null
+
+
+	console.log(undefined&&null);//undefined	null	undefined
+
+
+
+	console.log(a<10||b);//false	20	20
+	console.log(b||a<10);//20	false	20
+	console.log(b>a||a<10);//true	false	true
+	console.log(b<a||a<10);//false	false	false
+	console.log(0||null);//0	null	null
+	console.log(null||0);//null	0	0
+	console.log(null||a++);//null	10	10
+	console.log(a);//11
+
+
+	console.log(5||a++);//5
+
+
+	var d = 11;
+	var flag;
+	if(d%2==0){
+		flag=true;
+	}else{
+		flag=false;
+	}
+	alert(flag);
+
+	var e = 11;
+	var flag;
+	flag=e%2==0 ? true : false;
+	alert(flag);
+
+	function fn(){
+		alert(1);
+	}
+	fn();
+
+</script>

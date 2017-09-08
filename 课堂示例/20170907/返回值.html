@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+/*	function fn(){
+		alert(1);
+		return 'a';
+	}
+	var result=fn();
+	alert(result);//a*/
+
+
+/*	function fn(){
+		alert(1);
+		return 1,2,4;
+	}
+	var result=fn();
+	alert(result);//4
+*/
+
+
+/*	function fn(){
+		var num = 6;
+		return num;
+	}
+	var result=fn();
+	alert(result);//6*/
+
+
+/*	//	判断数组存在某个特定值,存在返回true，否则false
+	var arr=[1,2,4,5,65,67,55,869];
+	value=0;
+	var result1=exist(arr,value);
+	alert(result1);
+
+	function exist(arr,value){
+		for(var i=0;i<arr.length;i++){
+			if(arr[i]==value){
+				return true;
+			}
+		}
+		return false;
+	}
+
+*/
+
+
+/*	//	判断数组存在某个特定值,并判断arr是否为数组，参数是否为两个，存在返回true，否则false
+	var arr=[1,2,4,5,65,67,55,869];
+	// value=0;
+	// var result1=exist(arr,value);
+	var result1=exist(arr);
+	alert(result1);
+
+	function exist(arr,value){
+
+		if(!(typeof arr == 'object' && arguments.length>=2)){
+			return "输入错误";
+		}
+		for(var i=0;i<arr.length;i++){
+			if(arr[i]==value){
+				return true;
+			}
+		}
+		return false;
+	}
+*/
+
+
+/*	//将一个数组转换成字符串
+	var arr = [3,2,4,8,9,9,8,7,6,5];
+	var result=join(arr,'+');
+	alert(result);
+
+	function join(arr,str){//arr特定数组，str连接符
+		var result='';//必须写空字符串，不然结果会有默认值undefined在前面
+		str= str==undefined? '-':str;//连接符的默认值方法一
+		str= str||'-'//连接符的默认值方法二
+		for(var i=0;i<arr.length;i++){
+			if (i<arr.length-1) {
+				result += arr[i]+str;//最后一个之前都加-
+			}else{
+				result+=arr[i];//最后一个不加-
+			}
+			
+		}
+		return result;
+	}
+*/
+
+
+	//将一个数组的偶数放入一个新数组
+	//filter（过滤器、筛选）
+	var arr = [3,2,4,8,9,9,8,7,6,5];
+	var newarr=filter(arr);
+	alert(newarr);
+
+	function filter(arr){//arr特定数组
+		var newarr=[];//存新数组的数组
+		for(var i=0;i<arr.length;i++){
+			if(arr[i]%2==0){
+				newarr[newarr.length]=arr[i];
+			}			
+		}
+		return newarr;
+	}
+
+
+
+	
+	
+</script>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+/*	var num=10;
+	function fn(){
+		var num='s';
+		alert(num);//s
+	}
+	alert(num);//10
+	fn();
+
+	var num=10;
+	function fn(){
+		alert(num);//10
+	}
+	alert(num);//10
+	fn();
+
+	var num=10;
+	function fn(){
+		alert(num);
+		var num ='a';//undefined
+	}
+	alert(num);//10
+	fn();
+
+	var num=10;
+	function fn(){
+		alert(num);//10
+		num='a'
+		alert(num);//a
+	}
+	alert(num);//10
+	fn();
+
+
+
+
+	function aa(){
+		var num=10;
+		alert(num);//10
+		bb();
+		function bb(){
+			alert(num);//undefined
+			var num = 15;
+			alert(num);//15
+		}
+	}
+	aa();
+	//bb();//不能调用
+	
+
+	function aa(){
+		var num=10;
+		alert(num);//10
+		bb();
+		function bb(){
+			alert(num);//10
+			num = 15;
+			alert(num);//15
+		}
+	}
+	aa();
+	//bb();//不能调用
+
+
+
+	function aa(){
+		var num=10;
+		alert(num);//10
+		bb('x');
+		function bb(num){
+			alert(num);//x
+			num = 15;
+			alert(num);//15
+		}
+	}
+	aa();
+	//bb();//不能调用
+
+*/
+
+/*
+//四则运算函数math，需要两次返回值
+
+	function aa(num1,num2){
+		return num1+num2;
+	}
+	function bb(num1,num2){
+		return num1-num2;
+	}
+	function cc(num1,num2){
+		return num1*num2;
+	}
+	function dd(num1,num2){
+		return num1/num2;
+	}
+
+	function math(num1,num2,fn){
+		return fn(num1,num2);//没有return最后的结果会是undefined
+	}
+
+	console.log(math(1,2,aa));
+	console.log(math(1,2,bb));
+	console.log(math(1,2,cc));
+	console.log(math(1,2,dd));
+	
+*/
+
+
+
+
+	/*映射map：对应关系
+	map(arr,function(value){
+		retrun vlaue*2;
+	});
+	对数组的值进行符合任意要求的修改
+	*/
+
+	var arr=[1,2,3,4,5,6,7];
+	var result=map(arr,function(value){
+		return value*2;//这里的value*2可以随意修改，以实现对原数组arr中各元素的指定操作
+	})//将函数整体作为一个参数传给fn
+	console.log(result);
+
+	function map(arr,fn){
+		var newarr=[];//用作接收改变后的数组
+		for(var i = 0;i<arr.length;i++){
+			newarr[newarr.length]=fn(arr[i]);//上方map的值return到这里
+		}
+		return newarr;//这里return给result
+	}
+
+
+//满足任意条件的元素筛选出来
+
+	var arr=[1,2,3,4,5,6,7];
+
+	var result=filter(arr,function(value){
+		return value%2==1;//这里的value%2==1作为筛选条件，可以随意修改，下方会筛选出符合这个条件的元素
+	})//将函数整体作为一个参数传给fn
+	console.log(result);
+
+
+
+	function filter(arr,fn){
+		var newarr=[];//用作接收改变后的数组
+		for(var i=0;i<arr.length;i++){
+			if(fn(arr[i])){//上方filter的值return到这里做判断条件，若为真，则运行以下代码
+				newarr[newarr.length]=arr[i];
+			}
+		}
+		return newarr;//这里return给result
+	}
+
+
+
+
+</script>

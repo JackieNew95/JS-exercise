@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+/*	var zhangsan = [90,95,100];
+	zhangsan[0];
+	console.log(zhangsan[0]);//访问zhangsan的第一个数值，值为90
+	console.log(zhangsan.length);//数组zhangsan的长度，值为3
+	console.log(zhangsan[zhangsan.length-1]);//访问zhangsan的最后一个值
+	zhangsan[1]=100;//修改zhangsan的第二个值95为100
+	zhangsan[4]=96;//添加zhangsan的第五个值为96，中间空开的第四个zhangsan[3]会默认值为undefined
+	console.log(zhangsan);*/
+
+/*	var arr=[1,2,3,4,5,6,7,8,9];
+	for (var i=0;i<arr.length;i++){
+	  console.log(arr[i]);
+	}*/
+
+
+/*	var arr=[1,23,59,4,65,6,79,8,9];
+	var max=arr[0];
+	for (var i=0;i<arr.length;i++){
+		if(max<arr[i]){
+	      max=arr[i];
+		}
+	}
+	console.log(max);
+	//最大值
+	var min =arr[0];
+	for (var i=0;i<arr.length;i++){
+		if(min>arr[i]){
+	      min=arr[i];
+		}
+	}
+	console.log(min);
+	//最小值*/
+
+/*	var arr=[1,23,59,4,65,6,79,8,9];
+	for(var i=0;i<=arr.length-1;i++){		
+		for(var j=i+1;j<=arr.length-1;j++){
+			if (arr[i]<arr[j]) {
+				var temp =arr[i];
+				arr[i]=arr[j];
+				arr[j]=temp;
+			}
+		}
+	}
+	console.log(arr);//降序排列*/
+/*	原理：
+	第一轮：第一个数跟其后所有数比较，遇到比自己大的跟自己换，继续用第一个位置上的数跟之后的数比较，直到结束，此时，最大的数就会被放在第一个位置上
+	第二轮：第二个数跟跟其后所有数比较，遇到比自己大的跟自己换，继续用第二个位置上的数跟之后的数比较，直到结束，此时，最大的数就会被放在第二个位置上
+	以此类推
+	*/
+/*	var arr=[1,23,59,4,65,6,79,8,9];
+	for(var i=0;i<=arr.length-1;i++){		
+		for(var j=i+1;j<=arr.length-1;j++){
+			if (arr[i]>arr[j]) {
+				var temp =arr[i];
+				arr[i]=arr[j];
+				arr[j]=temp;
+			}
+		}
+	}
+	console.log(arr);//升序排列*/
+	/*	原理：
+	第一轮：第一个数跟其后所有数比较，遇到比自己小的跟自己换，继续用第一个位置上的数跟之后的数比较，直到结束，此时，最小的数就会被放在第一个位置上
+	第二轮：第二个数跟跟其后所有数比较，遇到比自己小的跟自己换，继续用第二个位置上的数跟之后的数比较，直到结束，此时，最小的数就会被放在第二个位置上
+	以此类推
+	*/
+
+
+	// 一维数组去空方法一
+/*	var arr=[1,2,3,,5,,7,8,9,];
+	var newarr=[];
+	for(var i = 0;i<arr.length;i++){
+		if(arr[i]!=undefined){
+			newarr[newarr.length]=arr[i];
+		}
+	}
+	console.log(newarr);*/
+
+	// 一维数组去空方法二
+/*	var arr=[1,2,3,,5,,7,8,9,];
+	var newarr=[];
+	for(var i = 0;i<arr.length;i++){
+		if((typeof arr[i])!='undefined'){
+			newarr[newarr.length]=arr[i];
+		}
+	}
+	console.log(newarr);*/
+
+
+
+/*	// 二维数组
+	var zhangsan = [90,95,100];
+	var lisi = [43,65,88];
+	var wangwu = [75,94,76];
+	var classes = [zhangsan,lisi,wangwu];
+	console.log(classes[1][2]);//访问的是lisi的第三个值，为88
+	console.log(classes[2][0]);//访问的是wangwu的第一个值，为75
+	// 二维数组访问*/
+
+
+/*	var classes1=[
+		[97,88,89],
+		[98,67,98],
+		[56,69,85]
+	]
+	for(var i = 0;i<classes1.length;i++){
+		for(var j =0;j<classes1.length;j++){
+			console.log(classes1[i][j]);
+		}
+	}//二维数组的遍历*/
+
+
+	// 二维数组的最值
+/*	var classes1=[
+		[97,88,89],
+		[98,67,98],
+		[56,69,85]
+	]
+	var max =classes1[0][0];
+	for(var i=0;i<classes1.length;i++){
+		for(var j=0;j<classes1[i].length;j++){
+			if(max<classes1[i][j]){
+				max=classes1[i][j];
+			}
+		}
+	}
+	console.log(max);//最大值
+	
+	var min =classes1[0][0];
+	for(var i=0;i<classes1.length;i++){
+		for(var j=0;j<classes1[i].length;j++){
+			if(min>classes1[i][j]){
+				min=classes1[i][j];
+			}
+		}
+	}
+	console.log(min);//最小值*/
+
+
+
+
+	// 二维数组去空未完成
+/*	var arr=[
+		[97,88,,64,75,41,,30],
+		[,,,,,,,],
+		[98,67,98,46,,68,76,],
+		[56,,85,55,,54,93,22]
+	];
+	var newarr=[
+		[],[],[],[]
+	];
+	for(var i = 0;i<arr.length;i++){
+		for(var j=0;j<arr[i].length;j++){
+			if(arr[i][j]!=undefined){
+				// newarr[(newarr.length)][(newarr[i].length)]=arr[i][j];
+				newarr[i][newarr.length]=arr[i][j];
+			}		
+		}
+	}
+	console.log(newarr);*/
+
+	/*思路：
+		若在原数组上改；会让原值下标改变，不太好，所以存入一个新数组
+		数组.length长度可变，且每次都会添加在数组的最一位
+	*/
+
+
+
+
+
+</script> 

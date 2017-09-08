@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>四则运算</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	var a = 43;
+	var b = 40;
+	var str='我们班有两个班，一个是505班，有'+a+'人，另一个是507班，有'+b+'人，总共有'+ (a+b) +'人。';
+
+	console.log(str);
+
+	var c = 10;
+	console.log(c++);//10
+	console.log(c);//11
+
+
+	var c = 10;
+	console.log(++c);//11
+	console.log(c);//11
+
+
+	console.log(d++);//NaN
+	// console.log(1++);//错误
+	var d = 10;
+	console.log(++d);//表达式11  d=11
+	console.log(++d+2);//表达式14  d=12
+	console.log(d++);//表达式12  d=13
+	console.log(d);//表达式13  d=13
+
+
+	var e = 20;
+	console.log(--e);//表达式19  e=19
+	console.log(e++);//表达式19  e=20
+	console.log(e+5);//表达式25  e=20
+	console.log(e);//表达式20  e=20
+
+	// console.log(20++);//错误
+	var num = 20;
+	console.log(true+num++);//表达式21  num=21
+	console.log(--num);//表达式20  num=20
+	console.log(num+5);//表达式25  num=20
+	console.log(num--);//表达式20  num=19
+	num = num + 5;	//24 
+	console.log(num);//表达式24  num=24
+
+</script>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>函数打印金字塔</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+
+	var arr=[1,23,59,4,65,6,79,8,9];
+	arr1zuizhi(arr);
+	function arr1zuizhi(arr){
+		var max=arr[0];
+		for (var i=0;i<arr.length;i++){
+			if(max<arr[i]){
+		      max=arr[i];
+			}
+		}
+		console.log('此一维数组最大值为：'+max);
+		//最大值
+		var min =arr[0];
+		for (var i=0;i<arr.length;i++){
+			if(min>arr[i]){
+		      min=arr[i];
+			}
+		}
+		console.log('此一维数组最小值为：'+min);
+		//最小值*/	
+	}
+
+
+
+	var arr=[1,23,59,4,65,6,79,8,9];
+	arr1paixu(arr);
+	function arr1paixu(arr){
+		for(var i=0;i<=arr.length-1;i++){		
+			for(var j=i+1;j<=arr.length-1;j++){
+				if (arr[i]<arr[j]) {
+					var temp =arr[i];
+					arr[i]=arr[j];
+					arr[j]=temp;
+				}
+			}
+		}
+		console.log('此一维数组降序排列后为：'+arr);//降序排列*/
+		for(var i=0;i<=arr.length-1;i++){		
+			for(var j=i+1;j<=arr.length-1;j++){
+				if (arr[i]>arr[j]) {
+					var temp =arr[i];
+					arr[i]=arr[j];
+					arr[j]=temp;
+				}
+			}
+		}
+		console.log('此一维数组升序排列后为：'+arr);//升序排列*/
+
+	}
+
+
+
+	var arr=[1,2,3,,5,,7,8,9,];
+	arr1qukong(arr);
+	function arr1qukong(arr){
+		var newarr=[];
+		for(var i = 0;i<arr.length;i++){
+			if(arr[i]!=undefined){
+				newarr[newarr.length]=arr[i];
+			}
+		}
+		console.log('此一维数组去空后得到的新数组为：'+newarr);
+
+	}
+
+
+
+	var classes=[
+		[97,88,89],
+		[98,67,98],
+		[56,69,85]
+	]
+	arr2zuizhi(classes);
+	function arr2zuizhi(classes2){
+		var max =classes2[0][0];
+		for(var i=0;i<classes2.length;i++){
+			for(var j=0;j<classes2[i].length;j++){
+				if(max<classes2[i][j]){
+					max=classes2[i][j];
+				}
+			}
+		}
+		console.log('此二维数组最大值为：'+max);//最大值		
+		var min =classes2[0][0];
+		for(var i=0;i<classes2.length;i++){
+			for(var j=0;j<classes2[i].length;j++){
+				if(min>classes2[i][j]){
+					min=classes2[i][j];
+				}
+			}
+		}
+		console.log('此二维数组最小值为：'+min);//最小值*/
+	}
+
+
+
+
+	var x=prompt('请输入表格的行数',10);
+	var y=prompt('请输入表格的列数',10);
+	biaoge(x,y);
+	function biaoge(a,b){
+		//以拼接的方法打印任意行数表格
+		var table = "<table border=1 cellspacing=0 cellpadding=10px width=700px height=500px align=center>";
+		table+="<caption>以拼接的方法打印表格</caption>";
+			for(var i =1;i<=a;i++){
+				table +="<tr>";
+				for(var j=1;j<=b;j++){
+					table +="<td>"+i+"-"+j+"</td>";
+				}
+				table +="</tr>";
+			}
+		table += "</table>";
+		document.write(table);
+	}
+
+
+
+	var a = prompt('您需要多少范围以内的斐波那契数列',100);	
+	Fibonacci(a);
+	function Fibonacci(a){
+		//斐波那契数列
+		var i=1,j=1;
+		document.write(i+'&nbsp;&nbsp;');
+		document.write(j+'&nbsp;&nbsp;');
+		for(var k=0;k<=a;){
+			k=i+j;
+			i=j;
+			j=k;
+			if(k<=a){
+				document.write(k+'&nbsp;&nbsp;');
+			}
+		}
+	}
+
+
+
+	lingxing();
+
+	function lingxing(){
+		//菱形
+		document.write('<table cellspacing=0 align=center>');
+		document.write('<caption>菱形</caption>');
+		var n = prompt('请输入要打印的菱形边长',7);//要打的边长
+		for(var i=1;i<=n;i++){//行数
+			document.write('<tr align=center>');
+			for(var j=1;j<=n-i;j++){//要打的空格数
+				document.write('<td></td>');
+			}
+			for(var j=1;j<=2*i-1;j++){//要打的星号
+				document.write('<td>*</td>');
+			}
+			document.write('</tr>');
+		}
+		for(var i=1;i<=n-1;i++){
+			document.write('<tr align=center>');
+			for(var j=1;j<=i;j++){
+				document.write('<td></td>');
+			}
+			for(var j=1;j<=2*n-1-2*i;j++){
+				document.write('<td>*</td>');
+			}
+			document.write('</tr>');
+		}	
+		document.write('</table>');
+
+	}
+
+
+
+	var a = prompt('请输入打印的行数',5)
+	jinzita(a);
+
+	function jinzita(n){
+		document.write('<table cellspacing=0 align=center>');
+		document.write('<caption>金字塔</caption>');
+		for(var i=1;i<=n;i++){
+			document.write('<tr align=center>');
+			var j=2*i-1;//要打的列数，可以直接整合在下面
+			var l=n-i;//要空的格数，可以直接整合在下面
+			for(var k=1;k<=l;k++){
+				document.write('<td></td>');
+			}
+			for(var k=1;k<=j;k++){
+				document.write('<td>*</td>');
+			}
+			document.write('</tr>');
+		}
+		document.write('</table>');
+	}
+</script>
