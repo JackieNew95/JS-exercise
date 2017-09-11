@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src='y.js'></script>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	/*
+		一、
+		indexOf
+		首次位置 i -1
+
+	 
+	var arr=[1,2,3,4,1,1,1,1];
+	var value=5;
+	var result=indexOf(arr,value);
+
+	console.log(result);
+
+
+
+	function indexOf(arr,value){
+		for(var i = 0;i<arr.length;i++){
+			if(arr[i]==value){
+				return i;
+			}
+		}
+		return -1;
+	}
+*/	
+
+
+	/*
+		二、
+		lastIndexOf
+		最后位置 i -1
+
+	 
+	var arr=[1,2,3,4,1,1,1,1];
+	var value=4;
+	var result=lastIndexOf(arr,value);
+
+	console.log(result);
+
+
+
+	function lastIndexOf(arr,value){
+		for(var i = arr.length-1;i>=0;i--){
+			if(arr[i]==value){
+				return i;
+			}
+		}
+		return -1;
+	}
+	
+*/
+
+/*
+	数组反转
+	思路：反着遍历数组，然后放到新数组里
+
+
+
+
+ 	var arr=[1,2,3,4,5,6,7,8,9];
+ 	var result=reverse(arr);
+ 	console.log(result);
+
+ 	function reverse(arr){
+ 		var newarr=[];
+		for(var i = arr.length-1;i>=0;i--){
+			push(newarr,arr[i]);//调用下方的push函数
+ 		}
+ 		return newarr;
+ 	}
+ 	function push(arr,...value){
+ 		for(var i=0;i<value.length;i++){//注意是value.length
+ 			arr[arr.length]=value[i];
+ 		}
+  	}//该函数是一个辅助函数，用于将传来的数value一个个放进数组arr中
+ */
+</script>
+
+<script>
+
+		// 万能删除法：指定位置删除任意个元素
+	
+/*	var arr=[1,2,3,4,5,6,7,8,9];
+	var result=spliceDelete(arr,1,2);//arr数组，在下标为1的地方开始删除两个元素
+	console.log(result);*/
+
+	function spliceDelete(arr,pos,num){
+		var newarr=[];
+		for(var i=0;i<arr.length;i++){
+			if(i>=pos&&i<pos+num){
+				continue;
+			}
+			newarr[newarr.length]=arr[i];
+		}
+		return newarr;
+	}
+
+		// 万能添加法：指定位置添加任意个元素
+	
+/*	var arr=[1,2,3,4,5,6,7,8,9];
+	var result=spliceAdd(arr,2,'a','b','c');//arr数组，在下标为2的地方开始插入a,b,c
+	console.log(result);*/
+
+	function spliceAdd(arr,pos,...rest){
+		var newarr=[];
+		for(var i=0;i<pos;i++){
+			newarr[newarr.length]=arr[i];
+		}//插入位置之前的元素
+		for(var i=0;i<rest.length;i++){
+			newarr[newarr.length]=rest[i];
+		}//要添加的元素
+		for(var i=pos;i<arr.length;i++){
+			newarr[newarr.length]=arr[i];
+		}//插入位置开始及之后的元素
+		return newarr;
+	}
+
+
+
+	function splice(arr,posdel,num,posadd,...rest){
+		var newarr=spliceDelete(arr,posdel,num);
+		if(rest.length>0){
+			newarr=spliceAdd(newarr,posadd,...rest);
+		}
+		return newarr;
+	}
+
+
+	//整合上述两方法
+	var arr=[1,2,3,4,5,6,7,8,9];
+	var result=splice(arr,3,2,4,'a','b','c');
+	//数组名，开始删除的下标，要删几个，插入元素的下标，要插入的元素们
+	console.log(result);
+</script>
+
+
+<script>
+/*
+	判断一个数组中是否有某元素
+ */
+	var arr=[1,2,3,4,5,6,7,8,9];
+	var result=some(arr,function(value){
+		return value==0;
+	})
+	console.log(result);
+
+	function some(arr,fn){
+		for(var i=0;i<arr.length;i++){
+			if(fn(arr[i])){
+				return true;
+			}
+		}
+		return false;
+	}
+
+
+/*
+	判断数组中是否全为某元素
+ */
+
+	var arr=[2,2,2,2,2,2];
+	var result1=every(arr,function(value){
+		return value==2;
+	});
+	console.log(result1);
+
+	function every(arr,fn){
+		for(var i=0;i<arr.length;i++){
+			if(!fn(arr[i])){
+				return false;
+			}
+		}
+		return true;
+	}
+</script>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+/*
+//函数的自调用，递归函数
+	fn(1);
+	function fn(num){
+		if(num<5){//条件很关键，出口，否则停不下来
+			fn(++num);
+		}
+		alert(num);
+	}//递归函数，以实现下面的功能
+
+
+	fn1(1);
+	function fn1(){
+		fn2();
+		alert(1);
+	}
+	function fn2(){
+		fn3();
+		alert(2);
+	}
+	function fn3(){
+		fn4();
+		alert(3);
+	}
+	function fn4(){
+		fn5();
+		alert(4);
+	}
+	function fn5(){
+		alert(5);
+	}
+	*/
+</script>
+<script>
+/*
+	//将arr复制给arr1
+	
+	var arr=[1,2,3,4];
+	var arr1=arr;//传址，浅拷贝
+
+
+	var arr=[1,2,3,4];
+	var arr1=[];
+	for(var i=0;i<arr.length;i++){
+		arr1[1]=arr[i];
+	}//传值，深拷贝
+	*/
+</script>
+
+<script>
+	// 数组的深拷贝，结合递归
+	var arr=[1,2,3,4,5,['a','b','c']];
+	var arr1=copy(arr);
+
+	arr[2]=9;
+	arr1[4]=8;
+
+	arr[5][1]='z';
+	//拷贝之后再修改，不然就都改了
+
+	console.log(arr);
+	console.log(arr1);
+
+
+	function copy(arr){
+		var newarr=[];
+		for(var i=0;i<arr.length;i++){
+			if(typeof arr[i]=='object'){//如果被拷贝数组中嵌套着数组的话，再调用copy函数
+				newarr[i]=copy(arr[i]);
+			}else{
+				newarr[i]=arr[i];
+			}
+		}
+		return newarr;
+	}
+	
+</script>
