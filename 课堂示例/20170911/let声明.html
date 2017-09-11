@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>let声明变量</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+/*	for(var i=0;i<10;i++){
+		console.log(i);//1~9
+	}
+	console.log(i);//10，所以var在for循环后会放出一个全局变量
+
+	for(let i=0;i<10;i++){
+		console.log(i);//1~9
+	}
+	console.log(i);// 会报错：i is not defined，所以let声明可以解决上述胡乱放出全局变量的问题
+
+
+
+
+
+	var num = 10;
+	function fn(){
+		console.log(num);//undefined，说明var是能识别函数带来的作用域
+		if(true){
+			var num='a';
+		}
+	}
+	fn();
+
+	
+
+	{
+		let num=10;
+		console.log(num);//10
+	}
+	console.log(num);//会报错：num is not defined，说明let声明的变量可以识别块级作用域
+
+
+
+
+
+	let num='abcd';
+	{
+		let num=10;
+		console.log(num);//10
+	}
+	console.log(num);//abcd
+
+
+
+	let num='abcd';
+	{
+		let num=10;
+		{
+			let num=20;
+			console.log(num);//20
+		}
+		console.log(num);//10
+	}
+	console.log(num);//abcd
+
+
+
+	let num='abcd';
+	{
+		let num=10;
+		{
+			console.log(num);//num is not defined
+			let num=20;
+		}
+		console.log(num);//10
+	}
+	console.log(num);//abcd	
+
+
+
+
+	let num = 'a';
+	function fn(){
+		let num=10;
+		alert(num);//10
+	}
+	fn();
+	alert(num);//a
+
+
+
+	let num = 'a';
+	function fn(){
+		alert(num);//a
+		if(true){
+			let num=10;
+			alert(num);//10
+		}		
+	}
+	fn();
+	alert(num);//a
+
+*/
+
+
+	var arr=[];
+	for(var i=0;i<10;i++){
+		arr[i]=function (){
+			alert(i);
+		}
+	}
+	arr[2]();//10
+	arr[5]();//10
+
+
+	var arr=[];
+	for(let i=0;i<10;i++){
+		arr[i]=function (){
+			alert(i);
+		}
+	}
+	arr[2]();//2
+	arr[5]();//5
+
+
+
+
+</script>

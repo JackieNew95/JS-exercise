@@ -1,4 +1,4 @@
-# Javascript
+#  Javascript
 
 ## JS历史
 
@@ -133,7 +133,7 @@
 
 ## 变量
 
-> 可看做存储数据的一个容器，
+>
 
 优点：1、节省内存
 
@@ -141,13 +141,129 @@
 
 ### 声明变量
 
+> 值可以改变的量
+
+#### var
+
+- 变量允许重复声明同一个变量，如果不给新变量值，则依然为原先值，若给新值，则会覆盖原先值
+
+
+- 声明变量需要var去修饰。若不用var修饰，也不赋值，则会报错；若不用var修饰，但赋值，则该变量会变为全局变量（不推荐）
+
+
+- 若用var声明但不赋值，或者在声明前调用（变量的提升），则会使用默认值undefined
+
 ```javascript
 var 变量名 = 1;
 var 变量名 = 'adasd';
+
+var 变量名;
+变量名=1;
 ```
 
-> 变量名:
->
+#### let
+
+- 基本用法、声明和var一样；
+- let不可以在同一作用域重复声明变量，let会绑定到当前作用域里
+- let不仅可以识别函数的作用域，而且识别`{}`括起来的作用域（块级作用域），var不识别块级作用域
+
+> let声明
+
+```javascript
+let 变量名 = 1;
+let 变量名 = 'adasd';
+
+let 变量名;
+变量名=1;
+```
+
+> let识别块级作用域
+
+```javascript
+	var num = 10;
+	function fn(){
+		console.log(num);//undefined，说明var是能识别函数带来的作用域
+		if(true){
+			var num='a';
+		}
+	}
+	fn();
+
+	
+
+	{
+		let num=10;
+		console.log(num);//10
+	}
+	console.log(num);//会报错：num is not defined，说明let声明的变量可以识别块级作用域
+```
+
+##### 	Tip:块级作用域
+
+> `{}`括起来的都叫块级作用域
+
+###### 		块级作用域的嵌套
+
+```javascript
+	let num='abcd';
+	{
+		let num=10;
+		{
+			let num=20;
+			console.log(num);//20
+		}
+		console.log(num);//10
+	}
+	console.log(num);//abcd
+//let的作用域在各自的每个{}里
+```
+
+#### let与var的区别
+
+- var可以在声明前调用（变量的提升），值为undefined；let只能在声明之后用，之前的语句会成为一个暂时性的死区，不存在变量的提升
+
+
+- let不可以在同一作用域重复声明变量，let会绑定到当前作用域里
+
+
+- let不仅可以识别函数的作用域，而且识别{}括起来的作用域（块级作用域），var不识别块级作用域
+
+#### var缺点及解决
+
+1、var for循环之后会释放一个全局变量（或者叫内存的泄露）
+
+```javascript
+	for(var i=0;i<10;i++){
+		console.log(i);//1~9
+	}
+	console.log(i);//10，所以var在for循环后会放出一个全局变量
+
+	for(let i=0;i<10;i++){
+		console.log(i);//1~9
+	}
+	console.log(i);// 会报错：i is not defined，所以let声明可以解决上述胡乱放出全局变量的问题
+```
+
+2、var的局部变量会覆盖全局变量???
+
+```javascript
+	var num='abcd';
+	{
+		var num=10;
+		console.log(num);//10
+	}
+	console.log(num);//abcd
+
+	let num='abcd';
+	{
+		let num=10;
+		console.log(num);//10
+	}
+	console.log(num);//abcd
+```
+
+#### 变量名命名的注意事项
+
 > ​	可以由数字、字母、下划线、$符组成
 >
 > ​	变量对大小写敏感
@@ -237,24 +353,40 @@ a =1,b = 10;
 var a =1,b = 10;
 ```
 
-> 变量值可修改
->
+## 常量
 
-> 变量允许重复声明同一个变量
->
 
-> 如果不给新变量值，则依然为原先值
->
-> 若给新值，则会覆盖原先值
 
-> 声明变量需要var去修饰。
->
+### 声明
 
-> 若不用var修饰，也不赋值，则会报错
->
-> 若不用var修饰，并且赋值，则该变量会变为全局变量（不推荐）
->
-> 若用var声明但不赋值，或者在声明前调用，则会使用默认值undefined
+> 用const声明
+
+### 注意
+
+- 不允许修改
+- 不允许重复命名
+- 不允许先声明后赋值
+- 识别块级作用域
+
+### 一般写法
+
+- 常量一般声明到JS最前面，便于协作、维护
+- 常量一般大写
+
+```
+	const PI=3.1415926;
+	PI=0;//报错
+	const PI=0；//报错*/
+	
+	
+{
+	const PI=3.1415926;
+	alert(PI);//3.1415926
+}
+	alert(PI);//报错
+```
+
+
 
 ## 数组
 
@@ -1119,7 +1251,9 @@ name(实参1，实参2，实参n);//调用，实参，真正决定性、实实�
 
 #### 形参实参数目不对等时
 
-1、当实参比形参少，则没有对应实参的形参则为undefined
+##### 当实参比形参少
+
+则没有对应实参的形参则为undefined
 
 ```javascript
 	fn(1,2);//实参比形参少
@@ -1128,9 +1262,9 @@ name(实参1，实参2，实参n);//调用，实参，真正决定性、实实�
 	}
 ```
 
-2、当实参比形参多
+##### 当实参比形参多
 
-##### 	arguments的用法
+###### 	arguments的用法
 
 - 函数内部自动生成的对象，只能在函数内部调用
 - 所有实参会保存在函数自己声明的arguments对象中
@@ -1157,15 +1291,14 @@ name(实参1，实参2，实参n);//调用，实参，真正决定性、实实�
 	}
 ```
 
-##### 	rest剩余参数
+###### 	rest剩余参数
 
 - 用来接受剩下的（没有形参对应的实参）参数，并把它打包成一个数组
 - 如果没有剩余参数，rest将是一个空数组
 - 必须写在最后
 
 
-
-###### 	声明方式
+  **声明方式**
 
 ```javascript
 	function push(形参1，形参2，形参n,...剩余参数名){
@@ -1173,7 +1306,7 @@ name(实参1，实参2，实参n);//调用，实参，真正决定性、实实�
 	}
 ```
 
-###### 	调用方式
+​	**调用方式**
 
 ```javascript
 	function push(形参1，形参2，形参n,...剩余参数名){
@@ -1182,7 +1315,7 @@ name(实参1，实参2，实参n);//调用，实参，真正决定性、实实�
 	}
 ```
 
-###### 注意
+​	**注意**
 
 `...rest`在参数处写的时候，会将剩余参数打包成一个数组；
 
@@ -1216,6 +1349,8 @@ name(实参1，实参2，实参n);//调用，实参，真正决定性、实实�
 - ES6新方法
 
 > 实例：函数间调用，实现一维数组排序，并设置默认值
+>
+> Tip：如果传递的值为undefined，该参数还是会用设置好的默认值
 
 ```javascript
 	//	排序sort(),函数间调用
@@ -1270,8 +1405,6 @@ name(实参1，实参2，实参n);//调用，实参，真正决定性、实实�
 	}
 ```
 
-
-
 > 小例子：打印任意长宽的表格
 
 ```javascript
@@ -1291,7 +1424,15 @@ function table(rows,cols){//形参，看着是个参数,实际的值自己都不
 table(5,6);//实参，真正决定性、实实在在的参数
 ```
 
-#### 返回值return
+#### 注意
+
+1、函数多次声明会覆盖；
+
+2、以基本语法声明时，可在声明前后均可调用；若以字面量声明的函数，只能在声明之后调用，之前调用变量还未声明，默认值为undefined，undefined加()无法识别，会报错；
+
+3、当使用多个函数文件，调用时要注意文件的先后顺序，否则在声明前调用可能报错
+
+### 返回值return
 
 - return会向调用该函数的地方返回一个值，注意是那个变量的值，而不是那个变量
 - 函数返回值可以是任意数据类型
@@ -1375,14 +1516,6 @@ table(5,6);//实参，真正决定性、实实在在的参数
 	}
 ```
 
-#### 注意
-
-1、函数多次声明会覆盖；
-
-2、以基本语法声明时，可在声明前后均可调用；若以字面量声明的函数，只能在声明之后调用，之前调用变量还未声明，默认值为undefined，undefined加()无法识别，会报错；
-
-3、当使用多个函数文件，调用时要注意文件的先后顺序，否则在声明前调用可能报错
-
 ### 回调函数
 
 > 把一个函数作为参数来传递，调用该参数时就是在调用该函数，所以将该函数称作回调函数。
@@ -1411,6 +1544,8 @@ table(5,6);//实参，真正决定性、实实在在的参数
 ### 递归函数（函数自调用）
 
 > 函数自己执行时调用自己本身
+>
+> 一定要有临界条件，不然死循环
 >
 > **注意：递归不是循环**
 
@@ -1477,19 +1612,239 @@ table(5,6);//实参，真正决定性、实实在在的参数
 	}
 ```
 
+### 闭包
+
+> 函数有嵌套，内部嵌套的函数返回到外面，在外面访问内部嵌套的函数时也可以访问到里面的变量，就将里面嵌套的函数称为闭包
+
+> 例子：
+
+```javascript
+	function fn(){
+		var num = 10;
+		return fn1;//将fn1整个函数语句返回
+		function fn1(){
+			num++;
+			return num;
+		}//fn1即为闭包
+	}
+	var result = fn();//返回后result是fn1的函数语句
+	alert(result());//result()相当于fn1(),结果为11
+```
+
+### 箭头函数
+
+> ES6中新定义的函数,写法比较简单，但箭头函数的出现并不为了替代普通函数，它主要是使用在回调函数中
+
+注意
+
+- 箭头函数中没有arguments对象
+- 箭头函数不能作为构造函数使用
+
+> 例子1：
+
+```javascript
+/*	var fn=function(a){
+		return a;
+	}*/
+
+	var fn = a =>a;//ES6,箭头函数,与上面的函数等价，但箭头函数的出现并不为了替代上面的函数，主要是使用在回调函数中
+	alert(fn(7));
+	
+/*	var fn=function(){
+		return 1;
+	}*/
+	var fn = () =>1;//没有参数的情况，相当于上述函数，不加()会报错
+	
+/*	var fn=function(a,b){
+		return a+b;
+	}*/
+	var fn = (a,b) =>a+b;//多参数的情况，相当于上述函数
+
+/*	var fn=function(a,b){
+		alert(a+b);
+		alert(a-b);
+		return [a+b];
+	}*/
+	var fn = (a,b) =>{
+		alert(a+b);
+		alert(a-b);
+		return [a+b];
+	};//多语句的情况，相当于上述函数
+
+/*注意：箭头函数中没有arguments对象，箭头函数不能作为构造函数使用*/
+```
+
+> 例子2：
+
+```javascript
+	/*
+	判断一个数组中是否有某元素
+ */
+	var arr=[1,2,3,4,5,6,7,8,9];
+	var result=some(arr,function(value){
+		return value==0;
+	})
+
+	var result1=some(arr,value=>value==0);//相当于result函数
+
+	console.log(result);
+	console.log(result1);//结果一样
+
+	function some(arr,fn){
+		for(var i=0;i<arr.length;i++){
+			if(fn(arr[i])){
+				return true;
+			}
+		}
+		return false;
+	}
+```
+
+### 内置顶层函数
+
+> 内置：在JS内部自己定义了一些函数，只需要使用，无需了解实现
+>
+> 顶层：在任意的位置均可调用
+
+1.escape()      对非字母、数字的字符进行编码
+
+```
+console.log(escape('中国'));//%u4E2D%u56FD
+```
+
+2.unescape()    对编码后的字符串进行解码
+
+```
+console.log(unescape('%u4E2D%u56FD'));//中国
+```
+
+3.Number()      转换成数值类型，只有数字型字符串才可转换，其他不符合数字规则的均为NaN
+
+> 布尔值：true=>1 false=>0
+>
+> null=>0
+>
+> undefined=>NaN
+>
+> 数字：各种进制=>十进制 ； 忽略无意义的0
+>
+> 字符串：
+>
+> ​	数字型字符串：忽略掉前后无意义的0，识别进制
+>
+> ​	空字符串=>0
+
+```javascript
+console.log(Number('123'));//123
+console.log(Number(123));//123
+console.log(Number(00123));//83,八进制
+console.log(Number(123.000));//123
+console.log(Number(123.01));//123.01
+console.log(Number(123.01.2));//报错
+console.log(Number(0123));//84,八进制
+console.log(Number(0b1111));//15,十进制
+console.log(Number('0b1111'));//15,十进制
+console.log(Number('123px'));//NaN
+console.log(Number('abcd'));//NaN
+console.log(Number('true'));//NaN
+console.log(Number(true));//1
+console.log(Number(false));//0
+```
+
+4.String()      转换成字符串类型，相当于给各个类型外层加了`"" `
+
+5.Boolean()     转换成布尔类型
+
+> 只有false	 0	 null	 undefined	 “”（空字符串）	 NaN	会转换为false，其余均会转换为true
+
+6.parseInt()    将字符串转换为整数
+
+> 只能转换以数字、+、-、空格开头。以第一个数字字符开始，以第一个非数字结束的区间，并将其转换成带符号的整数
+
+```javascript
+console.log(parseInt('1234'));//1234
+console.log(parseInt('0b1111'));//0
+console.log(parseInt('100px'));//100
+console.log(parseInt('100px200'));//100
+console.log(parseInt('     100px200'));//100
+console.log(parseInt('     -100px200'));//-100
+console.log(parseInt('     -1.00px200'));//-1
+console.log(parseInt('abcd100px200'));//NaN
+```
+
+7.parseFloat()  转换为小数
+
+> 只能转换以数字、+、-、空格开头。以第一个数字字符开始，以第一个非数字结束的区间，并将其转换成带符号的小数
+>
+> 没有小数则转换成为整数
+
+```javascript
+console.log(parseFloat(1234.01));//1234.01
+console.log(parseFloat(1234.00));//1234
+console.log(parseFloat('1234.01'));//1234.01
+console.log(parseFloat('1234.00'));//1234
+console.log(parseFloat('0b1111'));//0
+console.log(parseFloat('100px0.00'));//100
+console.log(parseFloat('10.70px200'));//10.7
+console.log(parseFloat('     1.100px200'));//1.1
+console.log(parseFloat('     -1.500px200'));//-1。5
+console.log(parseFloat('     -1.00px200'));//-1
+console.log(parseFloat('abcd100px200'));//NaN
+```
+
+8.isNaN()       判断一个数能否转换为数值类型。会隐式调用Number()来判断是否是一个数值
+
+```javascript
+console.log(isNaN(true));//false
+console.log(isNaN(false));//false
+
+console.log(isNaN('abcd'));//true
+console.log(isNaN('123'));//false
+console.log(isNaN('0123'));//false
+```
+
+9.isFinite()    判断一个数是否为有穷的数字。将不是有穷的数字或不能转换为数值类型的数返回假。
+
+
+10.eval()       将字符串转换成javascript命令执行(必须符合javascript语法规范，否则会出错)。
+
+#### 强制类型转换
+
+​	以上函数可用作强制类型转换
+
+#### 隐式类型转换
+
+算术运算符（* / - %）
+
+关系运算符
+
+逻辑运算符
+
+三元表达式
+
+if
+
+while
+
 ## 作用域
 
 ### 作用范围
 
-全局作用域
+> 能访问到即为起作用，不管是否有值
+>
+> 通过函数来划分作用域
+
+#### 全局作用域
 
 > 变量没有用var修饰，或定义在函数的最外层。可作用在任意范围
 
-局部作用域
+#### 局部作用域
 
 > 定义在函数内部，只能在某一函数中作用
 
 ### 环境
+
+> 用来识别当前变量的作用域
 
 #### 宿主
 
@@ -1526,3 +1881,44 @@ table(5,6);//实参，真正决定性、实实在在的参数
 	console.log(math(1,2,cc));//2
 	console.log(math(1,2,dd));//0.5
 ```
+## 对象（object）
+
+> 一系列属性和方法的无序集合
+
+### 声明
+
+- 使用json方式直接声明
+- 使用构造函数声明
+
+> 使用json方式直接声明
+
+```javascript
+let zhangsan={}//json对象，JS原生声明方法直接声明一个对象
+```
+
+> 使用构造函数声明
+
+```javascript
+    function Person(){
+
+    }//函数就是一个类，构造函数
+    let zhangsan= new Person();//构造函数方法创建对象，从Person这个类中实例化出zhangsan这个具体对象
+    let lisi = new Person();
+
+
+    zhangsan.age=18;//添加一个属性，格式为：   对象名.属性名=值；
+    zhangsan.name=zhangsan;
+    zhangsan.say=function (){
+      alert(zhangsan.name);
+    }//添加一个对象的方法，方法是一个函数，格式为： 对象名.方法名=function(){语句}
+    
+
+    console.log(zhangsan.name);//访问一个对象的一个属性，格式为：  对象名.属性名
+```
+
+
+
+
+
+
+
