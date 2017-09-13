@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对象</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+/*
+// 声明方法一
+    let zhangsan={}//json对象，JS原生声明方法直接声明一个对象
+
+
+// 声明方法二 
+    function Person(){
+
+    }//函数就是一个类，构造函数
+    let zhangsan= new Person();//构造函数方法创建对象，从Person这个类中实例化出zhangsan这个具体对象
+    let lisi = new Person();
+
+
+    zhangsan.age=18;//添加一个属性，格式为：   对象名.属性名=值；
+    zhangsan.name=zhangsan;
+    zhangsan.say=function (){
+      alert(zhangsan.name);
+    }//添加一个对象的方法，方法是一个函数，格式为： 对象名.方法名=function(){语句}
+    
+
+    console.log(zhangsan.name);//访问一个对象的一个属性，格式为：  对象名.属性名
+
+
+// 声明方法三
+	function Student(){
+		this.name='zhangsan';
+		this.age=22;
+		this.sex='nan';
+		this.say=function(){
+			alert(1);
+		}
+	}//构造函数中的默认属性，常写一些公共属性，使用this指针
+	let zhangsan = new Student();
+	let lisi = new Student();
+
+	lisi.name='lisi';//有默认值的也可以具体修改
+
+	console.log(zhangsan);
+	console.log(lisi);
+
+
+// 声明方法四
+	function Student(name,age,sex){
+		this.name=name;//等号前是属性名，后面是参数，互不冲突
+		this.age=age;
+		this.sex=sex;
+		this.say=function(){
+			alert(1);
+		}
+	}//构造函数也是函数，可以传参
+	let zhangsan = new Student('zhangsan',22,'nan');
+	let lisi = new Student('lisi',24,'nv');
+
+	console.log(zhangsan);
+	console.log(lisi);
+
+
+
+
+// 练习：手机
+	function Phone(name,brand,net,system,CPU,ram,rom,frontcamera,Rearcamera,price){
+		this.name=name;
+		this.brand=brand;
+		this.net=net;
+		this.system=system;
+		this.CPU=CPU;
+		this.ram=ram;
+		this.rom=rom;
+		this.frontcamera=frontcamera;
+		this.Rearcamera=Rearcamera;
+		this.price=price;
+		this.calls=function calls(){
+			alert('打电话');
+		}
+		this.msg=function msg(){
+			alert('信息');
+		}
+	}
+	let iPhone8=new Phone('iPhone8','Apple','4G','iOS11','Apple A11','3GB','256GB','500万像素','1600万像素','待定');
+	let MIMIX2=new Phone('MIMIX2','MI','4G','Android','骁龙（Snapdragon)','6GB','256GB','500万像素','1200万像素','￥3999.00');
+
+	console.log(iPhone8);
+	console.log(iPhone8.calls());
+	alert(iPhone8.calls());//会弹两次，第一次弹'打电话'，第二次'undefined'
+	console.log(MIMIX2);
+
+
+
+	// 如何遍历对象
+	//for in 
+	
+	function Student(name,age,sex){
+		this.name=name;//等号前是属性名，后面是参数，互不冲突
+		this.age=age;
+		this.sex=sex;
+		this.say=function(){
+			alert(1);
+		}
+	}
+	let zhangsan = new Student('zhangsan',22,'nan');
+
+
+	for(let i in zhangsan){
+		console.log(i);
+	}//遍历zhangsan的每个属性名
+
+	for(let i in zhangsan){
+		console.log(`${i}---${zhangsan[i]}`);//遍历每个属性名和属性值（不是固定格式，只是变量引用而已）
+		// console.log(`${i}---${zhangsan.i}`);//i会被当成字符串，结果全部为undefined
+		// console.log(`${i}---${zhangsan.'i'}`);//错误写法，会去找名为 '属性名' 的属性名，没有当然报错
+	}//遍历zhangsan的每个属性值
+	
+	//上述结果为name
+	//			age
+	//			sex
+	//			say
+	//			name---zhangsan
+	//			age---22
+	//			sex---nan
+	//			say---function (){
+	//						alert(1);
+	//					}
+
+*/
+
+
+
+
+
+/*
+	let lisi=new Person('lisi',22,'nan')
+	lisi.say('你好');
+	lisi.study();
+	lisi.speech('演讲');
+
+	function Person(name,age,sex){
+		this.name=name;
+		this.age=age;
+		this.sex=sex;
+		this.brain=`${this.name}脑子`;
+		this.say=function(value){
+			alert('我说：'+value);//传参
+		}
+		this.study=function(){
+			alert(this.brain);//弹出自身属性
+		}
+		this.speech=function(value){
+			this.say(value);//调用自身方法
+		}
+	}
+*/
+
+
+
+	let lisi=new Person('lisi',22,'nan')
+	
+	console.log(lisi[1]);//写数字的时候只能用[]
+	console.log(lisi[2]);//写数字的时候只能用[]
+
+
+	function Person(name,age,sex){
+		this[1]=name;//属性名也可以写数字
+		this[2]=age;
+		this.sex=sex;
+		this.brain=`${this.name}脑子`;
+		this.say=function(value){
+			alert(this.name);
+		}
+	}
+
+
+
+
+
+</script>

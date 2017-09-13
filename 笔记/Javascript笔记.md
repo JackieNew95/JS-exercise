@@ -357,25 +357,25 @@ var a =1,b = 10;
 
 ## 常量
 
-
-
 ### 声明
 
 > 用const声明
 
-### 注意
+### 注意!
 
 - 不允许修改
 - 不允许重复命名
 - 不允许先声明后赋值
 - 识别块级作用域
+- 存在暂时性死区
+- 没有变量提升（不能在声明前调用）
 
 ### 一般写法
 
 - 常量一般声明到JS最前面，便于协作、维护
 - 常量一般大写
 
-```
+```javascript
 	const PI=3.1415926;
 	PI=0;//报错
 	const PI=0；//报错*/
@@ -387,8 +387,6 @@ var a =1,b = 10;
 }
 	alert(PI);//报错
 ```
-
-
 
 ## 数组
 
@@ -414,6 +412,8 @@ new arr = new Array();
 
 #### 赋值方法
 
+##### 一般赋值法
+
 声明时赋值；
 
 ```
@@ -427,6 +427,12 @@ var arr=[];
 arr[0]=1;
 arr[1]=2;
 arr[2]=3;
+```
+
+##### 构造函数赋值法
+
+```javascript
+var arr = new Array('a','b','c','d');//数组的构造函数声明方法
 ```
 
 #### 如何访问
@@ -545,7 +551,7 @@ for (var i=0;i<arr.length;i++){
 
 ```
 
-#### 注意
+#### 注意！
 
 1、数组元素默认undefined
 
@@ -649,7 +655,7 @@ null
 
 object（对象）
 
-### 检查数据类型
+### 检查数据类型typeof
 
 typeof(variable);或者typeof variable ;
 
@@ -1426,7 +1432,7 @@ function table(rows,cols){//形参，看着是个参数,实际的值自己都不
 table(5,6);//实参，真正决定性、实实在在的参数
 ```
 
-#### 注意
+#### 注意!
 
 1、函数多次声明会覆盖；
 
@@ -1789,7 +1795,7 @@ console.log(parseFloat('0b1111'));//0
 console.log(parseFloat('100px0.00'));//100
 console.log(parseFloat('10.70px200'));//10.7
 console.log(parseFloat('     1.100px200'));//1.1
-console.log(parseFloat('     -1.500px200'));//-1。5
+console.log(parseFloat('     -1.500px200'));//-1.5
 console.log(parseFloat('     -1.00px200'));//-1
 console.log(parseFloat('abcd100px200'));//NaN
 ```
@@ -1889,16 +1895,48 @@ while
 
 ### 声明
 
-- 使用json方式直接声明
-- 使用构造函数声明
+#### 使用json方式直接声明
 
-> 使用json方式直接声明
+> 直接实例化一个对象，无需写构造函数，但实际上每个对象都是通过构造函数来的，他使用JS自带构造函数
 
 ```javascript
 let zhangsan={}//json对象，JS原生声明方法直接声明一个对象
 ```
 
-> 使用构造函数声明
+##### 方法一：先构造后对象
+
+```javascript
+let zhangsan={}
+
+zhangsan.age=18;//添加一个属性，格式为：   对象名.属性名=值；
+zhangsan.name=zhangsan;
+zhangsan.say=function (){
+   alert(zhangsan.name);
+}//添加一个对象的方法，方法是一个函数，格式为： 对象名.方法名=function(){语句}
+
+console.log(zhangsan);
+zhangsan.say();
+```
+
+##### 方法二：直接添加属性
+
+```javascript
+	let zhangsan={
+		age:18,//添加一个属性，格式为：   属性名:值；
+		name:'zhangsan',//每条后面必须有	,	最后一条属性不加
+		sex:'nan',//属性名可加单双引号或者不加均可
+		say:function (){
+		   alert(zhangsan.name);
+		}//添加一个对象的方法，方法是一个函数，格式为： 对象名:方法名=function(){语句}
+	}
+
+	console.log(zhangsan);
+	zhangsan.say();
+```
+
+#### 使用构造函数声明
+
+##### 方法一：先构造后对象
 
 ```javascript
     function Person(){
@@ -1917,6 +1955,636 @@ let zhangsan={}//json对象，JS原生声明方法直接声明一个对象
 
     console.log(zhangsan.name);//访问一个对象的一个属性，格式为：  对象名.属性名
 ```
+
+##### 方法二：添加默认属性
+
+```javascript
+	function Student(){
+		this.name='zhangsan';
+		this.age=22;
+		this.sex='nan';
+		this.say=function(){
+			alert(1);
+		}
+	}//构造函数中的默认属性，常写一些公共属性，使用this指针
+	let zhangsan = new Student();
+	let lisi = new Student();
+
+	lisi.name='lisi';//有默认值的也可以具体修改
+
+	console.log(zhangsan);
+	console.log(lisi);
+```
+
+##### 方法三:传参
+
+```javascript
+	function Student(name,age,sex){
+		this.name=name;//等号前是属性名，后面是参数，互不冲突
+		this.age=age;
+		this.sex=sex;
+		this.say=function(){
+			alert(1);
+		}
+	}//构造函数也是函数，可以传参
+	let zhangsan = new Student('zhangsan',22,'nan');
+	let lisi = new Student('lisi',24,'nv');
+
+	console.log(zhangsan);
+	console.log(zhangsan.say());
+	console.log(lisi);
+```
+
+#### 使用类Class声明
+
+> 基本用法跟上述方法一样
+
+##### 注意!
+
+> 类名的首字母习惯大写,后面没有小括号！
+>
+> 函数名一般小写
+>
+> 方法习惯写在构造函数外面，函数间没必要加任何符号，也可加`;`
+>
+> new对象的时候只能在class之后，否则报错
+
+```javascript
+//ES6新语法
+class Student{//类首字母大写习惯,没有小括号！！！！
+	constructor(){//函数小写习惯
+		this.name='lisi';
+		this.age=22;
+		this.sex='男';
+		this.say=function(){
+			alert(1);
+		}
+	}
+	study(){
+		alert('学习');
+	};
+	play(){
+		alert('玩儿');
+	}//方法习惯写在构造函数外面，函数间没必要加任何符号，也可加;
+}
+
+let lisi =new Student();//只能写在后面，否则报错
+lisi.say();
+lisi.study();
+console.log(lisi);
+```
+
+> 例子：模拟数组的工作原理
+
+```javascript
+	let arr = new myArray('a','b','c','d');
+	/*
+		arr[0]=a;
+		arr[1]=b;
+		...
+	 */
+	console.log(arr);
+	console.log(arr.length);
+
+	function myArray(){
+		for(let i=0;i<arguments.length;i++){
+			this[i]=arguments[i];
+		}
+		this.length=arguments.length;
+	}
+
+	//	模拟数组的工作原理
+```
+
+
+
+### 访问对象
+
+#### 对象名.属性名
+
+```javascript
+	function Student(name,age,sex){
+		this.name=name;
+		this.age=age;
+		this.sex=sex;
+		this.say=function(){
+			alert(1);
+		}
+	}
+	let zhangsan = new Student('zhangsan',22,'nan');
+	
+	let lisi={
+		age:18,//添加一个属性，格式为：   属性名:值；
+		name:'lisi',//每条后面必须有	,	最后一条属性不加
+		sex:'nan',//属性名可加单双引号或者不加均可
+		say:function (){
+		   alert(zhangsan.name);
+		}//添加一个对象的方法，方法是一个函数，格式为： 对象名.方法名=function(){语句}
+	}
+
+    
+	console.log(lisi);//{age: 18, name: "zhangsan", sex: "nan", say: ƒ}
+	lisi.say();//弹出	zhangsan
+	console.log(zhangsan);//弹出{name: 'zhangsan',age: 22,sex: 'nan', say: ƒ}
+	console.log(zhangsan.say());//弹出1
+```
+
+#### 对象名['属性名']
+
+> `[]`里面必须是字符串，否则会识别成一个变量，然后报错
+
+```javascript
+	console.log(zhangsan['name']);//相当于console.log(zhangsan.name);
+	zhangsan['say']();//相当于zhangsan.say();
+```
+
+### 遍历对象
+
+> 使用for in 对对象进行遍历
+
+```javascript
+	function Student(name,age,sex){
+		this.name=name;//等号前是属性名，后面是参数，互不冲突
+		this.age=age;
+		this.sex=sex;
+		this.say=function(){
+			alert(1);
+		}
+	}
+	let zhangsan = new Student('zhangsan',22,'nan');
+
+
+	for(let i in zhangsan){
+		console.log(i);
+	}//遍历zhangsan的每个属性名
+
+	for(let i in zhangsan){
+		console.log(`${i}---${zhangsan[i]}`);//遍历每个属性名和属性值（不是固定格式，只是变量引用而已）
+		// console.log(`${i}---${zhangsan.i}`);//i会被当成字符串，结果全部为undefined
+		// console.log(`${i}---${zhangsan.'i'}`);//错误写法，会去找名为 '属性名' 的属性名，没有当然报错
+	}//遍历zhangsan的每个属性值
+
+	//上述结果为 name
+	//			age
+	//			sex
+	//			say
+	//			name---zhangsan
+	//			age---22
+	//			sex---nan
+	//			say---function (){
+	//						alert(1);
+	//					}
+```
+
+### 对象的调用
+
+#### 调用自身属性和方法
+
+```javascript
+	let lisi=new Person('lisi',22,'nan')
+	lisi.say('你好');
+	lisi.study();
+	lisi.speech('演讲');
+
+	function Person(name,age,sex){
+		this.name=name;
+		this.age=age;
+		this.sex=sex;
+		this.brain=`${this.name}脑子`;
+		this.say=function(value){
+			alert('我说：'+value);//传参
+		}
+		this.study=function(){
+			alert(this.brain);//弹出自身属性
+		}
+		this.speech=function(value){
+			this.say(value);//调用自身方法
+```
+
+### 对象的删除
+
+对象名=null	即可删除
+
+```javascript
+	zhangsan.haha='haha';
+	console.log(zhangsan.haha);//haha
+	delete zhangsan.haha;
+	console.log(zhangsan.haha);//undefined，说明删除成功
+
+	zhangsan.lalala=function(){
+		return 'lalala';
+	}
+	console.log(zhangsan.lalala());//lalala
+	delete zhangsan.lalala;
+	console.log(zhangsan.lalala);//undefined，说明删除成功
+```
+
+### 属性的删除
+
+delete 对象名.属性名	即可删除
+
+**只能删除构造函数上面的属性或方法，prototype上的不能删除（删了公共的别人怎么办！）**
+
+```javascript
+	zhangsan=null;
+	console.log(zhangsan);//null
+```
+
+### 注意!
+
+- 访问一个不存在的属性时不报错，会返回undefined
+- 访问一个不存在的方法（函数）时报错（主要原因是因为undefined加`()`不合语法）
+- 属性名也可以使用数字
+
+```javascript
+	let lisi=new Person('lisi',22,'nan')
+	
+	console.log(lisi[1]);//写数字的时候只能用[]
+	console.log(lisi[2]);//写数字的时候只能用[]
+
+
+	function Person(name,age,sex){
+		this[1]=name;//属性名也可以写数字
+		this[2]=age;
+		this.sex=sex;
+		this.say=function(value){
+			alert(this.name);
+		}
+	}
+```
+
+### 原型对象(prototype)
+
+> 由构造函数声明对象时，不同的对象的方法有各自的存储位置，所以太占内存，所以出现了prototype（原型对象），通过将方法写在prototype内部，实现不同对象使用同一方法
+
+> 例子：说明不同对象的方法存储位置不同
+
+```javascript
+function Person(){
+		this.name='zhangsan';
+		this.age=33;
+		this.sex='nan';
+
+		this.say=function (){
+			alert(this.name);
+		}
+		this.play=function (){
+			alert(`${this.name}玩儿`)
+		}
+	}
+	let zhangsan=new Person();
+	let lisi=new Person();
+	console.log(zhangsan.say()==lisi.say());//true，比较的是返回值，均为undefined，所以相等
+	console.log(zhangsan.say==lisi.say);//false,比较的是各自函数的存储地址,所以不同
+	console.log(zhangsan==lisi);//false,比较的是各自的存储地址,所以不同
+	console.log([]==[]);//false,比较的是各自的存储地址,所以不同
+```
+
+**prototype是一个构造函数的属性**，数据类型为**对象（object）**，所以可以写做一个json对象
+
+#### prototype优点
+
+- prototype外放属性，prototype里放方法，直观便于维护
+- 节省空间
+- 容易继承
+
+> 实际上对象也能放在prototype里，但是不好改（对于传参的来说）；方法也可以放在prototype外面，因为有的方法对于不同对象实现的功能不一样，所以放在外面
+
+#### prototype的使用
+
+> 例子：使用原型对象
+
+```javascript
+	function Person(){
+		this.name='zhangsan';
+		this.age=33;
+		this.sex='nan';
+
+	}
+	Person.prototype={
+		say:function (){
+			alert(this.name);
+		},
+		play:function (){
+			alert(`${this.name}玩儿`)
+		},
+		sleep:function(){
+			alert('休息');
+		}
+
+	}//方法放到构造函数的prototype上，其new出来的都可以有该方法
+	
+	let zhangsan=new Person();
+	let lisi=new Person();
+
+	zhangsan.eat=function(){
+		alert('eat')
+	}//想给指定对象添加方法，按普通写法就行
+
+	Person.prototype.hello=function(){
+		alert('hello!');
+	}//给原型添加一个方法，当然直接在上面写也可以
+    
+    Person.prototype={
+		aa:function(){
+			alert(1);
+		}
+	}//不能用这种方法添加，这种写法相当于重写，上面的方法就被覆盖没了
+
+	zhangsan.sleep();//休息
+	zhangsan.hello();//hello!
+	console.log(zhangsan.sleep==lisi.sleep);//true,说明其存储地址一样
+```
+
+#### prototype的继承
+
+> 因为prototype是一个对象，因此可以被另一个构造函数new出来，即可实现继承
+>
+> 构造函数中的方法名可以重复，自己有优先用自己的，但构造函数中方法的先于原型中的方法被调用
+>
+> `__proto__`指到的是他自身构造函数的原型对象上，可以一级一级往上找，查看他构造函数有何属性和方法
+
+> 例子
+
+```javascript
+	function Person(){
+		this.name='person';
+		this.age=33;
+		this.sex='nan';
+		this.eat=function(){
+			alert('eat');
+		};
+		this.sleep=function(){
+			alert('sleep');
+		}
+		this.aa=function(){
+			alert('person构造函数的aa')
+		}
+	}
+	Person.prototype.aa=function(){
+		alert('person原型的aa');
+	}
+	function Student(){
+		this.classes='wuif1707-1';
+		this.num='wuif1707-1001';
+		this.skills=function(){
+			alert('fuulstack');
+		}
+		this.aa=function(){
+			alert('Student构造函数的aa')
+		}
+	}
+	Student.prototype.aa=function(){
+		alert('Student原型的aa');
+	}
+
+	let zhangsan=new Person();
+	let lisi=new Student();
+
+	console.log(lisi.name);//undefined,因为此时lisi还没有name属性
+
+	Student.prototype = new Person();//继承了Person的属性和方法，相当于Student.prototype这个对象是由Person()new出来的
+	let wangwu = new Student();
+
+	console.log(wangwu.name);//person
+	console.log(lisi);//没有继承的属性和方法,因为继承之前声明的
+	console.log(lisi.name);//undefined,因为继承之前声明的
+	
+	console.log(wangwu.__proto__== Student.prototype);//__proto__指到的是他自身构造函数的原型对象上
+	console.log(Student.prototype.__proto__==Person.prototype);
+	console.log(Person.prototype.__proto__);//自带构造函数
+
+	lisi.aa();//构造函数中的方法名可以重复，自己有优先用自己的，但构造函数中方法的先于原型中的方法被调用
+```
+
+### 查看对象的构造函数的内容constructor
+
+通过`对象名.constructor`可以查看指定对象的构造函数
+
+> 查看json数组的构造函数
+
+```javascript
+	console.log(zhangsan.constructor);//ƒ Object() { [native code] }	JS中自带的构造函数
+```
+
+### 查看对象的构造函数来源instanceof
+
+> 返回值为true或false
+
+> 例子
+
+```javascript
+function Person(){
+	this.name='person';
+}
+function Student(){
+	this.name='student';
+}
+
+let zhangsan=new Person();
+let lisi=new Student();
+
+console.log(zhangsan instanceof Student);//false
+console.log(lisi instanceof Student);//true
+
+let arr=[];
+console.log(arr.constructor);//ƒ Array() { [native code] }
+console.log(zhangsan.constructor);//ƒ Person(){	this.name='person';}
+
+console.log(zhangsan instanceof Array);//false，判断是否为数组的话应该用instanceof而不是typeof
+console.log(lisi instanceof Array);//false，判断是否为数组的话应该用instanceof而不是typeof
+console.log(arr instanceof Array);//true，判断是否为数组的话应该用instanceof而不是typeof
+```
+
+#### 注意！
+
+**判断是否为数组的话应该用instanceof而不是typeof**
+
+### JS对象的内置属性
+
+#### String
+
+##### 属性
+
+```javascript
+//字符串
+ 	let str='a bc牛佳琦';
+ 	console.log(str.constructor);//查看构造函数
+ 	console.log(str.__proto__);//返回构造函数，可以用来查看所有属性
+ 	console.log(str.length);//空格算一个长度，汉字也是一个长度
+```
+
+##### 方法
+
+###### 查找
+
+```javascript
+ 	console.log(str.charAt(5));//返回指定（下标）位置字符，参数0,1,2,...
+ 	console.log(str.charCodeAt(3));//返回指定（下标）位置的Unicode码
+ 	console.log(String.fromCharCode(97));//将Unicode码编译成字符（串）
+```
+
+###### 位置
+
+```js
+ 	let str1='abcdabcd'
+ 	console.log(str1.indexOf('abcd'));//0,判断某字符串首次出现的位置
+ 	console.log(str1.indexOf('abcdy'));//-1,判断某字符串首次出现的位置，没有返-1
+ 	console.log(str1.lastIndexOf('abcd'));//4,判断某字符串最后出现的位置
+ 	console.log(str1.lastIndexOf('abcde'));//-1,判断某字符串最后出现的位置，没有返-1
+```
+
+###### 存在
+
+```javascript
+ 	let str1='abcdabcd'
+ 	alert(str1.includes('abf'));//false
+ 	alert(str1.includes('ab'));//true
+```
+
+###### 截取
+
+slice(start,end);
+
+```javascript
+ 	console.log(str1.slice(0,4));//abcd,指定下标开始，指定下标结束，但不包括结束位置,原字符串不会改变
+ 	console.log(str1.slice(0,str1.length-3));//
+ 	console.log(str1.slice(0,-2));//负值是从后往前数的
+ 	console.log(str1.slice(4));//省略结束位置，会从指定位置截到结尾
+```
+
+substring(start,end);
+
+```
+ 	console.log(str1.substring(0,4));//abcd,指定下标开始，指定下标结束，但不包括结束位置,原字符串不会改变
+ 	console.log(str1.substring(0,str1.length-3));//
+ 	console.log(str1.substring(4));//省略结束位置，会从指定位置截到结尾
+```
+
+substr(start,length);
+
+```
+ 	console.log(str1.substr(2,2));//cd,指定下标开始，指定长度
+ 	console.log(str1.substr(2));//cdabcd，省略长度，会从指定下标开始，截到末尾
+```
+
+###### 替换
+
+replace(原字符串，要替换的字符串);
+
+常结合正则使用
+
+```javascript
+	let str2='abcdefgabcd';
+	console.log(str2.replace('abcd','****'));//****efg，将一个字符串中某些字符替换成其他字符
+	console.log(str2.replace('abcd','****'));//****efg,多次替换也是从头开始
+```
+
+> 例子：
+
+```js
+	let str2='abcdefgabcd';
+	console.log(replaceAll(str2,'bcd'));//a***efga***
+	function replaceAll(str,rstr){
+		/*
+			循环 while	条件	存在rstr
+
+			存在
+			替换	replace
+			更新
+			返回 	return
+		 */
+		let star='*'.repeat(rstr.length);//直接用repeat函数实现即可，等同于下面的for循环
+/*		for(let i=0;i<rstr.length;i++){
+			star+='*';
+		}//星号长度*/
+		while(str.includes(rstr)){
+			str=str.replace(rstr,star);		
+		}
+		return str;
+
+	}
+```
+
+###### 重复
+
+repeat(num);
+
+将一个字符串重复若干次
+
+###### 匹配
+
+```js
+	let str3='abcdefg';
+	console.log(str3.match('cd'));//匹配成功，返回数组（0，index，input）常结合正则使用
+	console.log(str3.match('af'));//匹配失败返回null
+```
+
+###### search
+
+里面必须放正则
+
+###### 去空格
+
+对原字符串没影响
+
+```js
+let str4='  asd  ';
+
+console.log(str4.trim());
+console.log(str4.trimLeft());
+console.log(str4.trimRight());
+```
+
+###### 转换
+
+split(按什么分隔，几个分隔长度)
+
+将字符串转化为数组
+
+```js
+let str5='a-sd-sda-fa-so';
+var arr1=str5.split('-');//按'-'拆开
+var arr2=str5.split('-',2);//按'-'拆开，一共分隔2个，即使能分割5个，但还是只给出2个
+var arr3=str5.split('-',8);//按'-'拆开，一共分隔8个，即使能分割5个，但不会多补
+console.log(arr1);// ["a", "sd", "sda", "fa", "so"]
+console.log(arr2);//["a", "sd"]
+console.log(arr3);//["a", "sd", "sda", "fa", "so"]
+```
+
+toUpperCase()
+
+```js
+let str6='asafvva';
+console.log(str6.toUpperCase());
+```
+
+toLowerCase()
+
+```js
+let str7='CSFAA';
+console.log(str7.toLowerCase());
+```
+
+fontcolor()
+
+fontsize()
+
+big()
+
+small()
+
+sup
+
+sub
+
+
+
+
+
+
+
+
 
 
 

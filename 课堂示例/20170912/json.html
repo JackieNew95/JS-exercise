@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>json</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+
+
+/*// 方法一
+	let zhangsan={}
+
+	zhangsan.age=18;//添加一个属性，格式为：   对象名.属性名=值；
+	zhangsan.name=zhangsan;
+	zhangsan.say=function (){
+	   alert(zhangsan.name);
+	}//添加一个对象的方法，方法是一个函数，格式为： 对象名.方法名=function(){语句}
+	
+	console.log(zhangsan);
+	zhangsan.say();
+
+*/
+
+// 方法二
+
+	let zhangsan={
+		age:18,//添加一个属性，格式为：   属性名:值；
+		name:'zhangsan',//每条后面必须有	,	最后一条属性不加
+		sex:'nan',//属性名可加单双引号或者不加均可
+		say:function (){
+		   alert(zhangsan.name);
+		}//添加一个对象的方法，方法是一个函数，格式为： 对象名.方法名=function(){语句}
+	}
+
+	// console.log(zhangsan);
+	// console.log(zhangsan.age);
+	// console.log(zhangsan['age']);
+	zhangsan.say();
+	zhangsan['say']();
+	// console.log(zhangsan.constructor);//ƒ Object() { [native code] }	JS中自带的构造函数
+</script>

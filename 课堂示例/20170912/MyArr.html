@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>myArray</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	//var arr = new Array('a','b','c','d');//数组的构造函数声明方法
+
+	/*
+		模拟数组的工作原理
+		arr[0]=a;
+		arr[1]=b;
+		...
+	 */
+	let arr = new myArray('a','b','c','d');	
+	let arr1 = new myArray(3,56,34,4,8,6,23,2);	
+	let arr2 = new myArray(1,2,undefined,4,5,6,undefined,8);	
+
+
+	
+
+
+	arr.push(1,2,3);
+	console.log(arr);
+	console.log('该数组长度为：'+arr.length);
+	console.log('首次出现该值的下标是：'+arr.indexOf('c'));
+	console.log('最后一次出现该值的下标是：'+arr.lastIndexOf('c'));
+	console.log('该数组是否存在该值：'+arr.includes('g'));
+	console.log('该数组反序后得到的新数组为：'+arr.reverse());
+	console.log('该数组在指定下标处插入若干值后得到的新数组为：'+arr.join(2,'x','y','z'));
+	console.log(arr2.delNull());
+
+	// console.log(arr1.sortUp());
+	// console.log(arr1.sortDown());
+
+	// console.log('对数组指定类型排序后为：'+arr1.sort('<'));//因为返回值是一个对象而不是数组，所以才是object，格式是没错的
+	// console.log(`对数组指定类型排序后为：${(arr1.sort('<'))}`);//因为返回值是一个对象而不是数组，所以才是object，格式是没错的
+	console.log(arr1.sort('<'));
+
+	console.log('该数组中最大值为：'+arr1.max());
+	console.log('该数组中最小值为：'+arr1.min());
+	console.log('该数组是否存在该类型值：'+arr.some(function(value){
+		return typeof value=='number';//是否存在某个类型的数值
+	}));//里面是一个回调函数
+	console.log('该函数中全部元素是否符合某条件：'+arr1.every(function(value){
+		return typeof value=='number';
+	}))
+	// console.log('该数组映射完成后为：'+arr1.map(function(value,index){
+	// 	return value*index;
+	// }));
+	console.log(arr1.map(function(value,index){
+		return value*index;
+	}));
+	console.log('该数组筛选完成后为：'+arr1.filter(function(value){
+		return value>10;
+	}));
+
+
+	function myArray(){
+
+
+		for(let i=0;i<arguments.length;i++){
+			this[i]=arguments[i];
+		}
+		this.length=arguments.length;//数组长度
+
+		this.push=function(){
+			for(let i=0;i<arguments.length;i++){
+				this[this.length]=arguments[i];
+				this.length++;//数组的长度要加，不然只能加一个
+			}
+		}//此函数用于向数字依次添加元素
+
+		this.indexOf=function(value){
+			for(let i=0;i<this.length;i++){
+				if(this[i]==value){
+					return i;//i是下标
+				}
+			}
+			return -1;
+		}//某元素首次出现位置
+
+		this.lastIndexOf=function(value){
+			for(let i=this.length-1;i>=0;i--){
+				if(this[i]==value){
+					return i;//i是下标
+				}
+			}
+			return -1;
+		}//某元素最后出现位置
+
+		this.includes=function (value){
+			for(let i =0;i<this.length;i++){
+				if(this[i]==value){
+					return true;
+				}
+			}
+			return false;
+		}//数组中包含某值
+
+		this.reverse=function(){
+			let newarr=[];
+			for(let i=this.length-1;i>=0;i--){
+				newarr[newarr.length]=this[i];
+			}
+			return newarr;
+		}//数组的反序
+
+		this.join=function(pos,...rest){
+			let newarr=[];
+			for(i=0;i<pos;i++){
+				newarr[newarr.length]=this[i];
+			}
+			for(i=0;i<rest.length;i++){
+				newarr[newarr.length]=rest[i];
+			}
+			for(i=pos;i<this.length;i++){
+				newarr[newarr.length]=this[i];
+			}
+			return newarr;
+		}//在数组的指定下标处插入若干值
+
+		this.sortUp=function(){
+			for(let i=0;i<this.length;i++){
+				for(let j=i+1;j<this.length;j++){
+					if(this[i]>this[j]){
+						let temp=this[i];
+						this[i]=this[j];
+						this[j]=temp;
+					}			
+				}
+			}
+			return this;
+		}//指定数组升序排列
+
+		this.sortDown=function(){
+			for(let i=0;i<this.length;i++){
+				for(let j=i+1;j<this.length;j++){
+					if(this[i]<this[j]){
+						let temp=this[i];
+						this[i]=this[j];
+						this[j]=temp;
+					}			
+				}
+			}
+			return this;
+		}//指定数组降序排列
+
+		this.sort=function(type){
+			type= type==undefined?'<':type;
+			if(type=='>'){
+				return this.sortDown();
+			}
+			return this.sortUp();
+			
+		}//数组
+
+		this.max=function(){
+			let max=this[0];
+			for(let i=0;i<this.length;i++){
+				if(max<this[i]){
+					let temp=max;
+					max=this[i];
+					this[i]=max;
+				}
+			}
+			return max;
+		}//最大值
+
+		this.min=function(){
+			let min=this[0];
+			for(let i=0;i<this.length;i++){
+				if(min>this[i]){
+					let temp=min;
+					min=this[i];
+					this[i]=min;
+				}
+			}
+			return min;
+		}//最小值
+
+
+		this.some=function(fn){
+			for(let i=0;i<this.length;i++){
+				if(fn(this[i])){
+					return true;
+				}
+			}
+			return false;
+		}//判断数组中是否存在某个或某类型的值
+	
+
+
+		this.every=function(fn){
+			for(let i=0;i<this.length;i++){
+				if(!fn(this[i])){
+					return false;
+				}
+			}
+			return true;
+		}//判断数组里每个值均符合某一条件
+
+		this.map=function(fn){
+			// let newarr=[];
+			let newarr=new myArray();
+			for(let i=0;i<this.length;i++){
+				// newarr[newarr.length]=fn(this[i]);
+				newarr.push(fn(this[i],i,this));
+			}
+			return newarr;
+		}//函数映射关系
+
+		this.filter=function(fn){
+			let newarr=[];
+			for(let i=0;i<this.length;i++){
+				if (fn(this[i])) {
+					newarr[newarr.length]=this[i];
+				}			
+			}
+			return newarr;
+		}//过滤数组中符合条件的值
+
+		this.delNull=function(){
+			let newarr=new myArray();
+			for(let i=0;i<this.length;i++){
+				if(!(this[i]===undefined)){
+					newarr.push(this[i]);
+				}
+			}
+			return newarr;
+		}//数组去空
+
+	}
+</script>
