@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+/*	function Person(){
+		this.name='zhangsan';
+		this.age=33;
+		this.sex='nan';
+
+		this.say=function (){
+			alert(this.name);
+		}
+		this.play=function (){
+			alert(`${this.name}玩儿`)
+		}
+	}
+	let zhangsan=new Person();
+	let lisi=new Person();
+	console.log(zhangsan.say()==lisi.say());//true，比较的是返回值，均为undefined，所以相等
+	console.log(zhangsan.say==lisi.say);//false,比较的是各自函数的存储地址,所以不同
+	console.log(zhangsan==lisi);//false,比较的是各自的存储地址,所以不同
+	console.log([]==[]);//false,比较的是各自的存储地址,所以不同*/
+
+
+
+	/*
+		由上述的结论，方法的存储太占内存，所以出现了prototype（原型对象）	
+		这是一个构造函数的属性，数据类型为对象（object），所以可以做一个json
+		优点：上面放属性，下面放方法，直观便于维护
+			节省空间
+			容易继承
+		实际上对象也能放在下面，但是不好改（对于传参的来说）；方法也可以放在上面，因为有的方法对于不同对象实现的功能不一样，所以放在上面
+	 */
+
+
+	function Person(){
+		this.name='zhangsan';
+		this.age=33;
+		this.sex='nan';
+
+	}
+	Person.prototype={
+		say:function (){
+			alert(this.name);
+		},
+		play:function (){
+			alert(`${this.name}玩儿`)
+		},
+		sleep:function(){
+			alert('休息');
+		}
+
+	}//方法放到构造函数的prototype上，其new出来的都可以有该方法
+	
+	let zhangsan=new Person();
+	let lisi=new Person();
+
+	zhangsan.eat=function(){
+		alert('eat')
+	}//想给指定对象添加方法，按普通写法就行
+
+	Person.prototype.hello=function(){
+		alert('hello!');
+	}//给原型添加一个方法，当然直接在上面写也可以
+
+	Person.prototype={
+		aa:function(){
+			alert(1);
+		}
+	}//不能用这种方法添加，这种写法相当于重写，上面的方法就被覆盖没了
+
+	zhangsan.sleep();//休息
+	zhangsan.hello();//hello!
+	console.log(zhangsan.sleep==lisi.sleep);//true,说明其存储地址一样
+
+	zhangsan.haha='haha';
+	console.log(zhangsan.haha);//haha
+	delete zhangsan.haha;
+	console.log(zhangsan.haha);//undefined，说明删除成功
+
+	zhangsan.lalala=function(){
+		return 'lalala';
+	}
+	console.log(zhangsan.lalala());//lalala
+	delete zhangsan.lalala;
+	console.log(zhangsan.lalala);//undefined
+
+	zhangsan=null;
+	console.log(zhangsan);//null
+
+</script>

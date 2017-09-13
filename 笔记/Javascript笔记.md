@@ -2416,7 +2416,7 @@ console.log(arr instanceof Array);//true，判断是否为数组的话应该用i
 
 ##### 方法
 
-###### 查找
+###### 查找(charAt,charCodeAt,fromCharCode)
 
 ```javascript
  	console.log(str.charAt(5));//返回指定（下标）位置字符，参数0,1,2,...
@@ -2424,7 +2424,7 @@ console.log(arr instanceof Array);//true，判断是否为数组的话应该用i
  	console.log(String.fromCharCode(97));//将Unicode码编译成字符（串）
 ```
 
-###### 位置
+###### 位置(indexOf,lastIndexOf)
 
 ```js
  	let str1='abcdabcd'
@@ -2434,7 +2434,7 @@ console.log(arr instanceof Array);//true，判断是否为数组的话应该用i
  	console.log(str1.lastIndexOf('abcde'));//-1,判断某字符串最后出现的位置，没有返-1
 ```
 
-###### 存在
+###### 存在(includes)
 
 ```javascript
  	let str1='abcdabcd'
@@ -2442,7 +2442,7 @@ console.log(arr instanceof Array);//true，判断是否为数组的话应该用i
  	alert(str1.includes('ab'));//true
 ```
 
-###### 截取
+###### 截取(slice,substring,substr)
 
 slice(start,end);
 
@@ -2468,7 +2468,7 @@ substr(start,length);
  	console.log(str1.substr(2));//cdabcd，省略长度，会从指定下标开始，截到末尾
 ```
 
-###### 替换
+###### 替换(replace)
 
 replace(原字符串，要替换的字符串);
 
@@ -2506,13 +2506,13 @@ replace(原字符串，要替换的字符串);
 	}
 ```
 
-###### 重复
+###### 重复(repeat)
 
 repeat(num);
 
 将一个字符串重复若干次
 
-###### 匹配
+###### 匹配(match)
 
 ```js
 	let str3='abcdefg';
@@ -2524,7 +2524,7 @@ repeat(num);
 
 里面必须放正则
 
-###### 去空格
+###### 去空格(trim,...)
 
 对原字符串没影响
 
@@ -2536,7 +2536,7 @@ console.log(str4.trimLeft());
 console.log(str4.trimRight());
 ```
 
-###### 转换
+###### 转换(split,...)
 
 split(按什么分隔，几个分隔长度)
 

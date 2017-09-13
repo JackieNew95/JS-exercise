@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>instanceof</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+function Person(){
+	this.name='person';
+}
+function Student(){
+	this.name='student';
+}
+
+let zhangsan=new Person();
+let lisi=new Student();
+
+console.log(zhangsan instanceof Student);//false
+console.log(lisi instanceof Student);//true
+
+let arr=[];
+console.log(arr.constructor);//ƒ Array() { [native code] }
+console.log(zhangsan.constructor);//ƒ Person(){	this.name='person';}
+
+console.log(zhangsan instanceof Array);//false，判断是否为数组的话应该用instanceof而不是typeof
+console.log(lisi instanceof Array);//false，判断是否为数组的话应该用instanceof而不是typeof
+console.log(arr instanceof Array);//true，判断是否为数组的话应该用instanceof而不是typeof
+
+</script>

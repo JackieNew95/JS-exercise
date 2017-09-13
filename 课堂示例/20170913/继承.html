@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>继承</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	function Person(){
+		this.name='person';
+		this.age=33;
+		this.sex='nan';
+		this.eat=function(){
+			alert('eat');
+		};
+		this.sleep=function(){
+			alert('sleep');
+		}
+		this.aa=function(){
+			alert('person构造函数的aa')
+		}
+	}
+	Person.prototype.aa=function(){
+		alert('person原型的aa');
+	}
+	function Student(){
+		this.classes='wuif1707-1';
+		this.num='wuif1707-1001';
+		this.skills=function(){
+			alert('fuulstack');
+		}
+		this.aa=function(){
+			alert('Student构造函数的aa')
+		}
+	}
+	Student.prototype.aa=function(){
+		alert('Student原型的aa');
+	}
+
+
+
+	let zhangsan=new Person();
+	let lisi=new Student();
+
+	console.log(lisi.name);//undefined,因为此时lisi还没有name属性
+
+	Student.prototype = new Person();//继承了Person的属性和方法，相当于Student.prototype这个对象是由Person()new出来的
+	let wangwu = new Student();
+
+	console.log(wangwu.name);//person
+	console.log(lisi);//没有继承的属性和方法,因为继承之前声明的
+	console.log(lisi.name);//undefined,因为继承之前声明的
+	
+	console.log(wangwu.__proto__== Student.prototype);//__proto__指到的是他自身构造函数的原型对象上
+	console.log(Student.prototype.__proto__==Person.prototype);
+	console.log(Person.prototype.__proto__);//自带构造函数
+
+	lisi.aa();//构造函数中的方法名可以重复，自己有优先用自己的，但构造函数中方法的先于原型中的方法被调用
+
+	
+
+</script>

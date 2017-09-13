@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>string</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+
+/*
+	Object
+	String
+	Number
+	Boolean
+	Array
+	Date
+	RegExp
+
+
+	以上是内置对象
+	DOM
+	BOM
+ */
+
+
+
+/*
+	实际上每个对象都要通过构造函数来创建，JS给我们内置了上述函数，所以我们才能直接写
+ */
+
+//字符串
+ 	let str='a bc牛佳琦';
+ 	console.log(str.constructor);//查看构造函数
+ 	console.log(str.__proto__);//返回构造函数，可以用来查看所有属性
+ 	console.log(str.length);//空格算一个长度，汉字也是一个长度
+
+ 	console.log(str.charAt(5));//返回指定（下标）位置字符，参数0,1,2,...
+ 	console.log(str.charCodeAt(3));//返回指定（下标）位置的Unicode码
+ 	console.log(String.fromCharCode(97));//将Unicode码编译成字符（串）
+
+ 	let str1='abcdabcd'
+ 	console.log(str1.indexOf('abcd'));//判断某字符串首次出现的位置
+ 	console.log(str1.indexOf('abcdy'));//判断某字符串首次出现的位置，没有反-1
+ 	console.log(str1.lastIndexOf('abcd'));//判断某字符串最后出现的位置
+ 	console.log(str1.lastIndexOf('abcde'));//判断某字符串最后出现的位置，没有反-1
+/*
+ 	// 可以利用indexOf 和lastIndexOf可以模拟includes
+ 	let result = function (oStr,fStr){
+ 		let result=oStr.indexOf(fStr);
+ 		if(result!=-1){
+ 			return true;
+ 		}
+ 		return false;
+ 	}
+
+ 	alert(result(str1,'ab'));//true
+*/
+ 	// 存在
+ 	
+ 	alert(str1.includes('abf'));//false
+ 	alert(str1.includes('ab'));//true
+
+
+ 	//截取
+ 	//
+ 	
+ 	console.log(str1.slice(0,4));//abcd,指定下标开始，指定下标结束，但不包括结束位置,原字符串不会改变
+ 	console.log(str1.slice(0,str1.length-3));//
+ 	console.log(str1.slice(0,-2));//负值是从后往前数的
+ 	console.log(str1.slice(4));//省略结束位置，会从指定位置截到结尾
+
+ 	console.log(str1.substring(0,4));//abcd,指定下标开始，指定下标结束，但不包括结束位置,原字符串不会改变
+ 	console.log(str1.substring(0,str1.length-3));//
+ 	console.log(str1.substring(4));//省略结束位置，会从指定位置截到结尾
+
+
+ 	console.log(str1.substr(2,2));//cd,指定下标开始，指定长度
+ 	console.log(str1.substr(2));//cdabcd，省略长度，会从指定下标开始，截到末尾
+
+
+//替换
+	let str2='abcdefgabcd';
+	console.log(str2.replace('abcd','****'));//****efg，将一个字符串中某些字符替换成其他字符
+	console.log(str2.replace('abcd','****'));//****efg,多次替换也是从头开始
+
+
+	console.log(replaceAll(str2,'bcd'));
+	function replaceAll(str,rstr){
+		/*
+			循环 while	条件	存在rstr
+
+			存在
+			替换	replace
+			更新
+			返回 	return
+		 */
+		let star='*'.repeat(rstr.length);//直接用repeat函数实现即可，等同于下面的for循环
+/*		for(let i=0;i<rstr.length;i++){
+			star+='*';
+		}//星号长度*/
+		while(str.includes(rstr)){
+			str=str.replace(rstr,star);		
+		}
+		return str;
+
+	}
+
+//匹配
+
+	let str3='abcdefg';
+	console.log(str3.match('cd'));//匹配成功，返回数组（0，index，input）常结合正则使用
+	console.log(str3.match('af'));//匹配失败返回null
+
+/*search
+里面必须放正则*/
+
+// 去空格
+let str4='  asd  ';
+
+console.log(str4.trim());
+console.log(str4.trimLeft());
+console.log(str4.trimRight());
+
+
+//拆分
+
+let str5='a-sd-sda-fa-so';
+var arr1=str5.split('-');//按'-'拆开
+var arr2=str5.split('-',2);//按'-'拆开，一共分隔2个，即使能分割5个，但还是只给出2个
+var arr3=str5.split('-',8);//按'-'拆开，一共分隔8个，即使能分割5个，但不会多补
+console.log(arr1);// ["a", "sd", "sda", "fa", "so"]
+console.log(arr2);//["a", "sd"]
+console.log(arr3);//["a", "sd", "sda", "fa", "so"]
+
+let str6='asafvva';
+console.log(str6.toUpperCase());
+let str7='CSFAA';
+console.log(str7.toLowerCase());
+
+
+
+	//练习：在字符串中找到某个字符串并返回位置
+
+/*
+	思路一：判断是否存在该字符串，用indexOf返回位置，用star替换掉，更新了字符串，重复上述过程
+ */
+
+	let url='https://www.baidu.comhttps://www.baidu.comhttps://www.baidu.comhttps://www.baidu.comhttps://www.baidu.comhttps://www.baidu.comhttps://www.baidu.comhttps://www.baidu.comhttps://www.baidu.comhttps://www.baidu.com'
+
+	console.log(position(url,'baidu'));
+
+	function position(str,rstr){
+		let arr=[];
+		let star='*'.repeat(rstr.length);//星号长度与被替换长度一样
+		while(str.includes(rstr)){//判断是否存在
+			arr.push(str.indexOf(rstr));//返回位置
+			str=str.replace(rstr,star);//将已找到的替换掉
+		}
+		return arr;
+	}
+
+
+/*
+	思路二：for循环，从头一个个变换，用要找的字符串长度进行切割，依次往后比对，直到最后
+ */
+
+	console.log(position1(url,'baidu'));
+
+	function position1(str,rstr){
+		let arr=[];
+		for(let i=0;i<str.length;i++){
+			if(str.substr(i,rstr.length)==rstr){
+				arr.push(i);//返回位置
+			}
+		}
+		return arr;
+	}
+
+
+
+</script>
