@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Math</title>
+</head>
+<style>
+	#box{
+		width: 200px;
+		height: 200px;
+		background: red;
+	}
+</style>
+<body>
+	<div id='box'>
+		
+	</div>
+	
+</body>
+</html>
+<script>
+/*
+	for(let i=0;i<11;i++){
+		console.log(Math.random());//(0,1)
+		console.log(Math.random()*10+10);//(10,20)
+		console.log(Math.random()*10-5);//-5 5
+		console.log(Math.random()*17+3);//3 20
+		console.log(Math.random()*15-2);//-2 13s
+	}//规律，乘距离，加减平移（小的那个）
+
+	console.log(Math.pow(2,3));//8	x的y次方
+	console.log(Math.pow(2,10));//1024	x的y次方
+
+	console.log(Math.sqrt(4));//2	x的开平方
+	console.log(Math.sqrt(2));//1.4142135623730951(根号二)	x开平方
+*/
+
+
+
+	// 数组中随机取出三个不重复的元素
+	
+	let arr=['a','b','c','d','e','f','g'];
+	function suiji(arr,num){
+		let newarr=[];
+		let i=0;
+		while(i<num){
+			let flag=true;//不重复
+			let num=Math.floor(Math.random()*arr.length);
+			if(newarr.includes(arr[num])){
+				flag=false;//重复
+			}
+			if(flag){
+				newarr.push(arr[num]);
+				i++;
+			}
+		}		
+		return newarr;
+	}//方法一
+	function suiji1(arr,num){
+		let newarr=[];
+		while(newarr.length<num){
+			let num=Math.floor(Math.random()*arr.length);
+			if(!newarr.includes(arr[num])){
+				newarr.push(arr[num]);
+			}
+		}		
+		return newarr;
+	}//方法二
+		function suiji2(arr,num){
+		let newarr=[];
+		for(let i=0;i<num;i++){
+			let index=Math.floor(Math.random()*arr.length);
+			while(newarr.includes(arr[index])){
+				index=Math.floor(Math.random()*arr.length);
+			}
+			newarr.push(arr[index]);
+		}		
+		return newarr;
+	}//方法三
+
+	console.log(suiji(arr,5));
+	console.log(suiji1(arr,5));
+	console.log(suiji2(arr,5));
+
+
+
+
+
+
+	function color(){
+		let str='rgb(';
+		for(let i=0;i<3;i++){
+			let num=Math.round(Math.random()*255);
+			str+=num+',';
+		}
+		str=str.slice(0,-1);
+		str=str+')';
+		return str;
+	}
+	let box=document.getElementById('box');
+	box.onmouseover=function(){
+		box.style.background=color();
+	}
+
+
+</script>

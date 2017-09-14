@@ -220,6 +220,15 @@ let 变量名;
 //let的作用域在各自的每个{}里
 ```
 
+###### 独立作用域
+
+```js
+	for(let i=0;i<arr,length;i++){//le在for循环里比较特别，小括号称作他的独立作用域
+		//let i=0;//在此再声明一个也可以，虽然没必要
+		console.log(arr[i]);
+	}
+```
+
 #### let与var的区别
 
 - var可以在声明前调用（变量的提升），值为undefined；let只能在声明之后用，之前的语句会成为一个暂时性的死区，不存在变量的提升
@@ -1343,6 +1352,18 @@ name(实参1，实参2，实参n);//调用，实参，真正决定性、实实�
 	}
 ```
 
+> 小例子：实现两个数组的连接
+
+```js
+	let arr=[1,2,3,4,5,6]
+	let arr1=['a','b','c','d'];
+/*	for(let i=0;i<arr1.length;i++){
+		arr.push(arr1[i]);
+	}*/
+	arr.push(...arr1);//实现两个数组的连接，等于被注释的部分
+	console.log(arr);
+```
+
 #### 参数默认值的设置
 
 - 带有默认值的参数一般写在最后（不是不能往前写，时写在前面不灵活）
@@ -1643,10 +1664,19 @@ table(5,6);//实参，真正决定性、实实在在的参数
 
 > ES6中新定义的函数,写法比较简单，但箭头函数的出现并不为了替代普通函数，它主要是使用在回调函数中
 
-注意
+#### 注意！
 
 - 箭头函数中没有arguments对象
-- 箭头函数不能作为构造函数使用
+- 箭头函数不能作为构造函数去实例化对象
+- 返回json数组必须在外面再加一个小括号
+
+> 返回json数组
+
+```js
+// 箭头函数返回json对象
+let fn=(num)=>({name:'zhangsan',age:13})//返回json数组必须在外面再加一个小括号，不然报错，会以为是包了普通语句
+console.log(fn());//{name: "zhangsan", age: 13}可以返回
+```
 
 > 例子1：
 
@@ -2402,7 +2432,7 @@ console.log(arr instanceof Array);//true，判断是否为数组的话应该用i
 
 ### JS对象的内置属性
 
-#### String
+#### 字符串String
 
 ##### 属性
 
@@ -2578,17 +2608,388 @@ sup
 
 sub
 
+#### 数组Array
+
+##### 概念
+
+##### 声明
+
+```js
+	let arr=[1,2,3,4];//直接创建
+	let arr1=new Array('x','y','z');//构造函数的创建方式
+	let arr2=new Array(5);//当里面只有一个参数并且还是数字，那么它不是只有一个元素的数组[5]，而是长度为5的数组[undefined*5]
+	let arr3=new Array.of(5);//[5] 使用构造函数（而不是对象！）上面的of方法，可以解决上述问题
+	let arr4=new Array.of(1,2,3,4);//[1,2,3,4]这样写也是可以的
+```
+
+##### 属性
+
+length
+
+获取或者设置数组长度
+
+```js
+let arr=[1,2,3,4];
+console.log(arr.length);//4
+arr.length=0;//用作删除数组
+console.log(arr);//[]
+```
+
+constructor
+
+返回数组的构造函数
+
+```js
+console.log(arr.constructor);//ƒ Array() { [native code] }
+```
+
+##### 方法
+
+###### 添加和删除push();unshift();pop();shift();splice();
+
+push()
+
+在数组末尾添加一个或者多个数组元素，返回新数组的长度
+
+```js
+	let arr=[1,2,3,4];
+	console.log(arr.push(7,8,9));//7，返回值是新数组的长度
+	console.log(arr);//[1, 2, 3, 4, 7, 8, 9]，依次将元素插到数组最后
+```
+
+unshift()
+
+在数组前面添加一个或者多个元素，返回新数组的长度
+
+```js
+	let arr=[1,2,3,4];
+	console.log(arr.unshift(7,8,9));//7，返回值是新数组的长度
+	console.log(arr);//[7, 8, 9, 1, 2, 3, 4]，将元素从头按顺序插入
+```
+
+pop()
+
+只能从数组的最后删除一个元素，返回值是删掉的元素，不接受参数，直接用
+
+```js
+	let arr=[1,2,3,4];
+	console.log(arr.pop());//4，返回值删除的元素
+	console.log(arr);//[1, 2, 3]，将数组最后的元素删除
+```
+
+shift()
+
+只能从数组的开头删除一个元素，返回值是删掉的元素，不接受参数，直接用
+
+```js
+	let arr=[1,2,3,4];
+	console.log(arr.shift());//1，返回值是删除的元素
+	console.log(arr);//[2,3,4]，将数组开头的元素删除
+```
+
+splice(删除位置,删除个数,添加的元素们,...)
+
+​	删除	arr.splice(pos,num);
+
+``` js
+	let arr=[1,2,3,4];
+	console.log(arr.splice(2,2));//[3,4]删除的位置（不包含），删除几个，返回值为删除的元素组成的数组
+	console.log(arr);//[1,2]
+```
+
+​	添加	arr.splice(pos,0,eles);
+
+```js
+	let arr=[1,2,3,4];
+	console.log(arr.splice(2,0,'a','b'))//删除的位置（不包含），删除0个，要添加的元素们,返回值是空数组（因为没删）
+	console.log(arr);// [1, 2, "a", "b", 3, 4]
+```
+
+​	添加和删除	arr.splice(pos,num,eles);
+
+```js
+	let arr=[1,2,3,4];
+	console.log(arr.splice(2,1,'a','b'))//[3]删除的位置（不包含），删除1个，要添加的元素们
+	console.log(arr);// [1, 2, "a", "b", 4]
+```
+
+###### 合并concat()
+
+concat()
+
+合并数组，数组里面合并元素，返回合并后的新数组，对原来数组没影响
+
+```js
+	let arr=[1,2,3,4,5,6];
+	let arr1=['a','b','c','d'];
+	let arr2=['x','y','z'];
+	let newarr=arr.concat(arr1,arr2);
+	console.log(newarr);//[1, 2, 3, 4, 5, 6, "a", "b", "c", "d", "x", "y", "z"]
+```
+
+###### 转换join()reverse();sort();
+
+> 字符串->数组arr.split();
+>
+> 数组->字符串arr.join();
+
+join(连接符)
+
+不写默认用`，`链接
+
+```js
+	let arr=[1,2,3,4,5,6];
+	let str=arr.join();
+	console.log(str);//1,2,3,4,5,6	没有传值就默认用 ， 来连接
+	let str1=arr.join('-');
+	console.log(str1);//1-2-3-4-5-6	用传入的符号连接
+```
+
+reverse();反转
+
+```js
+	let arr=[1,2,3,4,5,6];
+	let newarr=arr.reverse();
+	console.log(newarr);//[6, 5, 4, 3, 2, 1]
+```
+
+sort();排序默认按照AscLL码排列
+
+```js
+let arr=[12,53,2,4,6,7,43,2,132];
+
+console.log(arr.sort());//[12, 132, 2, 2, 4, 43, 53, 6, 7],默认按ascLL码排列
+
+console.log(arr.sort(function(a,b){//a,b代表任意两个数
+	return a-b<0//a在b前面，降序排列
+}));//[132, 53, 43, 12, 7, 6, 4, 2, 2]
+
+console.log(arr.sort(function(a,b){//a,b代表任意两个数
+	return a-b>0//a在b后面，升序排列
+}));// [2, 2, 4, 6, 7, 12, 43, 53, 132]
+```
+
+###### 遍历forEach()
+
+没有返回值，就是用来遍历、循环的
+
+```js
+let arr=[1,2,3,4,5,6];
+let sum=0;
+/*arr.forEach(function(value,index,obj){//value数组元素,index当前颜色下标,obj当前遍历数组
+	sum+=value;
+})//没有返回值，只是用来遍历、循环的*/
+arr.forEach((value,index,obj)=>sum+=value);//箭头函数写法
+console.log(sum);//21
+```
+
+###### 筛选filter()
+
+```js
+let arr=[1,2,3,4,5,6];
+let newarr=arr.filter(function(value,index,obj) {//value数组元素,index当前颜色下标,obj当前遍历数组
+	return value%2==0;//条件
+})
+console.log(newarr);//[2, 4, 6]
+```
+
+###### 映射map()
+
+```js
+let arr=[1,2,3,4,5,6];
+// let map=arr.map(function(value,index,obj) {
+// 	return value+index;
+// })
+let map=arr.map((value,index,obj)=>value+index);
+console.log(map);//[1, 3, 5, 7, 9, 11]这个箭头函数相当于上面的
+```
 
 
 
+> 例子：数组去重
 
+```js
+let arr=[1,2,3,4,5,1,2,3];
+console.log(delRepeat(arr));//[4,5,1,2,3]
+console.log(delRepeat1(arr));//[1,2,3,4,5]
 
+function delRepeat(arr){
+	let newarr=[];
+	for(let i=0;i<arr.length;i++){
+		let flag=true;//要活用标记，每一个元素都要标记，所以写在里面
+		for(let j=i+1;j<arr.length;j++){
+			if(arr[i]==arr[j]){
+				flag=false;
+				break;//终止了内层循环
+			}
+		}
+		if(flag==true){
+			newarr.push(arr[i]);
+		}			
+	}	
+	return newarr;
+}//方法一
 
+function delRepeat1(arr){
+	let newarr=[];
+	for(let i=0;i<arr.length;i++){
+		if(!newarr.includes(arr[i])){
+			newarr.push(arr[i]);
+		}
+	}
+	return newarr;
+}//方法二
+```
 
+> 数组去重，并且添加到数组的公共方法中
 
+```js
+Array.prototype.delReapeatF=function(){
+	let newarr=[];
+	for(let i=0;i<this.length;i++){
+		if(!newarr.includes(this[i])){
+			newarr.push(this[i]);
+		}
+	}
+	return newarr;
+}//保留前面
+Array.prototype.delReapeatB=function(){
+	let newarr=[];
+	for(let i=0;i<this.length;i++){
+		let flag=true;//要活用标记，每一个元素都要标记，所以写在里面
+		for(let j=i+1;j<this.length;j++){
+			if(this[i]==this[j]){
+				flag=false;
+				break;//终止了内层循环
+			}
+		}
+		if(flag==true){
+			newarr.push(this[i]);
+		}			
+	}	
+	return newarr;
+}//保留后面
 
+let arr1=[1,2,3,4,5,1,2,3];
+console.log(arr1.delReapeatF());//[1,2,3,4,5]
+console.log(arr1.delReapeatB());//[4,5,1,2,3]
+```
 
+#### 数学Math
 
+不用任何声明，直接用就行
 
+##### Math 对象属性
 
+| 属性                                       | 描述                           |
+| ---------------------------------------- | ---------------------------- |
+| [E](http://www.w3school.com.cn/jsref/jsref_e.asp) | 返回算术常量 e，即自然对数的底数（约等于2.718）。 |
+| [LN2](http://www.w3school.com.cn/jsref/jsref_ln2.asp) | 返回 2 的自然对数（约等于0.693）。        |
+| [LN10](http://www.w3school.com.cn/jsref/jsref_ln10.asp) | 返回 10 的自然对数（约等于2.302）。       |
+| [LOG2E](http://www.w3school.com.cn/jsref/jsref_log2e.asp) | 返回以 2 为底的 e 的对数（约等于 1.414）。  |
+| [LOG10E](http://www.w3school.com.cn/jsref/jsref_log10e.asp) | 返回以 10 为底的 e 的对数（约等于0.434）。  |
+| [PI](http://www.w3school.com.cn/jsref/jsref_pi.asp) | 返回圆周率（约等于3.14159）。           |
+| [SQRT1_2](http://www.w3school.com.cn/jsref/jsref_sqrt1_2.asp) | 返回返回 2 的平方根的倒数（约等于 0.707）。   |
+| [SQRT2](http://www.w3school.com.cn/jsref/jsref_sqrt2.asp) | 返回 2 的平方根（约等于 1.414）。        |
+
+##### Math 对象方法
+
+| 方法                                       | 描述                                       |
+| ---------------------------------------- | ---------------------------------------- |
+| [abs(x)](http://www.w3school.com.cn/jsref/jsref_abs.asp) | 返回数的绝对值。                                 |
+| [acos(x)](http://www.w3school.com.cn/jsref/jsref_acos.asp) | 返回数的反余弦值。                                |
+| [asin(x)](http://www.w3school.com.cn/jsref/jsref_asin.asp) | 返回数的反正弦值。                                |
+| [atan(x)](http://www.w3school.com.cn/jsref/jsref_atan.asp) | 以介于 -PI/2 与 PI/2 弧度之间的数值来返回 x 的反正切值。     |
+| [atan2(y,x)](http://www.w3school.com.cn/jsref/jsref_atan2.asp) | 返回从 x 轴到点 (x,y) 的角度（介于 -PI/2 与 PI/2 弧度之间）。 |
+| [ceil(x)](http://www.w3school.com.cn/jsref/jsref_ceil.asp) | 对数进行上舍入。向上取整                             |
+| [cos(x)](http://www.w3school.com.cn/jsref/jsref_cos.asp) | 返回数的余弦。                                  |
+| [exp(x)](http://www.w3school.com.cn/jsref/jsref_exp.asp) | 返回 e 的指数。                                |
+| [floor(x)](http://www.w3school.com.cn/jsref/jsref_floor.asp) | 对数进行下舍入。向下取整                             |
+| [log(x)](http://www.w3school.com.cn/jsref/jsref_log.asp) | 返回数的自然对数（底为e）。                           |
+| [max(x,y)](http://www.w3school.com.cn/jsref/jsref_max.asp) | 返回 x 和 y 中的最高值。                          |
+| [min(x,y)](http://www.w3school.com.cn/jsref/jsref_min.asp) | 返回 x 和 y 中的最低值。                          |
+| [pow(x,y)](http://www.w3school.com.cn/jsref/jsref_pow.asp) | 返回 x 的 y 次幂。                             |
+| [random()](http://www.w3school.com.cn/jsref/jsref_random.asp) | 返回 0 ~ 1 之间的随机数。取不到0和1。                  |
+| [round(x)](http://www.w3school.com.cn/jsref/jsref_round.asp) | 把数四舍五入为最接近的整数。                           |
+| [sin(x)](http://www.w3school.com.cn/jsref/jsref_sin.asp) | 返回数的正弦。                                  |
+| [sqrt(x)](http://www.w3school.com.cn/jsref/jsref_sqrt.asp) | 返回数的平方根。                                 |
+| [tan(x)](http://www.w3school.com.cn/jsref/jsref_tan.asp) | 返回角的正切。                                  |
+| [toSource()](http://www.w3school.com.cn/jsref/jsref_tosource_math.asp) | 返回该对象的源代码。                               |
+| [valueOf()](http://www.w3school.com.cn/jsref/jsref_valueof_math.asp) | 返回 Math 对象的原始值。                          |
+
+> 例子：随机数实现鼠标移入变换背景色
+
+```html
+<html lang="en">
+<style>
+	#box{width: 200px;height: 200px;background: red;}
+</style>
+<body>
+	<div id='box'></div>	
+</body>
+</html>
+<script>
+	function color(){
+		let str='rgb(';
+		for(let i=0;i<3;i++){
+			let num=Math.round(Math.random()*255);
+			str+=num+',';
+		}
+		str=str.slice(0,-1);
+		str=str+')';
+		return str;
+	}
+	let box=document.getElementById('box');
+	box.onmouseover=function(){
+		box.style.background=color();
+	}
+</script>
+```
+
+> 例子：数组中随机取出三个不重复的元素
+
+```js
+	// 数组中随机取出三个不重复的元素	
+	let arr=['a','b','c','d','e','f','g'];
+	function suiji(arr,num){
+		let newarr=[];
+		let i=0;
+		while(i<num){
+			let flag=true;//不重复
+			let num=Math.floor(Math.random()*arr.length);
+			if(newarr.includes(arr[num])){
+				flag=false;//重复
+			}
+			if(flag){
+				newarr.push(arr[num]);
+				i++;
+			}
+		}		
+		return newarr;
+	}//方法一
+	function suiji1(arr,num){
+		let newarr=[];
+		while(newarr.length<num){
+			let num=Math.floor(Math.random()*arr.length);
+			if(!newarr.includes(arr[num])){
+				newarr.push(arr[num]);
+			}
+		}		
+		return newarr;
+	}//方法二
+		function suiji2(arr,num){
+		let newarr=[];
+		for(let i=0;i<num;i++){
+			let index=Math.floor(Math.random()*arr.length);
+			while(newarr.includes(arr[index])){
+				index=Math.floor(Math.random()*arr.length);
+			}
+			newarr.push(arr[index]);
+		}		
+		return newarr;
+	}//方法三
+	console.log(suiji(arr,5));
+	console.log(suiji1(arr,5));
+	console.log(suiji2(arr,5));
+```
 
