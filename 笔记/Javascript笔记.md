@@ -54,7 +54,8 @@
 
 > HTML DOM 树
 >
-> ![ct_htmltree](E:\优逸客培训\5JavaScript\笔记\ct_htmltree.gif)
+
+![ct_htmltree](E:\优逸客培训\5JavaScript\JS-in-UEK\笔记\ct_htmltree.gif)
 
 ## JS的引入方式
 
@@ -234,7 +235,7 @@ let 变量名;
 - var可以在声明前调用（变量的提升），值为undefined；let只能在声明之后用，之前的语句会成为一个暂时性的死区，不存在变量的提升
 
 
-- let不可以在同一作用域重复声明变量，let会绑定到当前作用域里
+- var可以重复声明同一个变量，let不可以在同一作用域重复声明变量，let会绑定到当前作用域里
 
 
 - let不仅可以识别函数的作用域，而且识别{}括起来的作用域（块级作用域），var不识别块级作用域
@@ -884,7 +885,7 @@ a=a+10;
 
 #### ASCLL码表
 
-![ASCLL码表](E:\优逸客培训\5JavaScript\笔记\ASCLL码表.jpg)
+![ASCLL码表](E:\优逸客培训\5JavaScript\JS-in-UEK\笔记\ASCLL码表.jpg)
 
 ### 逻辑运算符
 
@@ -905,8 +906,6 @@ a=a+10;
 > 注意：false	 0	 null	 undefined	 “”（空字符串）	 NaN	 均为假值
 
 ### 其它符号
-
- 
 
 new 创建一个对象
 
@@ -1122,9 +1121,7 @@ var num = 10;
 
 ​		变化量
 
-​	}
-
-​	
+​	}​
 
 ```javascript
 	var i = 1;
@@ -1255,7 +1252,7 @@ var num = 10;
 
 1、形参：函数定义时，写在小括号里的值。没有实际值，用来接受实参的值。
 
-2、实参：函数调用时，写在小括号里的值。实参给实参传递值。
+2、实参：函数调用时，写在小括号里的值。实参给形参传递值。
 
 ```javascript
 function name(形参1，形参2，形参n){//形参，看着是个参数，实际的值自己都不知道，等着别人告诉
@@ -2804,8 +2801,6 @@ let map=arr.map((value,index,obj)=>value+index);
 console.log(map);//[1, 3, 5, 7, 9, 11]这个箭头函数相当于上面的
 ```
 
-
-
 > 例子：数组去重
 
 ```js
@@ -2992,4 +2987,213 @@ console.log(arr1.delReapeatB());//[4,5,1,2,3]
 	console.log(suiji1(arr,5));
 	console.log(suiji2(arr,5));
 ```
+
+## BOM(浏览器对象模型)
+
+window、地址栏、screen、frames、历史、navigator
+
+### window
+
+查看window下的所有方法和属性
+
+```js
+console.log(window);
+```
+
+获取浏览器距屏幕边的位置
+
+```js
+	console.log(window.screenLeft);
+	console.log(window.screenX);//浏览器距离屏幕的左边距
+	console.log(window.screenTop);
+	console.log(window.screenY);//浏览器距离屏幕的上边距
+```
+
+获取浏览器的宽高
+
+```js
+	console.log(window.innerHeight);
+	console.log(window.innerWidth);//获取浏览器的视口宽高
+	console.log(window.outerWidth);
+	console.log(window.outerHeight);//整个浏览器宽高
+	console.log(document.documentElement.clientWidth);//兼容常用
+	console.log(document.documentElement.clientHeight);
+```
+
+改变浏览器大小和位置
+
+```js
+	moveTo(100,100);//如果不写window.会默认指向到window，设置浏览器的位置(绝对位置)
+	moveBy(100,100);//如果不写window.会默认指向到window，设置浏览器的位置（相对位置）
+	resizeTo(100,100);//设置浏览器大小(绝对)
+	resizeBy(100,100);//设置浏览器大小(相对)
+```
+
+时间间隔函数
+
+```js
+	//window.setInterval(回调函数，时间周期毫秒);按照指定周期不停的执行某一函数,时间周期最小为4毫秒，不会停
+	window.setInterval(function(){
+		document.write('hello!');
+	},500);
+	function fn(){
+		document.write('hello!');
+	}
+	window.setInterval(fn,1000);
+	//这样写跟上面一样
+	window.setInterval(()=>{document.write('hello!')},1000);
+	//箭头函数写法
+```
+
+清除时间间隔函数
+
+```js
+	// window.clearInterval();清除时间函数，一般都是声明一下时间函数，再把时间函数的名字写进来就停了
+	let name=window.setInterval(()=>{document.write('hello!')},1000);
+	window.clearInterval(name);
+```
+
+时间延迟函数及清除
+
+```js
+	//setTimeout(回调函数，延迟时间毫秒);window.省略了。在延迟时间之后执行一次
+	let t=setTimeout(()=>{alert('haha',1000)});//
+	clearTimeout(t);//清除setTimeout();
+```
+
+> 例子：用setTimeout模拟setInterval
+
+```js
+	var fn=function(){
+		document.write('hello!');
+		setTimeout(fn,1000);
+	}//用setTimeout模拟setInterval
+	fn();
+```
+
+窗口的打开
+
+> open(打开的地址,新窗口名字，新窗口的修饰,布尔值);打开文件
+
+```js
+	open('yanshi.html','newBOM','width:200,height:300,top:200');
+```
+
+窗口的关闭
+
+> 关闭窗口，要是直接写，窗口打开就关了
+>
+> 不同浏览器不同，有的只能是open()打开的才能关，直接自己开的就关不了
+
+```js
+	close();
+```
+
+frames
+
+```js
+	window.frames//window.frames[index]返回所有窗口，加下标可以指定某个
+	window.parent//子窗口的父窗口
+	window.top//子窗口的顶层窗口
+	window.self//本身，等于window即为window==self
+	// 如果是window的对象或者方法，前面的window可以省略
+```
+
+弹框
+
+```js
+	prompt('提示信息', 默认值);弹出式输入框
+	alert(弹出内容);弹出内容
+	confirm('提示信息')弹出式带确定取消的退出
+	//上面这几个样式都改不了，人家的网站都是自己写的
+```
+
+### history
+
+> 是location对象，里面存的地址url（uniform resource locator统一资源定位符）
+
+```js
+	window.history.length;//历史记录的长度
+	window.history.forward();//上一页
+	window.history.back();//下一页
+	window.history.go(n);//前进或后退或刷新
+```
+
+> 例子：通过按钮实现上一页下一页刷新
+>
+> 注意：以下代码再写另一个文件互相跳转几次才会产生历史记录，不然没历史不起作用
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>history</title>
+	<style>
+		button{width: 80px;height: 30px;background: #244567;border: none;border-radius: 4px;outline: none;color: #fff;}
+	</style>
+</head>
+<body>
+	<h1><a href="history1.html">这是history第一页！</a></h1>
+	<button id='forward'>前进</button>
+	<button id="back">后退</button>
+	<button id="refresh">刷新</button>
+</body>
+</html>
+<script>	
+	let forward=document.getElementById('forward');
+	forward.onclick=function(){
+		history.forward();
+		// history.go(1);//相当于上一句
+	}
+	let back=document.getElementById('back');
+	back.onclick=function(){
+		history.back();
+		// history.go(-1);//相当于上一句
+	}
+	let refresh=document.getElementById('refresh');
+	refresh.onclick=function(){
+		history.go(0);//
+	}
+</script>
+```
+
+### location
+
+```js
+	location.href;// 属性返回当前页面的 URL。
+	location.protocol;//返回所使用的 web 协议（http:// 或 https://）
+	location.host;//得到 URL 中的主机名称和端口号
+	location.hostname;//返回 web 主机的域名
+	location.port;//返回 web 主机的端口 （80 或 443）
+	location.pathname;// 返回当前页面的路径和文件名
+	location.search;//搜索的部分	?属性值=值&属性值=值&属性值=值&属性值=值
+	location.hash;//锚点
+	location.assign();//location.assign('地址');页面打开后再加载新的页面，会留下历史记录
+	location.reload();//location.reload(boolean);刷新。true:真刷新，重新请求资源；false:利用本地缓存刷新
+	location.replace();//location.replace('地址')替换，页面打开后用新的页面替换掉，不会留下历史记录
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

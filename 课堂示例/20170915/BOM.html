@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BOM</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+/*
+	console.log(window);
+	console.log(window.screenLeft);
+	console.log(window.screenX);//浏览器距离屏幕的左边距
+	console.log(window.screenTop);
+	console.log(window.screenY);//浏览器距离屏幕的上边距
+	console.log(window.innerHeight);
+	console.log(window.innerWidth);//获取浏览器的视口宽高
+	console.log(window.outerWidth);
+	console.log(window.outerHeight);//整个浏览器宽高
+	console.log(document.documentElement.clientWidth);//这不是BOM方法，兼容用的
+	console.log(document.documentElement.clientHeight);
+
+	//window.frames[index]返回所有窗口，加下标可以指定某个
+	window.frames
+	window.parent//子窗口的父窗口
+	window.top//子窗口的顶层窗口
+	window.self//本身，等于window即为window==self
+	// 如果是window的对象或者方法，前面的window可以省略
+
+	moveTo(100,100);//如果不写window.会默认指向到window，设置浏览器的位置(绝对位置)
+	moveBy(100,100);//如果不写window.会默认指向到window，设置浏览器的位置（相对位置）
+	resizeTo(100,100);//设置浏览器大小(绝对)
+	resizeBy(100,100);//设置浏览器大小(相对)
+
+
+	//时间间隔函数
+	//window.setInterval(回调函数，时间周期毫秒);按照指定周期不停的执行某一函数,时间周期最小为4毫秒，不会停
+	window.setInterval(function(){
+		document.write('hello!');
+	},500);
+
+	function fn(){
+		document.write('hello!');
+	}
+	window.setInterval(fn,1000);
+	//这样写跟上面一样
+
+	window.setInterval(()=>{document.write('hello!')},1000);
+	//箭头函数写法
+
+
+	// window.clearInterval();清除时间函数，一般都是声明一下时间函数，再把时间函数的名字写进来就停了
+	let name=window.setInterval(()=>{document.write('hello!')},1000);
+	window.clearInterval(name);
+
+
+	//setTimeout(回调函数，延迟时间毫秒);window.省略了。在延迟时间之后执行一次
+	let t=setTimeout(()=>{alert('haha',1000)});//
+	clearTimeout(t);//清除setTimeout();
+
+
+	var fn=function(){
+		document.write('hello!');
+		setTimeout(fn,1000);
+	}//用setTimeout模拟setInterval
+	fn();*/
+
+	//prompt('提示信息', 默认值);弹出式输入框
+	//alert(弹出内容);弹出内容
+	//confirm('提示信息')弹出式带确定取消的退出
+	//上面这几个样式都改不了，人家的网站都是自己写的
+/*	
+
+	//open(打开的地址,新窗口名字，新窗口的修饰,布尔值);打开文件
+	open('yanshi.html','newBOM','width:200,height:300,top:200');
+	//close();关闭窗口，要是直接写，打开就关了，不同浏览器不同，有的只能是open()打开的才能关，直接自己开的就关不了
+*/
+</script>
