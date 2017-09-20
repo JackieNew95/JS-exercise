@@ -1,0 +1,68 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	font-family: sans-serif;
+	font-size: 16px;
+	color: #000;
+}
+img{
+	border: none;
+}
+a{
+	text-decoration: none;
+	color: #000;
+}
+i{
+	font-style: normal;
+	color: #fff;
+}
+main{
+	width: 1230px;
+	height: 500px;
+	position: relative;
+	margin: 10px auto;
+}
+.aside{
+	width: 200px;
+	height: 480px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: rgba(0, 0, 0, 0.8);
+	padding: 10px 0;
+}
+.aside>li{
+	width: 180px;
+	height: 30px;
+	padding: 0 10px;
+	line-height: 30px;
+}
+.aside>li:hover{
+	background: #fff;
+}
+.aside>li>a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	color: #fff;
+}
+.aside>li>a:hover{
+	color: #000;
+}
+.aside>li:hover i{
+	color: #000;
+}
+.aside>li>ul{
+	position: absolute;
+	width: 600px;
+	height: 500px;
+	left: 200px;
+	top: 0;
+	background: #ff6200;
+	display: none;
+}
+.aside>li>.block{
+	display: block;
+}//方法二

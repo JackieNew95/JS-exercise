@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<div class="box"></div>
+	<div class="box box1"></div>
+	<div class="box2 box1"></div>
+	<div class="box box1 box2"></div>
+	<div class="box1"></div>
+	<div class="one">
+		<div class="box"></div>
+	</div>
+
+
+	<script>
+		window.onload=function(){
+			var one=getClass('one');
+			var box=getClass('box',one[0]);
+			for(var i=0;i<box.length;i++){
+				box[i].innerText='我是获得到的div';
+			}
+			console.log(box);
+		}
+	</script>
+
+	<script src="getClass.js"></script>
+</body>
+</html>

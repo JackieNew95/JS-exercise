@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 300px;
+			height: 300px;
+		}
+		#circle{
+			border-radius: 50%;
+		}
+		.red{
+			background: red;
+		}
+		.green{
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<div id="" class="red"></div>
+	<div></div>
+</body>
+</html>
+<script>
+	let box = document.getElementsByTagName('div');
+	box[0].id='circle';
+	box[0].onclick=function(){
+		box[0].className='green';
+	}
+	box[1].style.background='yellow';
+	// box[1].style.borderRadius='50%';//属性名中有-的，大写或者下面的写法
+	box[1].style['border-radius']='50%';
+
+	console.log(box[0].style.width);//获取不到，这种写法只能获取到行内样式
+
+	getComputedStyle(divs[0],null)//获取样式的对象，默认值null，可以获取divs[0]的所有属性和方法，只可获取，不能设置
+	console.log(getComputedStyle(divs[0],null).width);//通过所有的属性和方法，再找到需要的属性
+
+</script>

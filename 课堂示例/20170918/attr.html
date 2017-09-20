@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>attr</title>
+</head>
+<body>
+	<div id="box" class="one"></div>
+	<img src="" alt="">
+</body>
+</html>
+<script>
+	let box=document.getElementsByTagName('div');
+	box[0].id='one';//改变id名
+	box[0].className='two';//修改类名，注意此处不能直接写class，而要写className
+	console.log(box[0].className);//获取类名
+	let img=document.getElementsByTagName('img');
+	// img[0].src='lujing.png';//设置图片路径
+	img[0].title='lujing';//设置图片标题
+
+</script>

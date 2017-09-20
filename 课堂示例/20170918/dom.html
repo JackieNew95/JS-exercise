@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dom</title>
+	<style>
+		#box{
+			width: 300px;
+			height: 300px;
+			background: #346799;
+			margin: 10px;
+		}
+	</style>
+</head>
+<body>
+	我是文字
+	<div id="box"></div>
+	<div id="box" class="box"></div>
+	<div id="box" class="box"></div>
+	<div id="box" class="box"></div><!-- id可以重复，但JS只能获取第一个，所以原则上只写一个 -->
+</body>
+</html>
+<script>
+/*	document.title = '我可以修改标题';//设置或者获取文档的标题
+	console.log(document.URL);//只能获取不可设置
+	document.bgColor = '#ff6700';//设置背景色
+	document.fgColor = '#0085d0';//设置前景色（字体颜色）*/
+
+/*	let box = document.getElementById('box');//通过ID获取DOM元素,获取回来也属于一个对象
+	box.style.width = '500px';//记住要有单位，加引号
+	box.style.height = '200px';*/
+
+/*	let divs = document.getElementsByTagName('div');//通过标签名获取指定标签名的元素集合，是一个html集合，属于对象
+	console.log(divs);
+	console.log(divs[0]);
+	divs[0].style.background = '#434235';//需要通过下标操作元素
+	console.log(divs.length);//集合的长度，相当于有几个这样的标签
+
+	console.log(divs[9]);//下标越界，值为undefined
+	// divs[9].style.background = 'pink';//下标越界再使用的话会报错
+
+	for(let i = 0;i<divs.length;i++){
+		divs[i].style.background='#645221';
+	}//给所有元素设置样式时需要遍历，注意下标不要越界*/
+
+/*	let box = document.getElementsByClassName('box');//通过类名获取指定类名的元素集合，是一个html集合，属于对象
+	box[2].style.background = '#932294';*/
+document.anchors[];//anchors 集合可返回对文档中所有 Anchor 对象的引用。
+document.images[];//images 集合可返回对文档中所有 Image 对象的引用。
+document.forms[];//forms 集合可返回对文档中所有 Form 对象的引用。
+document.links[];//links 集合可返回对文档中所有 Area 和 Link 对象的引用。
+
+</script>

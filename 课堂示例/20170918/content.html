@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{
+			width: 300px;
+			height: 200px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		这是一个div
+	</div>
+</body>
+</html>
+<script>
+	let divs=document.getElementsByTagName('div');
+	divs[0].innerText='我是innerText修改后的';//获取、修改文本内容、W3C标准的
+	divs[0].textContent='我是textContent修改后的';//获取、修改文本内容、兼容IE
+	divs[0].innerHTML='我是innerHTML修改后的';//获取修改内容，里面可以写标签对
+	divs[0].innerHTML='<h2>我是innerHTML+h2修改后的<h2>';//获取修改内容，里面可以写标签对
+
+</script>

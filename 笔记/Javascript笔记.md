@@ -96,6 +96,8 @@
 	
 	console.log(1);
 	console.log('控制台显示，数字直接写，汉字字符字符串单双引号都行');//控制台
+
+	console.dir();//在控制台中显示指定JavaScript对象的属性，并通过类似文件树样式的交互列表显示。
 	
 	document.write(1);
 	document.write('页面显示，数字直接写，汉字字符字符串单双引号都行')；
@@ -2327,7 +2329,7 @@ function Person(){
 
 > 因为prototype是一个对象，因此可以被另一个构造函数new出来，即可实现继承
 >
-> 构造函数中的方法名可以重复，自己有优先用自己的，但构造函数中方法的先于原型中的方法被调用
+> 构造函数中的方法名可以重复，自己有优先用自己的，且构造函数中方法的先于原型中的方法被调用
 >
 > `__proto__`指到的是他自身构造函数的原型对象上，可以一级一级往上找，查看他构造函数有何属性和方法
 
@@ -2447,7 +2449,7 @@ console.log(arr instanceof Array);//true，判断是否为数组的话应该用i
 
 ```javascript
  	console.log(str.charAt(5));//返回指定（下标）位置字符，参数0,1,2,...
- 	console.log(str.charCodeAt(3));//返回指定（下标）位置的Unicode码
+ 	console.log(str.charCodeAt(3));//返回指定（下标）位置字符的Unicode码
  	console.log(String.fromCharCode(97));//将Unicode码编译成字符（串）
 ```
 
@@ -3104,7 +3106,7 @@ frames
 ```js
 	prompt('提示信息', 默认值);弹出式输入框
 	alert(弹出内容);弹出内容
-	confirm('提示信息')弹出式带确定取消的退出
+	confirm('提示信息')弹出式带确定取消的确认
 	//上面这几个样式都改不了，人家的网站都是自己写的
 ```
 
@@ -3114,9 +3116,9 @@ frames
 
 ```js
 	window.history.length;//历史记录的长度
-	window.history.forward();//上一页
-	window.history.back();//下一页
-	window.history.go(n);//前进或后退或刷新
+	window.history.forward();//前进一页
+	window.history.back();//后退一页
+	window.history.go(n);//1前进、-1后退、0刷新
 ```
 
 > 例子：通过按钮实现上一页下一页刷新
@@ -3174,12 +3176,345 @@ frames
 	location.replace();//location.replace('地址')替换，页面打开后用新的页面替换掉，不会留下历史记录
 ```
 
+## DOM(文档对象模型)
 
+document核心对象
 
+### 属性
 
+```js
+	document.title = '我可以修改标题';//设置或者获取文档的标题
+	console.log(document.URL);//只能获取不可设置
+	document.bgColor = '#ff6700';//设置背景色
+	document.fgColor = '#0085d0';//设置前景色（字体颜色）
+	document.anchors[];//anchors 集合可返回对文档中所有 Anchor 对象的引用。
+	document.images[];//images 集合可返回对文档中所有 Image 对象的引用。
+	document.forms[];//forms 集合可返回对文档中所有 Form 对象的引用。
+	document.links[];//links 集合可返回对文档中所有 Area 和 Link 对象的引用。
+```
 
+### 方法
 
+#### document.getElementById('idname');
 
+> 获取拥有指定id的第一个元素
+>
+> Tip：id可以重复，但JS只能获取第一个，所以原则上只写一个
+
+```js
+	let box = document.getElementById('box');//通过ID获取DOM元素,获取回来也属于一个对象
+	box.style.width = '500px';//记住要有单位，加引号
+	box.style.height = '200px';
+```
+
+#### document.getElementsByTagName('tagname');
+
+> 通过标签名获取指定标签名的元素集合，通过下标方式操作元素
+>
+> 就算页面中只有一个元素，也要加上下标不然会报错
+
+```js
+	let divs = document.getElementsByTagName('div');//通过标签名获取指定标签名的元素集合，是一个html集合，属于对象
+	console.log(divs);
+	console.log(divs[0]);
+	divs[0].style.background = '#434235';//需要通过下标操作元素	
+	
+	console.log(divs[9]);//下标越界，值为undefined
+	divs[9].style.background = 'pink';//下标越界再使用的话会报错
+
+	for(let i = 0;i<divs.length;i++){
+		divs[i].style.background='#645221';
+	}//给所有元素设置样式时需要遍历，注意下标不要越界
+```
+
+#### document.getElementsByClassName('classname');
+
+> 通过类名获取指定类名的元素集合，通过下标方式操作元素
+>
+> 就算页面中只有一个元素，也要加上下标不然会报错
+
+```js
+	let box = document.getElementsByClassName('box');//通过类名获取指定类名的元素集合，是一个html集合，属于对象
+	box[2].style.background = '#932294';
+```
+
+### 获取元素
+
+#### 获取所有元素
+
+```js
+	document.all//获取页面中所有元素
+	document.getElementByTagName('*');//获取页面中所有元素
+```
+
+#### 获取指定范围元素
+
+> 先到目标元素的父元素，再在其中获取目标元素
+
+```js
+	let btn=document.getElementsByClassName('btn');//先获取到目标元素的父元素
+	let lis=btn[0].getElementsByTagName('li');//再在其下获取目标，找到目标元素
+```
+
+#### 获取内容
+
+```js
+	let divs=document.getElementsByTagName('div');
+	divs[0].innerText='我是innerText修改后的';//获取、修改文本内容、W3C标准的
+	divs[0].textContent='我是textContent修改后的';//获取、修改文本内容、兼容IE
+	divs[0].innerHTML='<h2>我是innerHTML+h2修改后的<h2>';//获取或设置元素内容，识别标签对
+```
+
+### 修改元素
+
+#### 属性
+
+> 直接通过对象名.属性名进行修改		obj.attr
+
+```js
+	let box=document.getElementsByTagName('div');
+
+	box[0].id='one';//改变id名
+	console.log(box[0].className);//获取类名
+	box[0].className='two';//修改类名，注意此处不能直接写class，而要写className
+
+	let img=document.getElementsByTagName('img');
+	img[0].src='lujing.png';//设置图片路径
+	img[0].title='lujing';//设置图片标题
+```
+
+#### 样式
+
+##### 批量修改样式
+
+> 通过类名或id名实现批量修改元素样式	className	id
+
+```js
+	let btn=document.getElementsByClassName('btn');
+	let lis=btn[0].getElementsByTagName('li');
+	for(let i=0;i<lis.length;i++){
+		lis[i].className='btn-now';
+	}//通过添加类名批量改变某元素的样式
+```
+
+##### 行内样式
+
+> 直接用对象名.style.属性名=值进行修改	obj.style.attr=value
+
+```js
+box.style.background='#645221';
+```
+
+#### 获取样式
+
+##### 获取行内样式
+
+obj.style.attr（只能获取到行内样式）
+
+```js
+console.log(box.style.width);//这种写法只能获取到行内样式
+
+box.style.background='yellow';// box[1].style.borderRadius='50%';//属性名中有'-'的，大写或者下面的写法
+box.style['border-radius']='50%';
+```
+
+##### 获取样式表样式
+
+getComputedStyle(对象名,null);只能获取，不能设置
+
+```js
+	getComputedStyle(divs[0],null)//获取样式的对象，默认值null，可以获取divs[0]的所有属性和方法，只可获取，不能设置
+	console.log(getComputedStyle(divs[0],null).width);//通过所有的属性和方法，再找到需要的属性
+```
+
+> 例子：实现点击按钮菜单滑动
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		button{width: 100px;height: 50px;background: blue;border-radius: 8px;margin: 20px;border: none;outline: none;}
+		#slide{width: 300px;height: 500px;background: pink;transition: .5s;}
+	</style>
+</head>
+<body>
+	<button>slideDown</button>
+	<button>slideUp</button>
+	<button>slideToggle</button>
+	<div id="slide"></div>
+</body>
+</html>
+<script>
+	let btns = document.getElementsByTagName('button');
+	let slide = document.getElementById('slide');
+
+	btns[0].onclick=function(){
+		slide.style.height = '500px';
+	}
+	btns[1].onclick=function(){
+		slide.style.height = '0';
+	}
+	let flag=true;
+	btns[2].onclick=function(){
+		if(flag){
+			slide.style.height=0;
+			flag=false;
+		}else{
+			slide.style.height='500px';
+			flag=true;
+		}
+	}
+</script>
+```
+
+> 通过改变属性实现效果
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		div{width: 300px;height: 300px;}
+		#circle{border-radius: 50%;}
+		.red{background: red;}
+		.green{background: green;}
+	</style>
+</head>
+<body>
+	<div id="" class="red"></div>
+</body>
+</html>
+<script>
+	let box = document.getElementsByTagName('div');
+	box[0].id='circle';
+	box[0].onclick=function(){
+		box[0].className='green';
+	}
+</script>
+```
+
+>  盒子缩放
+
+```js
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 300px;
+			height: 300px;
+			background: red;
+			margin: 20px auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>
+<script>
+	let box = document.getElementsByClassName('box');
+	let speed=10;
+	let t= setInterval(fn,60);
+	function fn(){
+		let w=parseInt(getComputedStyle(box[0],null).width);
+		if(w>=500||w<300){
+			// clearInterval(t);
+			speed=-speed;
+		}
+		box[0].style.width=`${w+speed}px`
+	}
+</script>
+```
+
+### 事件驱动
+
+用户的一些操作，浏览器行为，反馈一些实时的响应
+
+#### 事件源
+
+发生在谁的身上
+
+#### 事件
+
+如何发生的
+
+#### 事件处理函数
+
+事件发生时要干什么
+
+#### 事件类型
+
+##### 鼠标
+
+click
+
+a标签的跳转与click冲突的话写
+
+```html
+<a href='javascript:void(0)'></a>
+```
+
+dblclick
+
+mouseover/mouseenter
+
+mouseout/mouseleave
+
+mousedown
+
+mouseup
+
+mousemove
+
+##### 键盘
+
+keydown
+
+keyup
+
+keypress
+
+##### 表单
+
+focus获得焦点
+
+blur失去焦点
+
+change获得焦点并值改变
+
+input
+
+submit提交
+
+reset重置
+
+#####  浏览器
+
+load资源加载完毕后，写上这个之后可以把JS代码写在页面的任意部分，虽然可以引入多个js，但是只能写一个onload，否则后面的onload会覆盖前面的
+
+> 例子
+>
+> 参见20170918、20170919部分的课堂练习，其中有
+>
+> 1、导航栏的展开
+>
+> 2、如何解决var不能用在JS中
+>
+> 3、banner和指示点的JS关联
+>
+> 等
+
+### 兼容性问题解决
+
+参见20170919的练习
 
 
 
