@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 300px;
+			height: 300px;
+			background: red;
+			margin: 0 auto;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="box"></div>
+
+
+
+
+
+
+
+
+	<script src="js/functions$.js"></script>
+	<script>
+		// window.onload(){
+			let box=$('.box')[0];
+			animate(box,'width',500);//单个属性动画
+			animate(box,'height',500);
+
+			function animate(obj,attr,end){
+				let t = setInterval(function(){
+					let w=parseInt(window.getComputedStyle(obj,null)[attr]);
+					if(w>=end){
+						w=end;
+						clearInterval(t);
+					}
+					obj.style[attr]=w+10+'px';
+				},60);
+			}
+			
+
+
+
+
+		// }
+	</script>
+</body>
+</html>

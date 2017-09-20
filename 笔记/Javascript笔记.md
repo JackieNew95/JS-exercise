@@ -1922,9 +1922,9 @@ while
 
 > 一系列属性和方法的无序集合
 
-### 声明
+### 声明及使用方法
 
-#### 使用json方式直接声明
+#### json声明
 
 > 直接实例化一个对象，无需写构造函数，但实际上每个对象都是通过构造函数来的，他使用JS自带构造函数
 
@@ -1963,7 +1963,7 @@ zhangsan.say();
 	zhangsan.say();
 ```
 
-#### 使用构造函数声明
+#### 构造函数声明
 
 ##### 方法一：先构造后对象
 
@@ -2024,7 +2024,81 @@ zhangsan.say();
 	console.log(lisi);
 ```
 
-#### 使用类Class声明
+##### 查看构造函数
+
+###### 内容constructor
+
+通过`对象名.constructor`可以查看指定对象的构造函数
+
+> 查看json数组的构造函数
+
+```javascript
+	console.log(zhangsan.constructor);//ƒ Object() { [native code] }	JS中自带的构造函数
+```
+
+###### 来源instanceof
+
+> 返回值为true或false
+>
+> **判断是否为数组的话应该用instanceof而不是typeof**
+
+> 例子
+
+```javascript
+function Person(){
+	this.name='person';
+}
+function Student(){
+	this.name='student';
+}
+
+let zhangsan=new Person();
+let lisi=new Student();
+
+console.log(zhangsan instanceof Student);//false
+console.log(lisi instanceof Student);//true
+
+let arr=[];
+console.log(arr.constructor);//ƒ Array() { [native code] }
+console.log(zhangsan.constructor);//ƒ Person(){	this.name='person';}
+
+console.log(zhangsan instanceof Array);//false，判断是否为数组的话应该用instanceof而不是typeof
+console.log(lisi instanceof Array);//false，判断是否为数组的话应该用instanceof而不是typeof
+console.log(arr instanceof Array);//true，判断是否为数组的话应该用instanceof而不是typeof
+```
+
+##### 冒充继承
+
+```js
+		/*冒充继承：
+
+		本来是zhangsan的方法，冒充给lisi了，让lisi也有了这种方法
+		意思是本次zhangsan say的时候让lisi用了，并不是说之后lisi就有了say方法了
+		*/
+		function Person(){
+			this.name='person';
+			this.age=16;
+			this.say=function(a,b){
+				console.log(a+b);
+			}
+			this.study=function(){
+				console.log(this);
+			}
+		}
+		function Student(){
+			// Person.call(this);//这儿也能写冒充，？？？
+			this.name='lisi';
+			this.classes='WUIF1707-1';
+			this.num='170701';
+		}
+		let zhangsan=new Person();
+		let lisi=new Student();
+		
+		zhangsan.say.call(lisi,3,4);//冒充，第一个写冒充的对象，后面的参数是原方法的参数，可有可无
+		zhangsan.say.apply(lisi,[1,2]);//也是冒充，只是后面传的是数组
+```
+
+#### 类Class声明
 
 > 基本用法跟上述方法一样
 
@@ -2061,6 +2135,25 @@ let lisi =new Student();//只能写在后面，否则报错
 lisi.say();
 lisi.study();
 console.log(lisi);
+```
+
+##### 类的继承
+
+```js
+		/*类的继承*/
+		class Person{
+			constructor(){
+				this.name='person';
+				this.age=20;
+			}
+		}
+		class Student extends Person{//类的继承
+			constructor(){
+				super();//写这个才能继承父类
+			}
+		}
+		let lisi=new Student();
+		console.log(lisi);
 ```
 
 > 例子：模拟数组的工作原理
@@ -2127,7 +2220,7 @@ console.log(lisi);
 	zhangsan['say']();//相当于zhangsan.say();
 ```
 
-### 遍历对象
+#### 遍历对象
 
 > 使用for in 对对象进行遍历
 
@@ -2190,7 +2283,7 @@ console.log(lisi);
 			this.say(value);//调用自身方法
 ```
 
-### 对象的删除
+#### 对象的删除
 
 对象名=null	即可删除
 
@@ -2208,7 +2301,7 @@ console.log(lisi);
 	console.log(zhangsan.lalala);//undefined，说明删除成功
 ```
 
-### 属性的删除
+#### 属性的删除
 
 delete 对象名.属性名	即可删除
 
@@ -2219,7 +2312,7 @@ delete 对象名.属性名	即可删除
 	console.log(zhangsan);//null
 ```
 
-### 注意!
+##### 注意!
 
 - 访问一个不存在的属性时不报错，会返回undefined
 - 访问一个不存在的方法（函数）时报错（主要原因是因为undefined加`()`不合语法）
@@ -2385,49 +2478,6 @@ function Person(){
 
 	lisi.aa();//构造函数中的方法名可以重复，自己有优先用自己的，但构造函数中方法的先于原型中的方法被调用
 ```
-
-### 查看对象的构造函数的内容constructor
-
-通过`对象名.constructor`可以查看指定对象的构造函数
-
-> 查看json数组的构造函数
-
-```javascript
-	console.log(zhangsan.constructor);//ƒ Object() { [native code] }	JS中自带的构造函数
-```
-
-### 查看对象的构造函数来源instanceof
-
-> 返回值为true或false
-
-> 例子
-
-```javascript
-function Person(){
-	this.name='person';
-}
-function Student(){
-	this.name='student';
-}
-
-let zhangsan=new Person();
-let lisi=new Student();
-
-console.log(zhangsan instanceof Student);//false
-console.log(lisi instanceof Student);//true
-
-let arr=[];
-console.log(arr.constructor);//ƒ Array() { [native code] }
-console.log(zhangsan.constructor);//ƒ Person(){	this.name='person';}
-
-console.log(zhangsan instanceof Array);//false，判断是否为数组的话应该用instanceof而不是typeof
-console.log(lisi instanceof Array);//false，判断是否为数组的话应该用instanceof而不是typeof
-console.log(arr instanceof Array);//true，判断是否为数组的话应该用instanceof而不是typeof
-```
-
-#### 注意！
-
-**判断是否为数组的话应该用instanceof而不是typeof**
 
 ### JS对象的内置属性
 
@@ -3265,6 +3315,72 @@ document核心对象
 	divs[0].innerHTML='<h2>我是innerHTML+h2修改后的<h2>';//获取或设置元素内容，识别标签对
 ```
 
+### 获取元素尺寸
+
+#### 元素的宽高
+
+```js
+let box = document.getElementsByClassName('box')[0];
+console.log(box.offsetWidth)
+console.log(box.offsetHeight)
+//获取元素实际尺寸（不含单位）,包含width\height\padding\border
+
+console.log(box.offsetLeft)
+console.log(box.offsetTop)
+//获取当前元素实际相对于具有定位属性的父元素的位置（不含单位）
+//CSS动画不会影响，但直接操纵宽高会影响
+//影响元素：有父元素的padding、子元素的margin\left\right\top\bottom
+```
+
+> 例子：小广告
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{width: 200px;height: 200px;background: red;position: absolute;left: 0;top: 0;}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<script>
+		window.onload=function(){
+			let box=document.getElementsByClassName('box')[0];
+			let speedY=10;
+			let speedX=10;
+			let maxY=window.innerHeight-box.offsetHeight;
+			let maxX=window.innerWidth-box.offsetWidth;
+			setInterval(function(){
+				let tops=box.offsetTop+speedY;
+				let lefts=box.offsetLeft+speedX;
+				if(tops>=maxY){
+					tops=maxY;
+					speedY*=-1;
+				}
+				if(tops<=0){
+					tops=0
+					speedY*=-1;
+				}
+				if(lefts>=maxX){
+					lefts=maxX;
+					speedX*=-1;
+				}
+				if(lefts<=0){
+					lefts=0
+					speedX*=-1;
+				}
+				box.style.top=`${tops}px`;
+				box.style.left=`${lefts}px`;		
+			},60)
+		}
+	</script>
+</body>
+</html>
+```
+
 ### 修改元素
 
 #### 属性
@@ -3305,9 +3421,9 @@ document核心对象
 box.style.background='#645221';
 ```
 
-#### 获取样式
+### 获取样式
 
-##### 获取行内样式
+#### 获取行内样式
 
 obj.style.attr（只能获取到行内样式）
 
@@ -3318,7 +3434,7 @@ box.style.background='yellow';// box[1].style.borderRadius='50%';//属性名中�
 box.style['border-radius']='50%';
 ```
 
-##### 获取样式表样式
+#### 获取样式表样式
 
 getComputedStyle(对象名,null);只能获取，不能设置
 
@@ -3434,6 +3550,8 @@ getComputedStyle(对象名,null);只能获取，不能设置
 </script>
 ```
 
+
+
 ### 事件驱动
 
 用户的一些操作，浏览器行为，反馈一些实时的响应
@@ -3516,7 +3634,9 @@ load资源加载完毕后，写上这个之后可以把JS代码写在页面的�
 
 参见20170919的练习
 
+### banner效果
 
+参见20170918-20170920中的练习以及作业中天猫、小米的效果
 
 
 

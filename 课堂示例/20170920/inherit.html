@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+
+
+	</style>
+</head>
+<body>
+	<script>
+		/*冒充继承：
+
+		本来是zhangsan的方法，冒充给lisi了，让lisi也有了这种方法
+		意思是本次zhangsan say的时候让lisi用了，并不是说之后lisi就有了say方法了
+		*/
+		function Person(){
+			this.name='person';
+			this.age=16;
+			this.say=function(a,b){
+				console.log(a+b);
+			}
+			this.study=function(){
+				console.log(this);
+			}
+		}
+		function Student(){
+			// Person.call(this);//这儿也能写冒充，？？？
+			this.name='lisi';
+			this.classes='WUIF1707-1';
+			this.num='170701';
+		}
+		let zhangsan=new Person();
+		let lisi=new Student();
+		
+		zhangsan.say.call(lisi,3,4);//冒充，第一个写冒充的对象，后面的参数是原方法的参数，可有可无
+		zhangsan.say.apply(lisi,[1,2]);//也是冒充，只是后面传的是数组
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

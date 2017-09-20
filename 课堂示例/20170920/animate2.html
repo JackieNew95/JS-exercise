@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 300px;
+			height: 300px;
+			background: red;
+			margin: 0 auto;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="box"></div>
+
+
+
+
+
+
+
+
+	<script src="js/functions$.js"></script>
+	<script>
+		// window.onload(){
+			let box=$('.box')[0];
+			animate(box,{width:500,height:500});//多个属性动画，考虑传成二维数组或者json对象，此处选用json
+
+			function animate(obj,attrObj){
+				for(let i in attrObj){
+					let t = setInterval(function(){
+						let w=parseInt(window.getComputedStyle(obj,null)[i]);
+						if(w>=attrObj[i]){
+							w=attrObj[i];
+							clearInterval(t);
+						}
+						obj.style[i]=w+10+'px';
+					},60);
+				}
+				
+			}
+			
+
+
+
+
+		// }
+	</script>
+</body>
+</html>

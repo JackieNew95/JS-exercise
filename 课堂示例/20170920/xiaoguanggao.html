@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 200px;
+			height: 200px;
+			background: red;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+
+	<script>
+		window.onload=function(){
+			let box=document.getElementsByClassName('box')[0];
+			let speedY=10;
+			let speedX=10;
+			let maxY=window.innerHeight-box.offsetHeight;
+			let maxX=window.innerWidth-box.offsetWidth;
+
+			setInterval(function(){
+				let tops=box.offsetTop+speedY;
+				let lefts=box.offsetLeft+speedX;
+
+				if(tops>=maxY){
+					tops=maxY;
+					speedY*=-1;
+				}
+				if(tops<=0){
+					tops=0
+					speedY*=-1;
+				}
+				if(lefts>=maxX){
+					lefts=maxX;
+					speedX*=-1;
+				}
+				if(lefts<=0){
+					lefts=0
+					speedX*=-1;
+				}
+
+				box.style.top=`${tops}px`;
+				box.style.left=`${lefts}px`;
+			
+			},60)
+
+		}
+	</script>
+</body>
+</html>
