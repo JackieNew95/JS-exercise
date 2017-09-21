@@ -8,18 +8,33 @@
 			width: 200px;
 			height: 200px;
 			background: red;
+			border-radius: 50%;
 			position: absolute;
 			left: 0;
 			top: 0;
+		}
+		.box1{
+			width: 200px;
+			height: 200px;
+			background: green;
+			border-radius: 50%;
+			position: absolute;
+			right: 0;
+			bottom: 0;
 		}
 	</style>
 </head>
 <body>
 	<div class="box"></div>
+	<div class="box1"></div>
 
 	<script>
 		window.onload=function(){
 			let box=document.getElementsByClassName('box')[0];
+			let box1=document.getElementsByClassName('box1')[0];
+			float(box);
+			float(box1);
+		function float(box){
 			let speedY=10;
 			let speedX=10;
 			let maxY=window.innerHeight-box.offsetHeight;
@@ -50,8 +65,8 @@
 				box.style.left=`${lefts}px`;
 			
 			},60)
-
 		}
+	}
 	</script>
 </body>
 </html>

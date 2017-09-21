@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 400px;
+			height: auto;
+		}
+		.box>.son{
+			background: #ccc;
+			padding: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		hello
+		<div class="son">
+			这是son
+			<span>
+				这是son里面的span
+			</span>
+		</div>
+		<p class="son">
+			这是p
+		</p>
+		<!-- 这是注释节点 -->
+	</div>
+
+
+	<script>
+		//用child实现children的功能
+		function children(parent){
+			let newar=[];
+			let childs=parent.childNodes;
+			childs.foreach(element=>{
+				if(element.nodeType==1){
+					newar.push(element);
+				}
+			})
+		}
+
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+	<script>
+/*
+		//笔记
+
+		let box=document.querySelector('div.box:first-child');
+
+		let child=box.childNodes;//返回所有节点（包括空格会当成文本节点）
+		let children=box.children;//只返回元素节点
+
+		console.log(child);
+		console.log(children);
+
+		child[1].innerHTML='这是div的第一个子元素';//用下标访问某节点
+		console.log(box.firstChild)
+		console.log(box.lastChild)//与childNodes对应，获取最后一个子节点
+
+		console.log(box.firstElementChild)
+		console.log(box.lastElementChild);//与children对应，获取最后一个元素节点
+
+		first.parentNode
+		box.parentNode//名字.parentNode获取某一元素的父元素
+
+		first.nextSibling//与first相邻的下一个兄弟节点
+		first.nextElementSibling//与first相邻的下一个兄弟元素节点
+
+		first.previousSibling//与first相邻的上一个兄弟节点
+		first.previousElementSibling//与first相邻的上一个兄弟元素节点
+
+		// 以上没有的均返回null
+
+		// ???见笔记
+		// 名字是 #类型名
+		// 类型是 数字代表的
+		// 是 大写的标签名
+
+*/
+	</script>
+</body>
+</html>

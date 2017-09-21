@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 400px;
+			height: auto;
+		}
+		.box>.son{
+			background: #ccc;
+			padding: 5px;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="box">
+		hello
+		<div class="son">
+			这是son
+			<span>
+				这是son里面的span
+			</span>
+		</div>
+		<p class="son">
+			这是p
+		</p>
+		<h1>h1</h1>
+		<span>span</span>
+		<div>div</div>
+		<!-- 这是注释节点 -->
+	</div>
+	<div>1</div>
+	<div>2</div>
+
+
+
+
+	<script>
+		window.onload=function(){
+
+			let box = document.querySelector('div');
+
+			console.log(children(box));// [div.son, p.son, h1, span, div]
+			console.log(firstChild(box));//<div class="son"></div>
+			console.log(lastChild(box));//<div>div</div>
+
+
+			let son=document.querySelector('.son');
+
+			console.log(next(son,'div'));//<div>div</div>
+
+
+
+			console.log()
+
+
+
+
+		}
+
+	</script>
+
+	<script>
+
+		/*
+			用child(获取所有节点)实现children(获取元素节点)的功能
+			方法一：forEach()
+		*/
+/*		function children(parent){
+			let newarr=[];
+			let childs=parent.childNodes;
+			childs.forEach(element=>{
+				if(element.nodeType==1){
+					newarr.push(element);
+				}
+			})
+			return newarr;
+		}*/
+
+		/*
+			用child(获取所有节点)实现children(获取元素节点)的功能
+			方法二：filter()
+		*/
+		function children(parent){
+			let newarr=[];
+			let childs=parent.childNodes;
+			let arr=Array.from(childs);
+			newarr=arr.filter(element=>element.nodeType==1);
+			return newarr;
+		}
+
+		/*
+			firstElementChild
+		*/
+		function firstChild(parent){
+			return children(parent)[0];
+		}
+
+		/*
+			lastElementChild
+		 */
+		function lastChild(parent){
+			let child=children(parent);
+			// return child[child.length-1];
+			return child.pop();
+		}
+
+		/*
+			element 兄弟
+			父元素->child->截取
+		 */
+		function next(element,tagname){
+			let parent=element.parentNode;
+			let child=parent.children;
+			let index=0;
+			for(let i=0;i<child.length;i++){
+				if(child[i]==element){
+					index=i;
+					break;
+				}
+			}
+			let nextAll=Array.from(child).slice(index+1);
+			for(let i=0;i<nextAll.length;i++){
+				if(nextAll[i].nodeName==tagname.toUpperCase()){
+					return nextAll[i];
+				}
+			}
+			return null;
+		}
+
+		/*
+			nextAll
+			
+		 */
+		function nextAll(){
+			let parent=element.parentNode;
+			let child=parent.children;
+			let index=0;
+			for(let i=0;i<child.length;i++){
+				if(child[i]==element){
+					index=i;
+					break;
+				}
+			}
+			let nextAll=Array.from(child).slice(index+1);			
+		}
+	</script>
+
+
+	</body>
+</html>

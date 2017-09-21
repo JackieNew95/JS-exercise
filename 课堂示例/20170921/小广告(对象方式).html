@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 200px;
+			height: 200px;
+			background: green;
+			border-radius: 50%;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		.box1{
+			width: 200px;
+			height: 200px;
+			background: blue;
+			border-radius: 50%;
+			position: absolute;
+			right: 0;
+			bottom: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="box1"></div>
+	
+	<script>
+		window.onload=function(){
+			let box=document.getElementsByClassName('box')[0];
+			let box1=document.getElementsByClassName('box1')[0];
+			let obj=new Float(box);
+			let obj1=new Float(box1);
+			obj.move();
+			obj1.move();
+		}
+	</script>
+
+	<script>
+		/*
+			功能：悬浮对象
+
+			属性：对象描述
+				谁、范围、速度.....
+			方法：实现功能
+				动画：move
+		 */
+
+		function Float(obj){
+			this.obj=obj;//
+			this.maxY=window.innerHeight-this.obj.offsetHeight;//垂直最大动画范围
+			this.maxX=window.innerWidth-this.obj.offsetWidth;//水平最大动画范围
+			this.speedY=5;//垂直移动速度
+			this.speedX=5;//水平移动速度
+		}
+/*		Float.prototype={
+
+		}*/
+		Float.prototype.move=function(){
+
+
+			let that=this;//为了能让setInterval里也能访问到当前对象,不想用这句的话把下面写成箭头函数就行了
+
+			this.t=setInterval(function(){//this.t让t成为一个属性，使其在其他方法中也能访问
+				that.resize();//获取当前活动范围
+
+				let tops=that.obj.offsetTop+that.speedY;
+				let lefts=that.obj.offsetLeft+that.speedX;
+
+				if(tops>=that.maxY){
+					tops=that.maxY;
+					that.speedY*=-1;
+				}
+				if(tops<=0){
+					tops=0
+					that.speedY*=-1;
+				}
+				if(lefts>=that.maxX){
+					lefts=that.maxX;
+					that.speedX*=-1;
+				}
+				if(lefts<=0){
+					that.lefts=0
+					that.speedX*=-1;
+				}
+
+				that.obj.style.top=`${tops}px`;
+				that.obj.style.left=`${lefts}px`;
+			
+			},40)
+			this.stop();
+		}
+
+		/*
+			鼠标移入时停止,移出时移动
+		 */
+		Float.prototype.stop=function(){
+			let that=this;
+			this.obj.onmouseover=function(){
+				clearInterval(that.t);				
+			}
+			this.obj.onmouseout=function(){
+				that.move();
+			}
+		}
+
+		/*
+			实施检测窗口尺寸变化
+		 */
+		Float.prototype.resize=function(){
+			this.maxY=window.innerHeight-this.obj.offsetHeight;//垂直最大动画范围
+			this.maxX=window.innerWidth-this.obj.offsetWidth;//水平最大动画范围
+		}
+	</script>
+
+</body>
+</html>

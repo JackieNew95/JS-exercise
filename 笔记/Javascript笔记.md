@@ -38,8 +38,6 @@
 
 ### DOM(Document object model)
 
-​	节点
-
 > HTML DOM 是：
 >
 > - HTML 的标准对象模型
@@ -50,12 +48,76 @@
 >
 > *换言之，HTML DOM 是关于如何获取、修改、添加或删除 HTML 元素的标准。*
 
+#### 节点
 
+> DOM的最小组成单位叫做节点（node）。由节点组成一个文档树模型。由元素节点、属性节点、文本节点组成，节点之间相联系，相互影响，称之为模型
 
-> HTML DOM 树
+##### 节点的类型
+
+节点的类型有七种。这七种节点都属于浏览器原生提供的节点对象的派生对象，具有一些共同的属性和方法。
+
+> `Document`：整个文档树的顶层节点
 >
+> `DocumentType`：`doctype`标签（比如`<!DOCTYPE html>`）
+>
+> `Element`：网页的各种HTML标签（比如`<body>`、`<a>`等）
+>
+> `Attribute`：网页元素的属性（比如`class="right"`）
+>
+> `Text`：标签之间或标签包含的文本
+>
+> `Comment`：注释
+>
+> `DocumentFragment`：文档的片段
+
+##### HTML DOM 树
 
 ![ct_htmltree](E:\优逸客培训\5JavaScript\JS-in-UEK\笔记\ct_htmltree.gif)
+
+##### 节点属性
+
+> 以下如果没有对应的元素，那么均返回null
+
+```js
+		obj.childNodes;//返回所有节点（包括空格会当成文本节点）
+		obj.children;//只返回元素节点
+
+		child[1].innerHTML='这是div的第一个子元素';//用下标访问某节点
+
+		obj.firstChild//与childNodes对应，获取第一个子节点
+		obj.lastChild//与childNodes对应，获取最后一个子节点
+
+		obj.firstElementChild//与children对应，获取第一个元素节点
+		obj.lastElementChild;//与children对应，获取最后一个元素节点
+
+		obj.parentNode//获取某一元素的父元素
+
+		obj.nextSibling//与first相邻的下一个兄弟节点
+		objfirst.nextElementSibling//与first相邻的下一个兄弟元素节点
+
+		obj.previousSibling//与first相邻的上一个兄弟节点
+		obj.previousElementSibling//与first相邻的上一个兄弟元素节点
+```
+
+##### 特征相关属性
+
+###### nodeName和nodeType
+
+`nodeName`属性返回节点的名称，`nodeType`属性返回节点类型的常数值。`Node.nodeValue`属性返回一个字符串，表示当前节点本身的文本值，该属性可读写。
+
+> 由于只有Text节点、Comment节点、XML文档的CDATA节点有文本值，因此只有这三类节点的`nodeValue`可以返回结果，其他类型的节点一律返回`null`。同样的，也只有这三类节点可以设置`nodeValue`属性的值。对于那些返回`null`的节点，设置`nodeValue`属性是无效的。
+
+具体的返回值见下表：
+
+| 类型                     | nodeName             | nodeType | nodeValue |
+| ---------------------- | -------------------- | -------- | --------- |
+| ELEMENT_NODE元素节点       | 大写的HTML元素名           | 1        | null      |
+| ATTRIBUTE_NODE         | 等同于Attr.name         | 2        |           |
+| TEXT_NODE文本节点          | #text                | 3        | 文本内容      |
+| COMMENT_NODE注释节点       | #comment             | 8        | 注释内容      |
+| DOCUMENT_NODE文档节点      | #document            | 9        | null      |
+| DOCUMENT_FRAGMENT_NODE | #document-fragment   | 11       |           |
+| DOCUMENT_TYPE_NODE     | 等同于DocumentType.name | 10       |           |
 
 ## JS的引入方式
 
@@ -2665,8 +2727,10 @@ sub
 
 ```js
 	let arr=[1,2,3,4];//直接创建
+
 	let arr1=new Array('x','y','z');//构造函数的创建方式
 	let arr2=new Array(5);//当里面只有一个参数并且还是数字，那么它不是只有一个元素的数组[5]，而是长度为5的数组[undefined*5]
+
 	let arr3=new Array.of(5);//[5] 使用构造函数（而不是对象！）上面的of方法，可以解决上述问题
 	let arr4=new Array.of(1,2,3,4);//[1,2,3,4]这样写也是可以的
 ```
@@ -2774,6 +2838,17 @@ concat()
 	let arr2=['x','y','z'];
 	let newarr=arr.concat(arr1,arr2);
 	console.log(newarr);//[1, 2, 3, 4, 5, 6, "a", "b", "c", "d", "x", "y", "z"]
+```
+
+> 例子：使用不同方法实现数组连接
+
+```js
+		let arr=[1,2,3,4,5];
+		let arr1=['a','b','c','d'];
+		arr=arr.concat(arr1);//方法一
+		arr.push(...arr1);//方法二
+		Array.prototype.push.call(arr,...arr1);//方法三
+		Array.prototype.push.apply(arr,arr1);//方法四
 ```
 
 ###### 转换join()reverse();sort();
@@ -3243,7 +3318,7 @@ document核心对象
 	document.links[];//links 集合可返回对文档中所有 Area 和 Link 对象的引用。
 ```
 
-### 方法
+### 节点查找方法
 
 #### document.getElementById('idname');
 
@@ -3287,6 +3362,57 @@ document核心对象
 	let box = document.getElementsByClassName('box');//通过类名获取指定类名的元素集合，是一个html集合，属于对象
 	box[2].style.background = '#932294';
 ```
+
+#### document.querySelector('selectorname')
+
+> `document.querySelector`方法接受一个CSS选择器作为参数，返回匹配该选择器的元素节点。如果有多个节点满足匹配条件，则返回第一个匹配的节点。如果没有发现匹配的节点，则返回`null`。
+
+```
+	document.querySelector('div');//获取第一个出现的div
+	document.querySelector('div:first-child');//获取以第一个子元素形式出现的div
+```
+
+#### document.querySelectorAll('selectorname')
+
+> `document.querySelectorAll`方法与`querySelector`用法类似，区别是返回一个`NodeList`对象，包含所有匹配给定选择器的节点，使用时要加下标。
+>
+> `querySelectorAll`方法的参数是字符串`*`，则会返回文档中的所有HTML元素节点。
+>
+> `querySelectorAll`的返回结果不是动态集合，不会实时反映元素节点的变化。
+
+> querySelectorAll指向的是NodeList，循环可以用forEach()遍历
+> getElementsByTagName指向的是HTML集合，只能用for循环遍历
+
+```
+elementList = document.querySelectorAll('.myclass');
+var matches = document.querySelectorAll('div.note, div.alert');//返回class属性是note或alert的div元素。
+```
+
+异同点：
+
+- 这两个方法的参数，可以是逗号分隔的多个CSS选择器，返回匹配其中一个选择器的元素节点。
+
+
+- 这两个方法都支持复杂的CSS选择器。
+
+```js
+// 选中data-foo-bar属性等于someval的元素
+document.querySelectorAll('[data-foo-bar="someval"]');
+
+// 选中myForm表单中所有不通过验证的元素
+document.querySelectorAll('#myForm :invalid');
+
+// 选中div元素，那些class含ignore的除外
+document.querySelectorAll('DIV:not(.ignore)');
+
+// 同时选中div，a，script三类元素
+document.querySelectorAll('DIV, A, SCRIPT');
+```
+
+- 但是，它们不支持CSS伪元素的选择器（比如`:first-line`和`:first-letter`）和伪类的选择器（比如`:link`和`:visited`），即无法选中伪元素和伪类。
+
+
+- 这两个方法除了定义在`document`对象上，还定义在元素节点上，即在元素节点上也可以调用。
 
 ### 获取元素
 
@@ -3638,9 +3764,13 @@ load资源加载完毕后，写上这个之后可以把JS代码写在页面的�
 
 参见20170918-20170920中的练习以及作业中天猫、小米的效果
 
+### this的指向
 
+参见20170920的“this的指向问题”
 
+### 使用构造函数封装动画
 
+参见20170921的“小广告（对象方式）”
 
 
 

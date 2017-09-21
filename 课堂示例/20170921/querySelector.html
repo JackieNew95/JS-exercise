@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.box{
+			width: 400px;
+			height: auto;
+		}
+		.box>.son{
+			background: #ccc;
+			padding: 5px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		hello
+		<div class="son">
+			这是son
+			<span>
+				这是son里面的span
+			</span>
+		</div>
+		<p class="son">
+			这是p
+		</p>
+		<!-- 这是注释节点 -->
+	</div>
+	<div>1</div>
+	<div>2</div>
+
+	<script>
+	/*	document.querySelector('选择器')
+		选择器中可以任选所有类型的选择器，并且返回的是元素
+		例如：document.querySelector('div:first-child');
+		获取的是所有以第一个子元素形式出现的div
+		但是只可以选中指定的第一个元素*/
+		
+	/*	document.querySelectorAll('选择器');
+		选择器中可以任选所有类型的选择器，并且返回的是一个集合，使用时要加下标
+		指向的是NodeList，循环可以用forEach()遍历
+		
+		跟document.getElementsByTagName('name')相比
+		这个指向的是HTML集合，只能用for循环遍历*/
+		
+
+	/*	那么如何让getElementsByTagName('name')也用forEach()遍历呢
+		就是让它变成数组，方法如下
+
+
+		let div=document.getElementsByTagName('div');//结果是html集合
+		let arr=Array.from(div);//from方法可以将html集合转换为数组，from只能转换类似数组的结构
+		Array.prototype.forEach.call(div,function(element){
+			console.log(element);
+		});//冒充，但注意这个forEach()方法是Array.prototype上的
+*/
+	</script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 * @Author: zhangyanan
 * @Date:   2017-08-17 16:22:50
 * @Last Modified by:   user
-* @Last Modified time: 2017-09-21 01:22:59
+* @Last Modified time: 2017-09-21 11:44:11
 */
 @import url("base.css");
 header{
@@ -183,9 +183,14 @@ main{
 .banner .lunbo li{
 	width: 1226px;
 	height: 460px;
+	opacity: 0;
+	transition: 0.5s;
 	position: absolute;
 	top: 0;
 	left: 0;
+}
+.banner .lunbo li:first-child{
+	opacity: 1;
 }
 .banner-left,.banner-right{
 	width: 41px;
@@ -212,13 +217,13 @@ main{
 	background: url('../img/jiantou.png') no-repeat -41px 0px;
 }
 .btn-list{
-	width: 100px;
+	width: 120px;
 	height: 10px;
 	bottom: 25px;
     right: 35px;
     position: absolute;
 }
-.btn-list li a{
+.btn-list li{
 	width: 6px;
 	height: 6px;
 	border-radius: 50px;
@@ -227,7 +232,10 @@ main{
     float: left;
     margin-right: 10px;
 }
-.btn-list li a:hover{
+.btn-list li:first-child{
+	background: rgba(124, 124, 129,0.5);
+}
+.btn-list li:hover{
 	background: rgba(124, 124, 129,0.5);
 }
 .daohang{

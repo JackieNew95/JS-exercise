@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>	
+		.box{
+			width: 200px;
+			height: 200px;
+			background: red;
+			border-radius: 50%;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<script>
+		window.onload=function(){
+
+			let box =document.getElementsByClassName('box')[0];
+
+			box.onmouseover=function(){
+				console.log(this);//指向box
+				this.style.background='green';
+
+				let that=this;//将this给到that，这样就能在fn里访问当前对象了
+
+				fn();
+				function fn(){
+					console.log(this);//指向window
+					console.log(that);//指向box
+				}
+			}
+
+		}
+	</script>
+</body>
+</html>
