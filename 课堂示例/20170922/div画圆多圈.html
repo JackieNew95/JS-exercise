@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多圈</title>
+	<style>
+		.point{
+			width: 1px;
+			height: 1px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+		}
+		.circle{
+			width: 30px;
+			height: 30px;
+			background: #ff6700;
+			border-radius: 50%;
+			transition: all ease 500ms;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+		}
+	</style>
+</head>
+<body>
+	<div class="point"></div>
+
+
+	<script>
+		window.onload=function(){
+			/*
+				lefts=r*Math.cos(deg)
+				tops=r*Math.sin(deg)
+				deg=num  360
+				i  i*deg
+				30    x
+				180  Math.PI
+				30*(Math.PI/180)
+			 */
+			let point=document.querySelector('.point');
+			circle(200,40,4);
+			function circle(r,num,quan){//半径、总个数、撒几圈
+				let deg=360/(num/quan);
+				
+				for(let i=0;i<num;i++){
+					let divs=document.createElement('div');
+					divs.className='circle';
+
+					if(i%(num/quan)==0){
+						r+=30;
+					}
+
+					let lefts=r*Math.cos(deg*i*Math.PI/180);
+					let tops=r*Math.sin(deg*i*Math.PI/180);
+
+					color();
+					divs.style.background=color();
+
+					point.appendChild(divs);
+
+					setTimeout(function(){
+
+				/*	
+					divs.style.transitionDelay=Math.random()*200+'ms';
+					divs.style.transitionDelay=`${Math.random()*200}ms`;
+					//效果：让插入的元素延迟200ms出来
+				*/
+					divs.style.transitionDelay=`${i*100}ms`;
+					//效果：让插入的元素依次延迟10ms出来
+					
+					divs.style.left=`${lefts}px`;
+					divs.style.top=`${tops}px`;
+				},5)
+				}
+			}
+			function color(){
+				let str='rgb(';
+				for(let i=0;i<3;i++){
+					let num=Math.floor(Math.random()*256)
+					str+=num+',';
+				}
+				str=str.slice(0,-1)+')';
+				return str;
+			}
+
+
+
+
+}
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

@@ -59,7 +59,7 @@ pages[0].onmouseover=function(){
 	clearInterval(t);
 }
 pages[0].onmouseout=function(){
-	t=setInterval(move,3000);
+	t=setInterval(moveL,3000);
 }
 pages[1].onmouseover=function(){
 	clearInterval(t);
@@ -79,7 +79,7 @@ function move(){
 		nowp=0;
 	}
 	imgs[next].style.left=`${imgW}px`;
-
+console.log(imgs[next])
 	for(let j=0;j<points.length;j++){
 		points[j].style.background='#000';
 	}	

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态创建元素</title>
+	<style>
+		.circle{
+			width: 50px;
+			height: 50px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			background: #0085d0;
+			border-radius: 50%;
+			transition: all ease 500ms;
+
+		}
+	</style>
+</head>
+<body>
+	
+
+
+	<script>
+		window.onload=function(){
+			/*
+				页面随机（大小、颜色、位置）的插入20个元素
+			 */
+			
+			for(let i=0;i<50;i++){
+				let divs=document.createElement('div');
+				divs.className='circle';
+				/*位置随机*/
+				
+				let lefts=Math.floor((innerWidth-100)*Math.random());
+				let tops=Math.floor((innerHeight-100)*Math.random());
+
+				/*尺寸随机*/
+				let widths=Math.floor(Math.random()*70+30);
+				divs.style.width=`${widths}px`;
+				divs.style.height=`${widths}px`;
+
+				/*颜色随机*/
+				divs.style.background=color();
+
+				document.body.appendChild(divs);
+
+				setTimeout(function(){
+
+					
+					divs.style.transitionDelay=Math.random()*200+'ms';
+					// divs.style.transitionDelay=`${Math.random()*200}ms`;
+					//效果：让插入的元素延迟200ms出来
+				
+					// divs.style.transitionDelay=`${i*10}ms`;
+					//效果：让插入的元素依次延迟10ms出来
+					
+					divs.style.left=`${lefts}px`;
+					divs.style.top=`${tops}px`;
+				},5)
+			}
+
+			function color(){
+				let str='rgb(';
+				for(let i=0;i<3;i++){
+					let num=Math.floor(Math.random()*256)
+					str+=num+',';
+				}
+				str=str.slice(0,-1)+')';
+				return str;
+			}
+
+		}
+
+	</script>
+</body>
+</html>

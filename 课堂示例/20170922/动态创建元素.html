@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动态创建元素</title>
+	<style>
+		.box{
+			width: 500px;
+			height: auto;
+			background: blue;
+			padding: 10px;
+		}
+		.p{
+				width:150px;
+				height:200px;
+				background:red;
+				margin:10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<p ></p>
+		<h1></h1>
+		<span></span>
+	</div>
+	
+	<script>
+		window.onload=function(){
+			let divs=document.createElement('div');
+			// document.createElement(tagName)//动态添加元素，是一个document方法
+			
+			divs.style.width='300px';
+			divs.style.height='300px';
+			divs.style.background='green';
+			divs.style.margin='10px';
+			//添加样式（行内）
+
+			let box=document.querySelector('.box');//获取页面中已有的元素
+			box.appendChild(divs);
+			//插入到已经获得的元素
+			
+
+
+			let p=document.createElement('p');
+			// p.className='p';//通过className给样式
+			p.style.cssText=`
+				width:150px;
+				height:200px;
+				background:red;
+				margin:10px;
+			`
+			//通过cssText给样式，
+			//注意：会重写行内样式，即擦除之前写的行内样式，重新写新的行内样式
+			box.appendChild(p);
+
+
+			let h1=document.querySelector('h1');//插入的位置，是父元素的子元素
+			let span=document.createElement('span');//新建的要插入的元素
+			span.style.cssText=`
+				display:block;
+				width:150px;
+				height:20px;
+				background:yellow;
+				margin:10px;
+			`//元素的样式
+			box.insertBefore(span,h1);//在h1前面插入span,这两个均为box的子元素
+
+}
+	</script>
+</body>
+</html>

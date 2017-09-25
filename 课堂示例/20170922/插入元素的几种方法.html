@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>插入元素的几种方法</title>
+	<style>
+		.box{
+			width: 500px;
+			height: auto;
+			background: blue;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		我是box
+		<div class="son">
+			我是son
+			<h1>h1</h1>
+			<p>p1</p>
+		</div>
+	</div>
+	<script>
+		window.onload=function(){
+			let box=document.querySelector('.box');
+			let son=document.querySelector('.son');
+			let divs=document.createElement('div');
+			divs.style.cssText=`		
+				width: 300px;
+				height: 50px;
+				background: green;
+				padding: 10px;
+			`
+			// insertAfter(divs,son);//函数调用，添加divs在指定兄弟son后面
+			// son.insertAfter(divs);//方法调用，添加divs在指定兄弟son后面
+		
+			// prependChild(divs,box);//函数调用，在父元素box的最前面插入一个子元素divs
+			// box.prependChild(divs);//方法调用，在父元素box的最前面插入一个子元素divs
+		
+			// divs.appendTo(son);//方法调用,插入一个子元素divs在父元素son的最后面
+			// divs.prapentTo(son);//方法调用,插入一个子元素divs在父元素son的最前面
+
+
+			// box.empty();//方法调用，清空所有子元素、内容
+		
+
+
+		}
+		
+	</script>
+	<script>
+		/*
+			JS中只提供
+				appendChild()，在父元素最后插入一个子元素
+			和	insertBefore()，在父元素的某个子元素之前插入一个子元素
+			所以要自己模拟一些功能
+			也可以将它加入成一个方法
+		 */
+		
+		
+		 
+		 	// insertAfter
+		  
+			function insertAfter(element,position){//要插入的元素，要插入的位置
+				let next=position.nextElementSibling;
+				let parent=position.parentNode;
+				if(next){
+					parent.insertBefore(element,next)
+				}else{
+					parent.appendChild(element)
+				}
+			}//insertAfter函数,在兄弟元素后面插入一个元素
+			HTMLElement.prototype.insertAfter=function(element){
+				let parent=this.parentNode;
+				let next=this.nextElementSibling;
+				if(next){
+					parent.insertBefore(element,next);
+				}else{
+					parent.appendChild(element);
+				}
+			}//insertAfter方法,在兄弟元素后面插入一个元素
+
+
+
+			// prependChild
+			function prependChild(element,parent){
+				let first=parent.firstElementChild;
+				if(first){
+					parent.insertBefore(element,first);
+				}else{
+					parent.appendChild(element);
+				}
+			}//prependChild函数,在父元素的最前面插入一个子元素
+			HTMLElement.prototype.prependChild=function(element){
+				let first=this.firstElementChild;
+				if(first){
+					this.insertBefore(element,first);
+				}else{
+					this.appendChild(element);
+				}				
+			}//prependChild方法,在父元素的最前面插入一个子元素
+
+
+
+			// prapentTo
+			HTMLElement.prototype.prapentTo=function(element){
+				element.prependChild(this);
+			}//prapentTo方法,在父元素的最前面插入一个子元素
+
+			// appendTo
+			HTMLElement.prototype.appendTo=function(element){
+				element.appendChild(this);
+			}//appendTo方法,在父元素的最后面插入一个子元素
+
+
+			// empty
+			HTMLElement.prototype.empty=function(){
+				let child=this.childNodes;
+				for(let i=child.length-1;i>=0;i--){//从后面删除不会影响下标
+					this.removeChild(child[i]);
+					child[i]=null;
+				}//方法一：获取所有子元素，遍历删除
+			
+				// this.innerHTML='';//方法二：直接清空所有内容、子元素
+			}//清空所有子元素、内容
+
+			
+
+
+
+
+
+
+
+
+
+/*
+			此注释为当天老师整理的最近几天写的函数
+
+			扩展
+			parent.prependChild最前面插入
+			son.prapentTo最前面
+			son.appendTo最后面
+			element.insertAfter兄弟的后面
+			empty清空（删除了内容、子节点）
+
+			next
+			nextAll
+			closed
+*/
+
+		</script>
+	</body>
+</html>	
+			

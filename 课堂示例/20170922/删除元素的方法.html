@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>插入元素的几种方法</title>
+	<style>
+		.box{
+			width: 500px;
+			height: auto;
+			background: blue;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		我是box
+		<div class="son">
+			我是son
+			<h1>h1</h1>
+			<p>p1</p>
+		</div>
+	</div>
+
+	<script>
+		let box=document.querySelector('.box');
+		let son=document.querySelector('.son');
+		let h1=document.querySelector('h1');
+		let divs=document.createElement('div');
+
+/*		son.removeChild(h1);//只是在页面上删除，但是内存里还在
+		box.appendChild(h1);//证明只是在页面上删除
+		h1=null;//写上这个才能从内存中删除
+
+		box.replaceChild(divs,son);//divs把span替换掉*/
+
+		let clone=son.cloneNode()//只能复制节点，内容不能复制，子元素不能复制
+		box.appendChild(clone);
+		let clone1=son.cloneNode(true)//传true的话可以克隆内容和子元素，默认false
+		box.appendChild(clone1);
+
+/*
+
+			删除parent.removeChild(oldChild)
+			=null
+
+			替换parent.replaceChild(newChild, oldChild)
+
+			克隆element.cloneNode(deep)
+			false自己true连带子元素、内容
+ */
+
+	</script>
+	</body>
+</html>	
+			

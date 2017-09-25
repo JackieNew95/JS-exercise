@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义属性获取、onscroll</title>
+	<style>
+		*{
+			border: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.floor{
+			width: 1226px;
+			height: 600px;
+			border: 1px solid #dfdfdf;
+			margin: 0 auto;
+			margin-bottom: 20px;
+		}
+		.floor>img{
+			width: 200px;
+
+		}
+		aside{
+			width: 50px;
+			height: 250px;
+			position: fixed;
+			left: 0;
+			bottom: 100px;
+		}
+		aside>ul{
+			display: block;
+			width: 50px;
+			height: 250px;
+		}
+		aside>ul>li{
+			width: 50px;
+			height: 50px;
+			border: 1px solid #0086d0;
+			text-align: center;
+			line-height: 50px;
+			font-size: 20px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<div class="floor">
+		<img imgPath="img/liebiao(1).png" alt="">
+		<img imgPath="img/liebiao(2).png" alt="">
+		<img imgPath="img/liebiao(3).png" alt="">
+		<img imgPath="img/liebiao(4).png" alt="">
+		<img imgPath="img/liebiao(5).png" alt="">
+		<img imgPath="img/liebiao(6).png" alt="">
+		<img imgPath="img/liebiao(7).png" alt="">
+		<img imgPath="img/liebiao(8).png" alt="">
+		<img imgPath="img/liebiao(9).png" alt="">
+		<img imgPath="img/liebiao(10).png" alt="">
+	</div>
+	<div class="floor">
+		<img imgPath="img/liebiao(1).png" alt="">
+		<img imgPath="img/liebiao(2).png" alt="">
+		<img imgPath="img/liebiao(3).png" alt="">
+		<img imgPath="img/liebiao(4).png" alt="">
+		<img imgPath="img/liebiao(5).png" alt="">
+		<img imgPath="img/liebiao(6).png" alt="">
+		<img imgPath="img/liebiao(7).png" alt="">
+		<img imgPath="img/liebiao(8).png" alt="">
+		<img imgPath="img/liebiao(9).png" alt="">
+		<img imgPath="img/liebiao(10).png" alt="">
+	</div>
+	<div class="floor">
+		<img imgPath="img/liebiao(1).png" alt="">
+		<img imgPath="img/liebiao(2).png" alt="">
+		<img imgPath="img/liebiao(3).png" alt="">
+		<img imgPath="img/liebiao(4).png" alt="">
+		<img imgPath="img/liebiao(5).png" alt="">
+		<img imgPath="img/liebiao(6).png" alt="">
+		<img imgPath="img/liebiao(7).png" alt="">
+		<img imgPath="img/liebiao(8).png" alt="">
+		<img imgPath="img/liebiao(9).png" alt="">
+		<img imgPath="img/liebiao(10).png" alt="">
+	</div>
+	<div class="floor">
+		<img imgPath="img/liebiao(1).png" alt="">
+		<img imgPath="img/liebiao(2).png" alt="">
+		<img imgPath="img/liebiao(3).png" alt="">
+		<img imgPath="img/liebiao(4).png" alt="">
+		<img imgPath="img/liebiao(5).png" alt="">
+		<img imgPath="img/liebiao(6).png" alt="">
+		<img imgPath="img/liebiao(7).png" alt="">
+		<img imgPath="img/liebiao(8).png" alt="">
+		<img imgPath="img/liebiao(9).png" alt="">
+		<img imgPath="img/liebiao(10).png" alt="">
+	</div>
+	<div class="floor">
+		<img imgPath="img/liebiao(1).png" alt="">
+		<img imgPath="img/liebiao(2).png" alt="">
+		<img imgPath="img/liebiao(3).png" alt="">
+		<img imgPath="img/liebiao(4).png" alt="">
+		<img imgPath="img/liebiao(5).png" alt="">
+		<img imgPath="img/liebiao(6).png" alt="">
+		<img imgPath="img/liebiao(7).png" alt="">
+		<img imgPath="img/liebiao(8).png" alt="">
+		<img imgPath="img/liebiao(9).png" alt="">
+		<img imgPath="img/liebiao(10).png" alt="">
+	</div>
+
+	<aside>
+		<ul>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</aside>
+	
+	<script src="js/animate.js"></script>
+	<script>
+		/*
+			楼层出现
+			innerHeight+scrollTop>=offsetTop
+		 */
+		window.onload=function(){
+			let floors=document.querySelectorAll('.floor');
+			let floorArr=[];
+			let asides=document.querySelectorAll('aside>ul>li');
+			let colors=['skyblue','lightgreen','red','orange','yellow'];
+			let flag=true;
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+			floors.forEach((element)=>{			
+				floorArr.push(element.offsetTop);
+			})
+
+			window.onscroll=function(){
+				floorArr.forEach((value,index)=>{
+					let scrollTop=document.body.scrollTop;
+					if(innerHeight+scrollTop>=value+100){
+						let imgs=floors[index].getElementsByTagName('img');
+						for(let i=0;i<imgs.length;i++){
+							imgs[i].src=imgs[i].getAttribute('imgPath');
+						}
+
+						if(flag){
+							if(innerHeight+scrollTop>=floorArr[index]){
+								for(let i=0;i<asides.length;i++){
+									asides[i].style.background='none';
+								}
+								asides[index].style.background=colors[index];
+							}//滚动时左侧导航变换背景颜色
+						}//flag是为了消除点击与滚动的干扰
+					}
+
+				})//按需加载
+
+			}
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+			asides.forEach((element,index)=>{
+				element.onclick=()=>{
+					flag=false;
+					// document.body.scrollTop=floorArr[index];
+					animate(document.body,{scrollTop:floorArr[index]},()=>{flag=true});
+					for(let i=0;i<asides.length;i++){
+						asides[i].style.background='none';
+					}
+					asides[index].style.background=colors[index];
+				}//左导航变颜色
+			},)//按左侧导航滑动楼层
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+		}
+	</script>
+</body>
+</html>

@@ -52,10 +52,10 @@
 
 			console.log(next(son,'div'));//<div>div</div>
 
+			console.log(nextAll(son));// [p.son, h1, span, div]
 
-
-			console.log()
-
+			let span=document.querySelector('span');
+			console.log(parents(span));
 
 
 
@@ -109,10 +109,11 @@
 		}
 
 		/*
+			获取指定元素的后面指定的兄弟元素
 			element 兄弟
 			父元素->child->截取
 		 */
-		function next(element,tagname){
+/*		function next(element,tagname){
 			let parent=element.parentNode;
 			let child=parent.children;
 			let index=0;
@@ -129,13 +130,29 @@
 				}
 			}
 			return null;
-		}
+		}//方法一
+*/
+		function next(element,tagname){
+			let nextS=element.nextElementSibling;
+			if(nextS==null){
+				return null;
+			}
+			while(nextS.nodeName!=tagname.toUpperCase()){
+				nextS=nextS.nextElementSibling;
+				if(nextS==null){
+					return null;
+				}
+				if(nextS.nodeName==tagname.toUpperCase()){
+					return nextS;
+				}
+			}
+		}//方法二
 
 		/*
 			nextAll
 			
 		 */
-		function nextAll(){
+/*		function nextAll(element){
 			let parent=element.parentNode;
 			let child=parent.children;
 			let index=0;
@@ -145,7 +162,48 @@
 					break;
 				}
 			}
-			let nextAll=Array.from(child).slice(index+1);			
+			let nextAll=Array.from(child).slice(index+1);		
+			return nextAll;	
+		}//方法一
+*/
+		function nextAll(element){
+			let nextS=element.nextElementSibling;
+			let arr=[];
+			if(!nextS){
+				return null;
+			}
+			arr.push(nextS);
+			while(nextS!=null){
+				nextS=nextS.nextElementSibling;
+				if(nextS==null){
+					return arr;
+				}
+				arr.push(nextS);
+			}
+			return arr;
+		}//方法二
+
+		/*
+			找到所有父元素
+		 */
+		function parents(element){
+			if(element.nodeName=='BODY'||element.nodeName==null){
+				return;
+			}
+			let arr=[];
+			let parent=element.parentNode;
+			while(parent.nodeName!='BODY'){
+				arr.push(parent);
+				parent=parent.parentNode;
+			}
+			return arr;
+		}
+
+		/*
+			找到指定父元素
+		 */
+		function parents(element){
+			
 		}
 	</script>
 

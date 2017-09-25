@@ -2,7 +2,7 @@
 * @Author: zhangyanan
 * @Date:   2017-08-17 16:22:50
 * @Last Modified by:   user
-* @Last Modified time: 2017-09-21 11:44:11
+* @Last Modified time: 2017-09-25 13:59:36
 */
 @import url("base.css");
 header{
@@ -183,14 +183,13 @@ main{
 .banner .lunbo li{
 	width: 1226px;
 	height: 460px;
-	opacity: 0;
 	transition: 0.5s;
 	position: absolute;
 	top: 0;
-	left: 0;
+	left: 1126px;
 }
 .banner .lunbo li:first-child{
-	opacity: 1;
+	left: 0;
 }
 .banner-left,.banner-right{
 	width: 41px;
@@ -199,7 +198,6 @@ main{
 	margin-top: auto;
 	bottom: 0;
 	margin-bottom: auto;
-/* 	background: red; */
 	position: absolute;
 }
 .banner-left{
@@ -229,6 +227,7 @@ main{
 	border-radius: 50px;
 	border: 2px solid #58585c;
     background: rgba(22, 22, 27,0.5);
+    cursor: pointer;
     float: left;
     margin-right: 10px;
 }
@@ -439,26 +438,21 @@ main{
     position: relative;
     overflow: hidden;
 }
-.danz1{
-	width: 1226px;
+.tuijian{
+    width: 1246px;
+	left: -10px;
+    height: 359px;
+}
+.danz{
+	width: 4960px;
     height: 339px;
 	position: absolute;
     top: 0;
 	left: 0;
-	overflow: hidden;
+	transition: all ease 0.5s;
 }
-.danz2{
-	width: 1226px;
-    height: 339px;
-	position: absolute;
-    top: 0;
-	left: 0;
-	overflow: hidden;
-}
-/* .danz2,.dan1 img{
-    margin: 0 auto 22px;
-} */
-.danping .danping1,.danping .danping2,.danping .danping3,.danping .danping4,.danping .danping5,.danping .danping6,.danping .danping7{
+
+.danpin{
 	width: 234px;
 	height: 339px;
 	margin-right: 14px;
@@ -466,13 +460,25 @@ main{
 	float: left;
 	text-align: center;
 }
-.tuijian .danping1,.tuijian .danping2,.tuijian .danping3,.tuijian .danping4,.tuijian .danping5,.tuijian .danping6,.tuijian .danping7{
-	width: 234px;
+.danz:nth-of-type(1){
+	width: 5007px;
+    height: 359px;
+	position: absolute;
+    top: 0;
+	left: 0;
+	transition: all ease 0.5s;
+}
+
+.danz:nth-of-type(1) .danpin{
+	width: 230px;
 	height: 339px;
-	margin-right: 14px;
-	background: #fff;
+	margin: 10px;
+	background: #fafafa;
 	float: left;
 	text-align: center;
+}
+.danpin:last-child{
+	margin-right: 0;
 }
 .danping img,.tuijian img{
 	width: 160px;
@@ -481,24 +487,23 @@ main{
 	margin-left: 35px;
 	margin-top: 40px;
 }
-.danping .danping1{
+.danpin:nth-child(n){
 	border-top: 1px solid #ffac13;
 }
-.danping .danping2{
+.danpin:nth-child(2n){
 	border-top: 1px solid #83c44e;
 }
-.danping .danping3{
+.danpin:nth-child(3n){
 	border-top: 1px solid #2196f3;
 }
-.danping .danping4{
+.danpin:nth-child(4n){
 	border-top: 1px solid #e53935;
 }
-.danping .danping5{
-	margin-right: 0px;
+.danpin:nth-child(5n){
 	border-top: 1px solid #00c0a5;
 }
-.tuijian .danping5{
-	margin-right: 0px;
+.tuijian .danpin{
+	border-top: 0;
 }
 h3 .title{
 	font-weight: 400;

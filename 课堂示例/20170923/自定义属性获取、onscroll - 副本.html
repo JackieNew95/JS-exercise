@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义属性获取、onscroll</title>
+	<style>
+		.box{
+			width: 300px;
+			height: 500px;
+			background: blue;
+			overflow: scroll;
+		}
+		.son{
+			width: 500px;
+			height: 1000px;
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<div class="box" active='true'>
+		<div class="son"></div>
+	</div>
+	
+	<script>
+		window.onload=function(){
+			let box=document.querySelector('.box');
+
+			box.setAttribute('aa','bb');//添加一个属性aa=bb
+
+			box.getAttribute('active');//获取自定义属性
+			console.log(box.getAttribute('active'))
+
+
+			box.onscroll=function(){
+				console.log(box.scrollTop);//获取超出部分的高度
+				console.log(box.scrollLeft)//获取超出部分的宽度
+			}
+
+			// onscroll可以实现按需加载，滑动到哪儿加载那一部分，优化页面打开时间
+			// 多用图片精灵也可以减少加载时间
+		}
+	</script>
+</body>
+</html>

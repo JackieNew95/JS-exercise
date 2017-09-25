@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件</title>
+	<style>
+		.box{
+			width: 400px;
+			height: 400px;
+			background: skyblue;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+
+	<script>
+		let box =document.querySelector('.box');
+
+		// box.addEventListener('事件类型', '事件的处理函数', '布尔值（可传可不传，默认false）');//添加监听函数
+		// 监听函数可以同时在一个对象上添加多个相同的事件
+		box.addEventListener('click', function(){
+			this.style.background='lightgreen';
+		}, false)
+		box.addEventListener('click', function(){
+			this.style.borderRadius='50%';
+		}, false)
+		box.addEventListener('click',fn)
+		function fn(){
+			this.style.transform='scale(2,2)';
+		}
+
+		// box.removeEventListener('事件类型', '事件的处理函数', '布尔值（可传可不传，默认false）');//移除监听函数
+		
+		box.removeEventListener('click', fn, false);//删除了fn函数
+		box.removeEventListener('click', function(){
+			this.style.borderRadius='50%';
+		});//无效果，无法删除匿名函数，因为无法获取匿名函数的位置
+	
+
+		
+
+
+
+	</script>
+</body>
+</html>

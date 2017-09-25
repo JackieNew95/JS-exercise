@@ -74,51 +74,6 @@
 
 ![ct_htmltree](E:\优逸客培训\5JavaScript\JS-in-UEK\笔记\ct_htmltree.gif)
 
-##### 节点属性
-
-> 以下如果没有对应的元素，那么均返回null
-
-```js
-		obj.childNodes;//返回所有节点（包括空格会当成文本节点）
-		obj.children;//只返回元素节点
-
-		child[1].innerHTML='这是div的第一个子元素';//用下标访问某节点
-
-		obj.firstChild//与childNodes对应，获取第一个子节点
-		obj.lastChild//与childNodes对应，获取最后一个子节点
-
-		obj.firstElementChild//与children对应，获取第一个元素节点
-		obj.lastElementChild;//与children对应，获取最后一个元素节点
-
-		obj.parentNode//获取某一元素的父元素
-
-		obj.nextSibling//与first相邻的下一个兄弟节点
-		objfirst.nextElementSibling//与first相邻的下一个兄弟元素节点
-
-		obj.previousSibling//与first相邻的上一个兄弟节点
-		obj.previousElementSibling//与first相邻的上一个兄弟元素节点
-```
-
-##### 特征相关属性
-
-###### nodeName和nodeType
-
-`nodeName`属性返回节点的名称，`nodeType`属性返回节点类型的常数值。`Node.nodeValue`属性返回一个字符串，表示当前节点本身的文本值，该属性可读写。
-
-> 由于只有Text节点、Comment节点、XML文档的CDATA节点有文本值，因此只有这三类节点的`nodeValue`可以返回结果，其他类型的节点一律返回`null`。同样的，也只有这三类节点可以设置`nodeValue`属性的值。对于那些返回`null`的节点，设置`nodeValue`属性是无效的。
-
-具体的返回值见下表：
-
-| 类型                     | nodeName             | nodeType | nodeValue |
-| ---------------------- | -------------------- | -------- | --------- |
-| ELEMENT_NODE元素节点       | 大写的HTML元素名           | 1        | null      |
-| ATTRIBUTE_NODE         | 等同于Attr.name         | 2        |           |
-| TEXT_NODE文本节点          | #text                | 3        | 文本内容      |
-| COMMENT_NODE注释节点       | #comment             | 8        | 注释内容      |
-| DOCUMENT_NODE文档节点      | #document            | 9        | null      |
-| DOCUMENT_FRAGMENT_NODE | #document-fragment   | 11       |           |
-| DOCUMENT_TYPE_NODE     | 等同于DocumentType.name | 10       |           |
-
 ## JS的引入方式
 
 ### 	1、标签对
@@ -3303,9 +3258,10 @@ frames
 
 ## DOM(文档对象模型)
 
-document核心对象
+> document核心对象
+>
 
-### 属性
+### document属性
 
 ```js
 	document.title = '我可以修改标题';//设置或者获取文档的标题
@@ -3318,9 +3274,56 @@ document核心对象
 	document.links[];//links 集合可返回对文档中所有 Area 和 Link 对象的引用。
 ```
 
-### 节点查找方法
+### 节点
 
-#### document.getElementById('idname');
+#### 节点属性
+
+> 以下如果没有对应的元素，那么均返回null
+
+```js
+		obj.childNodes;//返回所有节点（包括空格会当成文本节点）
+		obj.children;//只返回元素节点
+
+		child[1].innerHTML='这是div的第一个子元素';//用下标访问某节点
+
+		obj.firstChild//与childNodes对应，获取第一个子节点
+		obj.lastChild//与childNodes对应，获取最后一个子节点
+
+		obj.firstElementChild//与children对应，获取第一个元素节点
+		obj.lastElementChild;//与children对应，获取最后一个元素节点
+
+		obj.parentNode//获取某一元素的父元素
+
+		obj.nextSibling//与first相邻的下一个兄弟节点
+		objfirst.nextElementSibling//与first相邻的下一个兄弟元素节点
+
+		obj.previousSibling//与first相邻的上一个兄弟节点
+		obj.previousElementSibling//与first相邻的上一个兄弟元素节点
+```
+
+#### 特征相关属性
+
+##### nodeName、nodeType和nodeValue
+
+`nodeName`属性返回节点的名称，`nodeType`属性返回节点类型的常数值。`Node.nodeValue`属性返回一个字符串，表示当前节点本身的文本值，该属性可读写。
+
+> 由于只有Text节点、Comment节点、XML文档的CDATA节点有文本值，因此只有这三类节点的`nodeValue`可以返回结果，其他类型的节点一律返回`null`。同样的，也只有这三类节点可以设置`nodeValue`属性的值。对于那些返回`null`的节点，设置`nodeValue`属性是无效的。
+
+具体的返回值见下表：
+
+| 类型                     | nodeName             | nodeType | nodeValue |
+| ---------------------- | -------------------- | -------- | --------- |
+| ELEMENT_NODE元素节点       | 大写的HTML元素名           | 1        | null      |
+| ATTRIBUTE_NODE         | 等同于Attr.name         | 2        |           |
+| TEXT_NODE文本节点          | #text                | 3        | 文本内容      |
+| COMMENT_NODE注释节点       | #comment             | 8        | 注释内容      |
+| DOCUMENT_NODE文档节点      | #document            | 9        | null      |
+| DOCUMENT_FRAGMENT_NODE | #document-fragment   | 11       |           |
+| DOCUMENT_TYPE_NODE     | 等同于DocumentType.name | 10       |           |
+
+#### 节点查找方法
+
+##### getElementById('idname');
 
 > 获取拥有指定id的第一个元素
 >
@@ -3332,7 +3335,7 @@ document核心对象
 	box.style.height = '200px';
 ```
 
-#### document.getElementsByTagName('tagname');
+##### getElementsByTagName('tagname');
 
 > 通过标签名获取指定标签名的元素集合，通过下标方式操作元素
 >
@@ -3352,7 +3355,7 @@ document核心对象
 	}//给所有元素设置样式时需要遍历，注意下标不要越界
 ```
 
-#### document.getElementsByClassName('classname');
+##### getElementsByClassName('classname');
 
 > 通过类名获取指定类名的元素集合，通过下标方式操作元素
 >
@@ -3363,7 +3366,7 @@ document核心对象
 	box[2].style.background = '#932294';
 ```
 
-#### document.querySelector('selectorname')
+##### querySelector('selectorname')
 
 > `document.querySelector`方法接受一个CSS选择器作为参数，返回匹配该选择器的元素节点。如果有多个节点满足匹配条件，则返回第一个匹配的节点。如果没有发现匹配的节点，则返回`null`。
 
@@ -3372,7 +3375,7 @@ document核心对象
 	document.querySelector('div:first-child');//获取以第一个子元素形式出现的div
 ```
 
-#### document.querySelectorAll('selectorname')
+##### querySelectorAll('selectorname')
 
 > `document.querySelectorAll`方法与`querySelector`用法类似，区别是返回一个`NodeList`对象，包含所有匹配给定选择器的节点，使用时要加下标。
 >
@@ -3414,6 +3417,82 @@ document.querySelectorAll('DIV, A, SCRIPT');
 
 - 这两个方法除了定义在`document`对象上，还定义在元素节点上，即在元素节点上也可以调用。
 
+#### 元素节点的操作
+
+##### 创建元素节点
+
+###### createElement()
+
+> `document.createElement`方法用来生成网页元素节点。
+>
+> `createElement`方法的参数为元素的标签名，即元素节点的`tagName`属性，对于 HTML 网页大小写不敏感。如果参数里面包含尖括号（即`<`和`>`）会报错。
+
+```
+var newDiv = document.createElement('div');//动态添加元素，是一个document方法
+```
+
+##### 插入节点
+
+###### appendChild()
+
+> parent.appendChild(son) 方法向节点添加最后一个子节点。
+
+```js
+let box=document.querySelector('.box');//获取页面中已有的元素,父元素
+let divs=document.createElement('div');//创建一个元素
+box.appendChild(divs);//将创建的元素作为了父元素的最后一个子节点
+```
+
+###### insertBefore()
+
+> parent.insertBefore(element.position) 方法在您指定的已有子节点之前插入新的子节点。
+
+```js
+let box=document.querySelector('.box');//获取页面中已有的元素,父元素
+let h1=document.querySelector('h1');//插入的位置，是父元素的子元素
+let span=document.createElement('span');//新建的要插入的元素
+span.style.cssText=`
+	display:block;
+	width:150px;
+	height:20px;
+	background:yellow;
+	margin:10px;
+`//元素的样式
+box.insertBefore(span,h1);//在h1前面插入span,这两个均为box的子元素
+```
+
+##### 删除节点
+
+###### removeChild
+
+> parent.removeChild(oldChild)
+
+```js
+son.removeChild(h1);//只是在页面上删除，但是内存里还在
+h1=null;//写上这个才能从内存中删除
+```
+
+##### 替换节点
+
+###### replaceChild
+
+> parent.replaceChild(newChild, oldChild)
+
+```js
+box.replaceChild(divs,son);//divs把span替换掉*/
+```
+
+##### 克隆节点
+
+###### cloneNode
+
+> element.cloneNode(deep)
+
+```js
+son.cloneNode()//只能复制节点，内容不能复制，子元素不能复制
+son.cloneNode(true)//传true的话可以克隆内容和子元素，默认false
+```
+
 ### 获取元素
 
 #### 获取所有元素
@@ -3432,7 +3511,7 @@ document.querySelectorAll('DIV, A, SCRIPT');
 	let lis=btn[0].getElementsByTagName('li');//再在其下获取目标，找到目标元素
 ```
 
-#### 获取内容
+#### 获取元素内容
 
 ```js
 	let divs=document.getElementsByTagName('div');
@@ -3441,9 +3520,7 @@ document.querySelectorAll('DIV, A, SCRIPT');
 	divs[0].innerHTML='<h2>我是innerHTML+h2修改后的<h2>';//获取或设置元素内容，识别标签对
 ```
 
-### 获取元素尺寸
-
-#### 元素的宽高
+#### 获取元素尺寸
 
 ```js
 let box = document.getElementsByClassName('box')[0];
@@ -3507,49 +3584,9 @@ console.log(box.offsetTop)
 </html>
 ```
 
-### 修改元素
+#### 获取样式
 
-#### 属性
-
-> 直接通过对象名.属性名进行修改		obj.attr
-
-```js
-	let box=document.getElementsByTagName('div');
-
-	box[0].id='one';//改变id名
-	console.log(box[0].className);//获取类名
-	box[0].className='two';//修改类名，注意此处不能直接写class，而要写className
-
-	let img=document.getElementsByTagName('img');
-	img[0].src='lujing.png';//设置图片路径
-	img[0].title='lujing';//设置图片标题
-```
-
-#### 样式
-
-##### 批量修改样式
-
-> 通过类名或id名实现批量修改元素样式	className	id
-
-```js
-	let btn=document.getElementsByClassName('btn');
-	let lis=btn[0].getElementsByTagName('li');
-	for(let i=0;i<lis.length;i++){
-		lis[i].className='btn-now';
-	}//通过添加类名批量改变某元素的样式
-```
-
-##### 行内样式
-
-> 直接用对象名.style.属性名=值进行修改	obj.style.attr=value
-
-```js
-box.style.background='#645221';
-```
-
-### 获取样式
-
-#### 获取行内样式
+##### 获取行内样式
 
 obj.style.attr（只能获取到行内样式）
 
@@ -3560,7 +3597,7 @@ box.style.background='yellow';// box[1].style.borderRadius='50%';//属性名中�
 box.style['border-radius']='50%';
 ```
 
-#### 获取样式表样式
+##### 获取样式表样式
 
 getComputedStyle(对象名,null);只能获取，不能设置
 
@@ -3676,6 +3713,64 @@ getComputedStyle(对象名,null);只能获取，不能设置
 </script>
 ```
 
+### 修改元素
+
+#### 修改属性
+
+> 直接通过对象名.属性名进行修改		obj.attr
+
+```js
+	let box=document.getElementsByTagName('div');
+
+	box[0].id='one';//改变id名
+	console.log(box[0].className);//获取类名
+	box[0].className='two';//修改类名，注意此处不能直接写class，而要写className
+
+	let img=document.getElementsByTagName('img');
+	img[0].src='lujing.png';//设置图片路径
+	img[0].title='lujing';//设置图片标题
+```
+
+#### 修改样式
+
+##### 通过修改className
+
+> 通过类名或id名实现批量修改元素样式	className	id
+
+```js
+	let btn=document.getElementsByClassName('btn');
+	let lis=btn[0].getElementsByTagName('li');
+	for(let i=0;i<lis.length;i++){
+		lis[i].className='btn-now';
+	}//通过添加类名批量改变某元素的样式
+```
+
+##### obj.style.attr
+
+> 直接用对象名.style.属性名=值进行修改	obj.style.attr=value
+>
+> 这种方法添加的是行内样式
+
+```js
+box.style.background='#645221';
+```
+
+##### obj.style.cssText
+
+> 通过cssText给样式，
+> 注意：会重写行内样式，即擦除之前写的行内样式(obj.style.attr)，重新写新的行内样式
+
+```js
+			p.style.cssText=`
+				width:150px;
+				height:200px;
+				background:red;
+				margin:10px;
+			`
+			//通过cssText给样式，
+			//注意：会重写行内样式，即擦除之前写的行内样式，重新写新的行内样式
+```
+
 
 
 ### 事件驱动
@@ -3752,9 +3847,8 @@ load资源加载完毕后，写上这个之后可以把JS代码写在页面的�
 >
 > 2、如何解决var不能用在JS中
 >
-> 3、banner和指示点的JS关联
+> 3、banner和指示点的JS关联等
 >
-> 等
 
 ### 兼容性问题解决
 
@@ -3773,6 +3867,101 @@ load资源加载完毕后，写上这个之后可以把JS代码写在页面的�
 参见20170921的“小广告（对象方式）”
 
 
+
+## 事件详解
+
+### 事件绑定方式
+
+#### 一般的绑定方式
+
+##### js脚本
+
+```js
+obj.onclick=function(){}
+```
+
+##### 行内样式
+
+#### 监听函数
+
+> 可以同时在一个对象上添加多个相同的事件
+
+`box.addEventListener('事件类型', '事件的处理函数', '布尔值（可传可不传，默认false）');`
+
+```js
+let box =document.querySelector('.box');
+// box.addEventListener('事件类型', '事件的处理函数', '布尔值(可传可不传，默认false)');//添加监听函数
+// 监听函数可以同时在一个对象上添加多个相同的事件
+box.addEventListener('click', function(){
+	this.style.background='lightgreen';
+}, false)
+	box.addEventListener('click', function(){
+	this.style.borderRadius='50%';
+}, false)
+```
+
+### 删除事件
+
+#### 一般事件
+
+```json
+delete obj.onclick;//这种方法不推荐，因为会把这个属性删除了，之后再用就没有了
+obj.onclick=null;//推荐使用，这个是把该事件置空，但不会删除属性
+```
+
+#### 监听函数
+
+`box.removeEventListener('事件类型', '事件的处理函数', '布尔值（可传可不传，默认false）');`
+
+```js
+		//接上代码
+box.removeEventListener('click', fn, false);//删除了fn函数
+box.removeEventListener('click', function(){
+	this.style.borderRadius='50%';
+});//无效果，无法删除匿名函数，因为无法获取匿名函数的位置
+```
+
+### 事件对象
+
+> 记录当事件触发时，与事件相关的详细信息。
+>
+> 事件发生时自动创建，只能在事件处理函数内部调用，当事件结束时自动销毁。
+
+#### 获取事件对象
+
+> 在事件处理函数中传一个参数，它即代表事件处理函数
+>
+> 只在作为事件函数时，这个参数才代表事件对象
+
+```js
+			box.addEventListener('mousemove', 
+				function(e){
+					this.style.background='lightgreen';
+					console.log(e);//e就是事件函数
+				}, false)
+```
+
+#### 属性
+
+相对于浏览器的位置
+
+- clientX
+- clientY
+
+相对于页面(文档)的位置
+
+- pageX
+- pageY
+
+相对于事件源的位置
+
+- offsetX
+- offsetY
+
+相对于屏幕的位置
+
+- screenX
+- screenY
 
 
 
