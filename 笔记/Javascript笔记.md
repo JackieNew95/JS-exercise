@@ -3733,7 +3733,15 @@ getComputedStyle(对象名,null);只能获取，不能设置
 
 #### 修改样式
 
-##### 通过修改className
+##### classList
+
+```js
+obj.classList.add('.box');//向obj添加box类
+obj.classList.remove('.box');//向obj移除box类
+obj.classList.toggle('.box');//向obj添加/删除box类，（开关）
+```
+
+##### className
 
 > 通过类名或id名实现批量修改元素样式	className	id
 
@@ -3815,11 +3823,36 @@ mousemove
 
 ##### 键盘
 
+> key返回按下的键，keyCode返回所按的键盘码，但是不区分大小写，键盘码为大写的值
+>
+> shift、ctrl、alt可以直接写shiftkey\ctrlkey\altkey访问
+>
+> 用&&判断两个键按下
+
 keydown
 
 keyup
 
 keypress
+
+```
+let input =document.querySelector('input');
+	input.addEventListener('keydown', function(e){// 同样可以通过e可访问对象
+	console.log(e.key,e.keyCode);
+	// key返回按下的键，keyCode返回所按得键盘码，但是不区分大小写，键盘码为大写的值
+}, false)
+```
+
+###### 常用键值
+
+- Enter13
+- Control 17
+- Shift 16
+- Alt 18
+- ArrowLeft 37
+- ArrowUp 38
+- ArrowRight 39
+- ArrowDown 40
 
 ##### 表单
 
@@ -3962,6 +3995,124 @@ box.removeEventListener('click', function(){
 
 - screenX
 - screenY
+
+
+### 事件流
+
+> 当页面中某一个元素的事件触发时，本身以及其父辈元素都会响应该事件（相同事件），并按照某一特定顺序去传播。该传播的顺序（执行顺序），称为事件流
+
+#### 事件流的类型
+
+##### 冒泡型事件流
+
+由一个明确的事件源到最不明确的事件源（从下到上），所有浏览器支持
+
+- 通过on绑定的事件
+- 监听绑定的事件addEventListener(false)
+
+##### 捕获型事件流
+
+由一个最不明确的事件源到最明确的事件源（从上到下），低版本可能不支持
+
+- 监听绑定的事件addEventListener(true)
+
+
+IE兼容：
+
+ie低版本不支持addEventListener，只有冒泡型事件流，没有捕获型的，它的事件写法如下：
+
+
+		box.attachEvent('onclick', function(){//绑定该事件，注意写法
+			console.log(1);
+		})
+		son.attachEvent('onclick', fn)
+			function fn(){
+				console.log(2);
+			}
+		son.detachEvent('onclick', fn)//删除该事件
+#### 事件流的属性
+
+`e.stopPropagation();`//可以阻止事件流,自己还发生，但不向上传播了
+
+`e.target;`//真正的事件源，可以获得到底是谁触发的事件
+
+`e.currentTarget;`//返回真正绑定该事件的对象
+
+#### 事件委派
+
+> 将子元素的事件写在**父辈**元素上
+
+一般有两种情况：
+
+1、页面中有大量重复元素添加相同的事件
+
+2、页面中的元素是JS动态创建的
+
+优点：简化算法，提升效率和减少CPU负担
+
+## 本地存储
+
+### cookies
+
+Cookie 是服务器保存在浏览器的一小段文本信息，每个 Cookie 的大小一般不能超过4KB。浏览器每次向服务器发出请求，就会自动附上这段信息。
+
+Cookie 保存以下几方面的信息。
+
+- Cookie的名字
+- Cookie的值
+- 到期时间
+- 所属域名（默认是当前域名）
+- 生效的路径（默认是当前网址）
+
+### local storage
+
+> 永久性的存储，不手动删除就会永远存储下来，关闭浏览器也在，同一域名的页面间可以共享
+
+```js
+		localStorage.setItem('name','zhangsan');
+        localStorage.setItem('age','18');
+        localStorage.sex='nan'
+        localStorage.sex='nv';//直接覆盖上一条
+        //用来设置一条信息
+
+        console.log(localStorage.getItem('name'));
+        console.log(localStorage.age);
+        //获得属性
+
+        localStorage.removeItem('sex');
+        console.log(localStorage.sex);
+        //移除属性
+
+        localStorage.clear();
+        //清除所有历史记录
+```
+
+### session storage
+
+> 会话存储，浏览器关闭之后就没了，页面间无法共享，只能在本窗口使用
+
+使用方法与local stroage一样
+
+### 数组、Json对象的存储
+
+```js
+       let student=[
+            {name:'张三',sex:'男',age:20,tel:1234789640},
+            {name:'张三',sex:'男',age:20,tel:1234789640},
+        ]
+        localStorage.setItem('student',JSON.stringify(student));
+        //JSON.stringify()将数组、json的对象转化为字符串，而且会把json里的'转换为"
+
+        let result=JSON.parse(localStorage.getItem('student'));
+        //JSON.parse()将字符串转换成json对象，如果之前是'可能会报错，所以最好和JSON.stringify()配合使用
+```
+
+
+
+
+
+
+
 
 
 

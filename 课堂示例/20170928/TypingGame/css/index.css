@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding:0;
+    list-style: none;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+body{
+    overflow: hidden;
+}
+.letter{
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    line-height:80px;
+    background: #dfdfdf;
+    border-radius: 5px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.life{
+    width: 100px;
+    height: 40px;
+    background: #e80606;
+    color: #ffffff;
+    line-height: 40px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.score{
+    width: 100px;
+    height: 40px;
+    background:#00ff00;
+    color: #ffffff;
+    line-height: 40px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    right: 100px;
+}

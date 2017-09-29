@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>棋盘</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		ul{
+			width: 1000px;
+			height: 1000px;
+			background: #000;
+			border-right: 1px solid #666;
+			border-bottom: 1px solid #666;
+			margin: 0 auto;
+		}
+		li{
+			width: 50px;
+			height: 50px;
+			border: 1px solid #666;
+			border-right: none;
+			border-bottom: none;
+			float: left;
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+<body>
+	<ul></ul>
+
+	<script>
+		window.onload=function(){
+			let ul=document.querySelector('ul');
+			for(let i=0;i<400;i++){
+				let lis=document.createElement('li');
+				ul.appendChild(lis);
+			}
+			ul.onclick=function(e){
+				if(e.target.nodeName=='LI'){
+					e.target.style.background='orange';
+				}
+			}
+		}
+	</script>
+</body>
+</html>

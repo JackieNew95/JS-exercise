@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>本地存储</title>
+</head>
+<body>
+
+
+    <script>
+        /*
+        * local storage
+        * setItem()
+        * getItem()
+        * removeItem()
+        * clear()
+        * */
+/*
+        console.log(localStorage)
+
+        localStorage.setItem('name','zhangsan');
+        localStorage.setItem('age','18');
+        localStorage.sex='nan'
+        localStorage.sex='nv';//直接覆盖上一条
+        //用来设置一条信息
+
+        console.log(localStorage.getItem('name'));
+        console.log(localStorage.age);
+        //获得属性
+
+        localStorage.removeItem('sex');
+        console.log(localStorage.sex);
+        //移除属性
+
+        localStorage.clear();
+        //清除所有历史记录
+
+        */
+
+/*
+        //sessionStroage用法与localStorage用法相同
+        sessionStorage.name='zhangsan';
+        sessionStorage.setItem('age','22');
+*/
+
+        let student=[
+            {name:'张三',sex:'男',age:20,tel:1234789640},
+            {name:'张三',sex:'男',age:20,tel:1234789640},
+            {name:'李四',sex:'男',age:20,tel:1234789640},
+            {name:'王五',sex:'男',age:20,tel:1234789640},
+            {name:'赵六',sex:'男',age:20,tel:1234789640}
+        ]
+
+        localStorage.setItem('student',JSON.stringify(student));
+        //JSON.stringify()将数组、json的对象转化为字符串，而且会把json里的'转换为"
+
+        let result=JSON.parse(localStorage.getItem('student'));
+        //JSON.parse()将字符串转换成json对象，如果之前是'可能会报错，所以最好和JSON.stringify()配合使用
+
+        console.log(result);
+
+    </script>
+</body>
+</html>

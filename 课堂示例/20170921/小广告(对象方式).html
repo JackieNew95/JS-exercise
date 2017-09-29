@@ -62,7 +62,8 @@
 		Float.prototype.move=function(){
 
 
-			let that=this;//为了能让setInterval里也能访问到当前对象,不想用这句的话把下面写成箭头函数就行了
+			let that=this;
+			//为了能让setInterval里也能访问到当前对象,不想用这句的话把下面写成箭头函数就行了
 
 			this.t=setInterval(function(){//this.t让t成为一个属性，使其在其他方法中也能访问
 				that.resize();//获取当前活动范围

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件流</title>
+	<style>
+		#box{
+			width: 400px;
+			height: 400px;
+			background: skyblue;
+			margin: 10px;
+			padding: 20px;
+		}
+		#son{
+			width: 200px;
+			height: 200px;
+			background: red;
+		}
+		#bro{
+			width: 200px;
+			height: 200px;
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="son"></div>
+		<div id="bro"></div>
+	</div>
+
+	<script>
+		window.addEventListener('load',function(){
+/*			let box =document.querySelector('#box');
+			let son =document.querySelector('#son');
+			let bro =document.querySelector('#bro');
+			box.addEventListener('click', function(e){
+					this.style.background='lightgreen';
+					console.log('box');
+			}, false)	
+			son.addEventListener('click', function(e){
+
+
+				e.stopPropagation();//可以阻止事件流,自己还发生，但不向上传播了
+
+
+					this.style.background='yellow';
+					console.log('son');
+			}, false)		
+			bro.addEventListener('click', function(e){
+
+
+					console.log(e.target);//真正的事件源，可以获得到底是谁触发的事件
+					console.log(e.currentTarget);//返回真正绑定该事件的对象
+
+
+					this.style.background='orange';
+					console.log('bro');
+			}, false)			
+		// 以上适用高版本浏览器
+*/
+
+		// ie低版本不支持addEventListener，只有冒泡型事件流，没有捕获型的，
+		// 写法如下：
+		
+		var box = document.getElementById('box');
+		var son = document.getElementById('son');
+		box.attachEvent('onclick', function(){
+			console.log('box')
+		})
+		son.attachEvent('onclick', fn);
+		function fn(){
+			console.log('son')
+		}
+
+		son.detachEvent('onclick', fn)
+
+	})
+	
+
+	</script>
+</body>
+</html>

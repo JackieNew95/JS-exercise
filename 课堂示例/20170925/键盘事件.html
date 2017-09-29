@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>键盘事件</title>
+	<style>
+		input{
+			width: 300px;
+			height: 200px;
+		}
+
+	</style>
+</head>
+<body>
+	<input type="" name="">
+
+	<script>
+		window.addEventListener('load',function(){
+			let input =document.querySelector('input');
+			input.addEventListener('keydown', function(e){// 同样可以通过e可访问对象
+				console.log(e.key,e.keyCode);
+				// key返回按下的键，keyCode返回所按得键盘码，但是不区分大小写，键盘码为大写的值
+			}, false)			
+		})
+	
+	// 
+
+
+// Control 17
+// Shift 16
+// Process 229
+// ArrowUp 38
+// ArrowRight 39
+// ArrowDown 40
+// ArrowLeft 37
+// Alt 18
+// 上面三个键可以直接写shiftkey\ctrlkey\altkey
+
+// 判断两个键按下，用&&判断
+
+
+
+
+	</script>
+
+</body>
+</html>
+
+
+
+
+

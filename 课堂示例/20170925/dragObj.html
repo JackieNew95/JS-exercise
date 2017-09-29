@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>对任意元素拖拽</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.box{
+			width: 200px;
+			height: 200px;
+			background: skyblue;
+			position: absolute;
+			left: 0;top: 0;
+		}
+		.son{
+			width: 200px;
+			height: 200px;
+			background: lightgreen;
+			position: absolute;
+			left: 100px;top: 100px;			
+		}
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<div class="son"></div>
+
+	<script>
+		window.addEventListener('load',function(){
+			/*
+				属性：
+					谁：this.obj;
+						可写可不写的属性：
+					是否可以在X方向拖拽
+					是否可以在Y方向拖拽
+					X轴范围
+					Y轴范围
+				方法：
+					拖拽move
+			 */
+			let box=document.querySelector('.box');
+			let son=document.querySelector('.son');
+			let boxs=new Drag(box);
+			let sons=new Drag(son);
+
+			boxs.move();
+			sons.move();
+			
+		})
+	</script>
+	<script>
+		class Drag{
+			constructor(obj){
+				this.obj=obj;
+			};
+
+			// 不放在constructor里就是公共方法
+			move(){
+				let that=this;
+				this.obj.addEventListener('mousedown',function(e){
+					let ox=e.offsetX;
+					let oy=e.offsetY;
+	
+					document.addEventListener('mousemove',fn);
+	
+					that.obj.addEventListener('mouseup',function(){
+						document.removeEventListener('mousemove',fn);
+					})
+	
+					function fn(e){
+						let lefts=e.clientX-ox+'px';
+						let tops=e.clientY-oy+'px';
+						that.obj.style.left=lefts;
+						that.obj.style.top=tops;
+					}
+				});
+
+			};
+
+		}
+	</script>
+</body>
+</html>
