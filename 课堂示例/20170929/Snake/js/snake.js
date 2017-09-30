@@ -63,6 +63,7 @@ Snake.prototype={
                 clearInterval(this.t);
                 return ;
             }
+            
             let oldtail=this.snake.shift();
             delete this.flag[oldtail];
             document.getElementById(oldtail).classList.remove('snake');

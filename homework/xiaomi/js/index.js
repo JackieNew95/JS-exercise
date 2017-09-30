@@ -27,7 +27,7 @@ window.onload = function() {
         clearInterval(t);
     };
     pageUp.onmouseout = function () {
-        t = setInterval(move, 3000);
+        t = setInterval(moveL, 3000);
     };
     pageDown.onmouseover = function () {
         clearInterval(t);
@@ -61,10 +61,10 @@ window.onload = function() {
         if (next < 0) {
             next = imgs.length - 1;
         }
-        imgs[next].style.left = `${imgW}px`;
+        imgs[next].style.left = `${-imgW}px`;
         points[now].style.background = 'rgba(22, 22, 27,0.5)';
         points[next].style.background = 'rgba(124, 124, 129,0.5)';
-        animate(imgs[now], {left: -imgW});
+        animate(imgs[now], {left: imgW});
         animate(imgs[next], {left: 0}, function () {
             flag = true;
         });
