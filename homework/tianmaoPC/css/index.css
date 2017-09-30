@@ -11,6 +11,51 @@ body{
 	position: relative;
 	left: -15px;
 }
+/*固定搜索框*/
+.topsearch{
+	width: 100%;
+	height: 50px;
+	background: rgba(255, 0, 0, 0.7);
+	position: fixed;
+	top: -50px;
+	left: 0;
+	z-index: 999;
+	transition: 0.5s;
+}
+.topsearch>img{
+	display: block;
+	width: 125px;
+	height: 20px;
+	margin-top: 15px;
+	margin-left: 45px;
+}
+.topsearch>.search{
+	width: 754px;
+	height: 30px;
+	border: 2px solid #ff0036;
+	position: absolute;
+	left: 0;right: 0;bottom: 5px ;top: 0;
+	margin: auto auto;
+}
+.topsearch>.search input{
+	width: 650px;
+	height: 30px;
+	font-size: 14px;
+	line-height: 36px;
+	float: left;
+	padding-left: 8px;
+}
+.topsearch>.search input:last-child{
+	width: 100px;
+	height: 30px;
+	font-size: 18px;
+	line-height: 30px;
+	float: right;
+	background: #ff0036;
+	color: #fff;
+	cursor: pointer;
+	margin-left: 0;
+}
 
 /* 头部 */
 header{
@@ -1010,7 +1055,7 @@ aside>ul>.asideli .item{
 	height: 100%;
 	background: #000000;
 	position: fixed;
-	z-index: 110;
+	z-index: 1110;
 	right: 0;
 	top: 0;
 }
@@ -1023,7 +1068,7 @@ aside>ul>.asideli .item{
 	align-content: space-between;
 	justify-content: center;
 }
-.aside-right-top i{
+.aside-right-top .icon-tianmao01{
 	display: block;
 	width: 35px;
 	height: 35px;
@@ -1031,6 +1076,28 @@ aside>ul>.asideli .item{
 	font-size: 24px;
 	line-height: 35px;
 	text-align: center;
+	position: relative;
+}
+.right-tips{
+	width: 100px;
+	height: 35px;
+	background: #404040;
+	font-size: 14px;
+	position: absolute;
+	top: 0;
+	right: 40px;
+	display:none;
+}
+.right-tips:after{
+	content: '';
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	z-index: -1;
+	top: 8px;
+	right: -2px;
+	background: #404040;
+	transform: rotate(45deg);
 }
 .aside-right-top span{
 	display: block;
@@ -1088,6 +1155,7 @@ aside>ul>.asideli .item{
 	margin-bottom: 8px;
 	text-align: center;
 	line-height: 35px;
+	position: relative;
 }
 .aside-right-bottom{
 	width: 100%;
@@ -1099,13 +1167,23 @@ aside>ul>.asideli .item{
 	height: 35px;
 	text-align: center;
 	line-height: 35px;
+	position: relative;
+	color: #FFFFFF;
 }
 .aside-right-bottom>div:last-child{
 	opacity: 0;
     transition: 0.3s;
 }
-
-.aside-right-top i:hover,.aside-right-top-1:hover,.aside-right-top li:hover,.aside-right-bottom div:hover{
+.aside-right-bottom>div:last-child a{
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top:0;
+	z-index: 1;
+}
+.aside-right-top .icon-tianmao01:hover,.aside-right-top-1:hover,.aside-right-top li:hover,.aside-right-bottom>div:hover{
 	background: #FF0036;
 }
 .aside-right-top-1:hover .icon-right-gouwuche1{
@@ -1118,9 +1196,10 @@ aside>ul>.asideli .item{
 	width: 36px;
 	height: 329px;
 	position: fixed;
-	left: 0;bottom: 50px;
+	left: -36px;bottom: 50px;
 	background:#626262;
 	z-index: 999;
+	transition: 0.5s;
 }
 .aside-left ul{
 	width: 100%;
@@ -1184,4 +1263,27 @@ aside>ul>.asideli .item{
 }
 .aside-left li:nth-child(8):hover{
 	background: #000000;
+}
+
+.erweima{
+	width: 154px;
+	height: 207px;
+	position: absolute;
+	right: 35px;
+	bottom: -20px;
+	background-image: url("../img/erweimakuang.png");
+	display: none;
+}
+.icon-erweima:hover .erweima{
+	display: block;
+}
+.erweima>img{
+	width: 100px;
+	height: 100px;
+	margin-top: 45px;
+}
+.erweima>img:last-child{
+	width: 135px;
+	height: 45px;
+	margin-top: 0;
 }

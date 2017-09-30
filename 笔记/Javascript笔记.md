@@ -3891,15 +3891,59 @@ load资源加载完毕后，写上这个之后可以把JS代码写在页面的�
 
 参见20170918-20170920中的练习以及作业中天猫、小米的效果
 
-### this的指向
+### this的指向和代替
 
-参见20170920的“this的指向问题”
+> 参见20170920的“this的指向问题”
+
+#### 指向
+
+- 一般函数谁调用，this就指向谁
+- 箭头函数没有this，所以谁定义就指向谁
+
+```js
+	/* 一般函数谁调用，this就指向谁
+
+		箭头函数没有this，所以谁定义就指向谁3、lisi4、lisi */
+		function Person(){
+			this.name='person';
+			this.age=16;
+			this.say=function(){
+				console.log(this);//指向zhangsan，谁调用，this就指向谁
+				fn();
+				function fn(){
+					console.log(this);//指向window，谁调用，this就指向谁
+				}
+			}
+			this.study=function(){
+				console.log(this);//指向zhangsan，谁调用，this就指向谁
+				let fn =()=>{console.log(this);};//指向zhangsan，箭头函数没有this，谁定义就指向谁
+				fn();
+			}
+		}
+		function Student(){
+			this.classes='WUIF1707-1';
+			this.num='170701';
+		}
+		Student.prototype=new Person();
+
+		let zhangsan=new Person();
+		zhangsan.study();
+		zhangsan.say();
+
+		// let lisi= new Person();
+		// lisi.study();
+```
+
+#### 代替
+
+> 在函数中，函数里面嵌套函数，内外两个函数的this指针的指向可能不同，有以下方法可以解决
+
+- 定义`that=this;`，然后里面的函数中所用this的地方都用that
+- 使用函数的bind方法，在里面的函数后加`.bind()`，参数写希望this指向的对象即可
 
 ### 使用构造函数封装动画
 
 参见20170921的“小广告（对象方式）”
-
-
 
 ## 事件详解
 

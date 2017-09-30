@@ -72,7 +72,7 @@ function move(){
     let asideLefts=document.querySelectorAll('.leftfloorbtn');
     let flag=true;
 
-    window.onscroll=function(){
+    window.addEventListener('scroll',function(){
 		let scrollTop=document.body.scrollTop;
 		floorArr.forEach((ele,index)=>{
 			if(scrollTop+innerHeight>=ele+200){
@@ -109,7 +109,7 @@ function move(){
                 }
 			})
 		}
-}
+});
 
 // 点击跳转楼层
 
@@ -138,6 +138,33 @@ function move(){
             items[i].style.display='none';
         }
     }
+    let asideRight=document.querySelectorAll('.aside-right .tipsdiv');
+	let rightTips=document.querySelectorAll('.right-tips');
+    let tipsarr=['会员权益','我的资产','我关注的品牌','我的收藏','我看过的','我要充值','用户反馈'];
+
+    for(let i=0;i<rightTips.length;i++){
+        rightTips[i].innerText = tipsarr[i];
+        asideRight[i].onmouseover=function (e) {
+            rightTips[i].style.display = 'block'
+        }
+        asideRight[i].onmouseout=function () {
+            rightTips[i].style.display='none';
+        }
+    }
+
+    let topsearch=document.querySelector('.topsearch');
+    let asideleft=document.querySelector('.aside-left');
+    window.addEventListener('scroll',function () {
+        let scrollTop=document.body.scrollTop;
+        if(scrollTop>=500){
+            topsearch.style.top='0';
+            asideleft.style.left='0';
+        }else {
+            topsearch.style.top='-50px';
+            asideleft.style.left='-36px';
+        }
+    })
 
 
-}
+
+};

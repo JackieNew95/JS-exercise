@@ -2,377 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ccd0b5d2-3619-44aa-9042-3ad5b22b022d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/课堂示例/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/课堂示例/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/课堂示例/20170927/localstorage.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/课堂示例/20170927/通讯录/tongxunlu.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/课堂示例/20170928/TypingGame/css/index.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/课堂示例/20170928/TypingGame/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/课堂示例/20170928/TypingGame/js/functions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/课堂示例/20170928/TypingGame/js/index.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/animate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/函数练习.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/.project" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/css/base.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/css/index.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/iconfont/demo.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/iconfont/demo_fontclass.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/iconfont/demo_symbol.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/iconfont/demo_unicode.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/iconfont/iconfont.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/iconfont/iconfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/iconfont/iconfont.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/iconfont/iconfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/iconfont/iconfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/iconfont/iconfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/TB1GPVXRpXXXXXsapXXXXXXXXXX-175-175.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/TB1tQeoOFXXXXbsXVXXwu0bFXXX.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/TB1uwIcRXXXXXXsaXXXXXXXXXXX-154-207.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/backtotop.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/bang.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/banner(1).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/banner(2).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/banner(3).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/banner(4).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/banner(5).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/banner(6).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(1).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(10).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(11).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(12).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(13).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(14).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(15).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(16).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(17).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(18).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(19).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(2).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(20).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(21).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(22).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(23).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(3).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(4).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(5).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(6).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(7).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(8).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/brand(9).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/cainixihuan(1).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/cainixihuan(2).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/cainixihuan(3).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/cainixihuan(4).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/cainixihuan(5).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/chaodiankuwan(1).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/chaoliu.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/chongzhi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/dzac(1).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/erweima.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/erwewima.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/gexingtuijian.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/gongan.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/guanggao1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/guojihaigou.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/huanyipi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/hwcx(1).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/jjsh(1).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/liebiao(1).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/liebiao(10).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/liebiao(2).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/liebiao(3).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/liebiao(4).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/liebiao(5).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/liebiao(6).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/liebiao(7).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/liebiao(8).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/liebiao(9).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/liebiaobg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/like.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/logo.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/meilirensheng(1).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/meilirensheng(2).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/meilirensheng(3).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/meilirensheng(4).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/meilirensheng(5).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/meilirensheng(6).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/meilirensheng(7).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/meilirensheng(8).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/meilirensheng(9).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/mlrs(1).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/pinzhishenghuo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/qi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/qzsg(1).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/right-gouwuche.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/right-gouwuche1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/shoujikuwan.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/te.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/tianmaobg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/tianmaochaoshi.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/tianmaoguoji.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/tianmaoplayer.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/tianmaotianchong.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/wangan.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/wangzhandaohang.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/xh-end.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/xiaoheimao.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/xukezheng.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/yonghufankui.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/you.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/zhibo.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/img/zhiboyugao.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/js/animate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/js/functions$.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/天猫PC端/js/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/.project" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/css/base.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/css/index.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/iconfont/iconfont.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/iconfont/iconfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/iconfont/iconfont.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/iconfont/iconfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/iconfont/iconfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/iconfont/iconfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/018080.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/20170707135935.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/3-80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/553s80.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/5Battery1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/5c_80.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/5s-12!160x110.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/5x-2!160x110.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/653s80.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/6580side.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/7Battery1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/80pc-5x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/80x80(1).jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/80x80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/80xmds_49.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/80xmds_55.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/80xmds_65.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/MIX-320-220!160x110.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/MIX-80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/T1ZYC_BjWv1RXrhCrK.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/USBC80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/VRPLAY2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/baohu.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/bijiben80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/bjbcdq80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/bluetoothheadset.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/c1xb343.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/chechong1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/chongdianqi-80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/compare.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/cunchu.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/czjhq80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/da1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/da2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/da3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/da4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/da5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/da6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/da7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/da8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/dan1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/dan2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/dan3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/dan4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/danping1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/danping2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/dianfanbao-80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/dianhuashoubiao80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/dianshipeijian.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/dianyuan280.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/dianyuanfujian.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/djj80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/ertong1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/fhz80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/fhzlyyx80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/gushiji80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/ha2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/ha3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/ha4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/hali.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/hezi80-80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/hezizengqiangban80side.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/hm4-80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/hmn4x80.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/huabanche80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/huiyuan.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/huosai1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/iconaz80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/icon图标.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/jiadian1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/jiadian2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/jiadian3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/jiadian4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/jiadian5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/jiadian6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/jiadian7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/jiadian8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/jiantou.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/jiantou3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/jiantou3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/jiaonang80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/jinghuaqilvxin80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/jingshuiqiandlvxin-80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/jiqiren.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/jly80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/loading.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/luyouqi-80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/max2_80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/max2_toubu.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/mi-logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/mifenka-1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/mimobile.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/mipad3_80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/mituyinx80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/mitv3s48.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/naozhong80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/neidanbao80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/pei1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/pei2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/pei3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/pei4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/pei5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/pei6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/pei7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/pei8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/phcplus80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/pinpai80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/placeholder-220!110x110.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/placeholder-40.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/pocketaudio.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/qtpro80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/quantie.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/re1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/re2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/re3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/re4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/scale.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/shi2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/shi3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/shi4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/shitu1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/shitu2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/shitu3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/shitu4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/shouhuan280.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/shouhuan280.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/shubiao80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/shuihu80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/site-weixin.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/suishen-80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/tdsqs80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/tiemo.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/toudai80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/truste.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/tui1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/tui10.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/tui2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/tui3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/tui4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/tui5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/tui6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/tui7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/tui8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/tui9.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/tuijian1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/tuijian2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/tuijian3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/tuijian4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/tv70.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/usbzjqggg80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/v-logo-1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/v-logo-2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/v-logo-3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/wlyx80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/wurenji80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/wxsb80.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xiancai.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xiaobai80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xiaogangpao2-hei-80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xiaomiNOTE2-320-220!160x110.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xm5S-80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xm5S-plus-80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xm6-320.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xm6_80.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xmNOTE2-80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xmad1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xmad2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xmad3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xmad_1489401341687_vUojl.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xmad_14938805670516_eryYQ.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xmad_14972549116226_tZpod.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xmad_1501854682644_cSqHx.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xmad_15023585612783_DIKjh.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xmjzej80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xmsbd80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xp80_49.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xp80_55.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xp80_65.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/xueyaji-80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/yashua80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/yidongdianyuan.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/ymjp80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/yundong80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/zhijia.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/zhineng1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/zhineng2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/zhineng3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/zhineng4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/zhineng5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/zhineng6.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/zhineng7.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/zhineng8.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/zhinengdeng-80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/zhinengjiatingtaozhuang-80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/zhou1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/zhou2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/zhou3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/zhou4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/zhou5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/zhou6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/zhou7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/zhou8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/zipaigan.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/znyjdaohang.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/zuodaohang.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/zxc80-80.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/img/三角形.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/js/animate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/js/functions$.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/小米/js/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/作业/打印表格、九九乘法表、隔行、隔列换色.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/课堂示例/20170924/img/liebiao(1).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/课堂示例/20170924/img/liebiao(10).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/课堂示例/20170924/img/liebiao(2).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/课堂示例/20170924/img/liebiao(3).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/课堂示例/20170924/img/liebiao(4).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/课堂示例/20170924/img/liebiao(5).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/课堂示例/20170924/img/liebiao(6).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/课堂示例/20170924/img/liebiao(7).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/课堂示例/20170924/img/liebiao(8).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/课堂示例/20170924/img/liebiao(9).png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/课堂示例/20170924/js/animate.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/课堂示例/20170924/事件.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/课堂示例/20170924/事件对象.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/课堂示例/20170924/拖拽.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/课堂示例/20170924/页面滚动效果.html" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/课堂示例/20170929/Snake/css/snake.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/课堂示例/20170929/Snake/js/snake.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/课堂示例/20170929/Snake/snake.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/homework/tianmaoPC/img/TB1GPVXRpXXXXXsapXXXXXXXXXX-175-175.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/homework/tianmaoPC/img/TB1tQeoOFXXXXbsXVXXwu0bFXXX.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/homework/tianmaoPC/img/TB1uwIcRXXXXXXsaXXXXXXXXXXX-154-207.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/homework/tianmaoPC/img/erwewima.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/笔记/Javascript笔记.md" afterPath="$PROJECT_DIR$/笔记/Javascript笔记.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/课堂示例/20170921/小广告(对象方式).html" afterPath="$PROJECT_DIR$/课堂示例/20170921/小广告(对象方式).html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homework/tianmaoPC/css/index.css" afterPath="$PROJECT_DIR$/homework/tianmaoPC/css/index.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homework/tianmaoPC/index.html" afterPath="$PROJECT_DIR$/homework/tianmaoPC/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homework/tianmaoPC/js/index.js" afterPath="$PROJECT_DIR$/homework/tianmaoPC/js/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homework/xiaomi/css/index.css" afterPath="$PROJECT_DIR$/homework/xiaomi/css/index.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homework/xiaomi/index.html" afterPath="$PROJECT_DIR$/homework/xiaomi/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/homework/xiaomi/js/index.js" afterPath="$PROJECT_DIR$/homework/xiaomi/js/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -385,32 +29,42 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/homework/tianmaoPC/index.html">
+    <leaf>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/xiaomi/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="1340" column="37" lean-forward="true" selection-start-line="1340" selection-start-column="37" selection-end-line="1340" selection-end-column="37" />
+            <state relative-caret-position="-63">
+              <caret line="1081" column="28" lean-forward="true" selection-start-line="1081" selection-start-column="28" selection-end-line="1081" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/tianmaoPC/js/index.js">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/homework/tianmaoPC/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+            <state relative-caret-position="100">
+              <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/homework/tianmaoPC/css/index.css">
+        <entry file="file://$PROJECT_DIR$/homework/xiaomi/css/index.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="387">
-              <caret line="1104" column="20" lean-forward="false" selection-start-line="1104" selection-start-column="20" selection-end-line="1104" selection-end-column="20" />
+            <state relative-caret-position="212">
+              <caret line="892" column="8" lean-forward="false" selection-start-line="892" selection-start-column="0" selection-end-line="892" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/homework/xiaomi/js/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="150" column="0" lean-forward="true" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -426,6 +80,16 @@
         <option value="JavaScript File" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>aside-right-bottom</find>
+      <find>.banner .lunbo</find>
+      <find>.daohang</find>
+      <find>daohang</find>
+      <find>neirong</find>
+      <find>.neirong</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -453,16 +117,24 @@
         <option value="$PROJECT_DIR$/课堂示例/20170928/通讯录/tongxunlu.html" />
         <option value="$PROJECT_DIR$/课堂示例/20170928/通讯录/js/tongxunlu.js" />
         <option value="$PROJECT_DIR$/课堂示例/20170928/通讯录/css/tongxunlu.css" />
-        <option value="$PROJECT_DIR$/homework/xiaomi/index.html" />
-        <option value="$PROJECT_DIR$/homework/xiaomi/js/index.js" />
-        <option value="$PROJECT_DIR$/homework/xiaomi/css/index.css" />
         <option value="$PROJECT_DIR$/课堂示例/20170928/TypingGame/css/index.css" />
         <option value="$PROJECT_DIR$/课堂示例/20170928/TypingGame/js/index.js" />
         <option value="$PROJECT_DIR$/课堂示例/20170928/TypingGame/index.html" />
         <option value="$PROJECT_DIR$/课堂示例/20170928/TypingGame/js/functions.js" />
+        <option value="$PROJECT_DIR$/课堂示例/20170929/TypingGame/css/index.css" />
+        <option value="$PROJECT_DIR$/课堂示例/20170929/TypingGame/index.html" />
+        <option value="$PROJECT_DIR$/课堂示例/20170929/TypingGame/js/index.js" />
+        <option value="$PROJECT_DIR$/课堂示例/20170929/TypingGame/js/functions.js" />
+        <option value="$PROJECT_DIR$/课堂示例/20170929/Snake/snake.css" />
+        <option value="$PROJECT_DIR$/课堂示例/20170929/Snake/snake.html" />
+        <option value="$PROJECT_DIR$/课堂示例/20170929/Snake/css/snake.css" />
+        <option value="$PROJECT_DIR$/课堂示例/20170929/Snake/js/snake.js" />
         <option value="$PROJECT_DIR$/homework/tianmaoPC/index.html" />
         <option value="$PROJECT_DIR$/homework/tianmaoPC/css/index.css" />
         <option value="$PROJECT_DIR$/homework/tianmaoPC/js/index.js" />
+        <option value="$PROJECT_DIR$/homework/xiaomi/index.html" />
+        <option value="$PROJECT_DIR$/homework/xiaomi/css/index.css" />
+        <option value="$PROJECT_DIR$/homework/xiaomi/js/index.js" />
       </list>
     </option>
   </component>
@@ -503,7 +175,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -527,20 +198,32 @@
               <item name="JS-in-UEK" type="b2602c69:ProjectViewProjectNode" />
               <item name="JS-in-UEK" type="462c0819:PsiDirectoryNode" />
               <item name="homework" type="462c0819:PsiDirectoryNode" />
-              <item name="tianmaoPC" type="462c0819:PsiDirectoryNode" />
+              <item name="xiaomi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JS-in-UEK" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JS-in-UEK" type="462c0819:PsiDirectoryNode" />
+              <item name="homework" type="462c0819:PsiDirectoryNode" />
+              <item name="xiaomi" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="JS-in-UEK" type="b2602c69:ProjectViewProjectNode" />
               <item name="JS-in-UEK" type="462c0819:PsiDirectoryNode" />
               <item name="homework" type="462c0819:PsiDirectoryNode" />
-              <item name="tianmaoPC" type="462c0819:PsiDirectoryNode" />
+              <item name="xiaomi" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JS-in-UEK" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JS-in-UEK" type="462c0819:PsiDirectoryNode" />
+              <item name="课堂示例" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -552,6 +235,12 @@
     <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://E:/优逸客培训/5JavaScript/JS-in-UEK/课堂示例/20170929/Snake/css/snake.css" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\优逸客培训\5JavaScript\JS-in-UEK\课堂示例\20170929\Snake\css" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -565,26 +254,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.index.html (3)">
+  <component name="RunManager" selected="JavaScript Debug.index.html (2)">
     <configuration name="index.html (1)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/JS-in-UEK/课堂示例/20170928/TypingGame/index.html" />
     <configuration name="index.html (2)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/JS-in-UEK/homework/tianmaoPC/index.html" />
     <configuration name="index.html (3)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/JS-in-UEK/homework/xiaomi/index.html" />
+    <configuration name="index.html (4)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/JS-in-UEK/课堂示例/20170929/TypingGame/index.html" />
     <configuration name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/JS-in-UEK/作业/天猫PC端/index.html" />
-    <configuration name="tongxunlu.html (1)" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/JS-in-UEK/课堂示例/20170928/通讯录/tongxunlu.html" />
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
-      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.tongxunlu.html (1)" />
-      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.html (1)" />
-      <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.index.html (2)" />
-      <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.index.html (3)" />
+      <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.html (1)" />
+      <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.html (2)" />
+      <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.index.html (3)" />
+      <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.index.html (4)" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html (3)" />
-        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.html (1)" />
-        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.html (2)" />
-        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
-        <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.tongxunlu.html (1)" />
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.html (2)" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.html (3)" />
+        <item index="2" class="java.lang.String" itemvalue="JavaScript Debug.index.html (4)" />
+        <item index="3" class="java.lang.String" itemvalue="JavaScript Debug.index.html (1)" />
+        <item index="4" class="java.lang.String" itemvalue="JavaScript Debug.index.html" />
       </list>
     </recent_temporary>
   </component>
@@ -604,16 +293,19 @@
       <workItem from="1506521652610" duration="13220000" />
       <workItem from="1506558281736" duration="33191000" />
       <workItem from="1506604695343" duration="6688000" />
+      <workItem from="1506645032911" duration="9232000" />
+      <workItem from="1506656721573" duration="17652000" />
+      <workItem from="1506691673229" duration="13665000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81207000" />
+    <option name="totallyTimeSpent" value="121756000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14055637" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16032211" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -642,27 +334,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/课堂示例/20170928/TypingGame/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/课堂示例/20170928/TypingGame/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="29" lean-forward="false" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/课堂示例/20170928/TypingGame/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="725">
           <caret line="29" column="23" lean-forward="true" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -670,9 +345,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -786,44 +459,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/homework/xiaomi/index.html">
+    <entry file="file://$PROJECT_DIR$/课堂示例/20170928/TypingGame/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="61" column="32" lean-forward="true" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/xiaomi/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="185" column="0" lean-forward="false" selection-start-line="185" selection-start-column="0" selection-end-line="185" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/homework/xiaomi/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="126" column="8" lean-forward="false" selection-start-line="126" selection-start-column="8" selection-end-line="126" selection-end-column="8" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
+        <state relative-caret-position="405">
+          <caret line="43" column="9" lean-forward="false" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/课堂示例/20170928/TypingGame/js/functions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="133" column="20" lean-forward="false" selection-start-line="133" selection-start-column="20" selection-end-line="133" selection-end-column="20" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/课堂示例/20170928/TypingGame/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="43" column="9" lean-forward="false" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+        <state relative-caret-position="2750">
+          <caret line="115" column="29" lean-forward="true" selection-start-line="115" selection-start-column="29" selection-end-line="115" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -832,38 +478,127 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="10" column="28" lean-forward="false" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/课堂示例/20170928/TypingGame/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+        <state relative-caret-position="100">
+          <caret line="4" column="23" lean-forward="true" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/课堂示例/20170929/TypingGame/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="51" column="5" lean-forward="false" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/课堂示例/20170929/TypingGame/js/functions.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="128" column="49" lean-forward="true" selection-start-line="128" selection-start-column="49" selection-end-line="128" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/课堂示例/20170929/TypingGame/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="2" column="17" lean-forward="true" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/课堂示例/20170929/TypingGame/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="14" column="35" lean-forward="true" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/课堂示例/20170920/this的指向问题.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="30" column="9" lean-forward="true" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/课堂示例/20170929/Snake/css/snake.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="24" lean-forward="false" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/tianmaoPC/iconfont/iconfont.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="81" column="0" lean-forward="false" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/课堂示例/20170929/Snake/js/snake.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1000">
+          <caret line="8" column="16" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/课堂示例/20170929/Snake/snake.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="48" lean-forward="true" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/tianmaoPC/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="387">
-          <caret line="1104" column="20" lean-forward="false" selection-start-line="1104" selection-start-column="20" selection-end-line="1104" selection-end-column="20" />
+        <state relative-caret-position="312">
+          <caret line="1198" column="15" lean-forward="false" selection-start-line="1198" selection-start-column="15" selection-end-line="1198" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/tianmaoPC/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="158" column="0" lean-forward="false" selection-start-line="158" selection-start-column="0" selection-end-line="158" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/xiaomi/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="892" column="8" lean-forward="false" selection-start-line="892" selection-start-column="0" selection-end-line="892" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/xiaomi/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
-          <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+          <caret line="150" column="0" lean-forward="true" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/homework/xiaomi/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-63">
+          <caret line="1081" column="28" lean-forward="true" selection-start-line="1081" selection-start-column="28" selection-end-line="1081" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/homework/tianmaoPC/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="1340" column="37" lean-forward="true" selection-start-line="1340" selection-start-column="37" selection-end-line="1340" selection-end-column="37" />
+        <state relative-caret-position="100">
+          <caret line="10" column="10" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
           <folding />
         </state>
       </provider>
