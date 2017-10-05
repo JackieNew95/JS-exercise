@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>日期对象</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+
+
+
+
+
+
+    <script>
+        /*
+        * GMT格林尼治时间
+        * UTC世界协调时，返回从 UTC 1970 年 1 月 1 日00:00:00开始经过的毫秒数。
+        * */
+        let date=new Date();//自带，直接声明
+        let date1=new Date('14:24:00 2017/10/1');//传参即为设置时间
+        let date2=new Date(2017,10,1,23,4,9);//年月日时分秒，但是月份需要减一
+
+
+
+        console.dir(date);
+        console.dir(date1);//Sun Oct 01 2017 14:24:00 GMT+0800 (中国标准时间)
+        console.dir(date2);//Wed Nov 01 2017 23:04:09 GMT+0800 (中国标准时间)
+        console.log(date.getFullYear());//四位数字的年份
+        date.getMonth();//几月
+        date.getDate();//几号
+        date.getDay();//周几
+        console.log(date.setMonth(4));//5月
+        date.setDate(14);//14号
+
+
+    </script>
+</body>
+</html>

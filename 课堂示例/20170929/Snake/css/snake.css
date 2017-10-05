@@ -32,3 +32,14 @@
 .food{
     background: #ff0000;
 }
+.score{
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    left: 50px;
+    top: 0;
+    background: #b2ff00;
+    color: #000000;
+    text-align: center;
+    line-height: 50px;
+}

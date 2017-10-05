@@ -10,7 +10,9 @@ function Snake() {
     this.flag={"0-0":true,"0-1":true,"0-2":true};//用来判断蛇吃食物和咬自己
     this.sence=document.querySelector('.sence');//场景
     this.direction=39;//方向
-
+    this.food='';//食物坐标
+    this.score=0;//得分
+    this.scoreObj=document.querySelector('.score');
 }
 Snake.prototype={
     start:function () {
@@ -53,22 +55,24 @@ Snake.prototype={
                 newhead=`${oldheadarr[0]*1+1}-${oldheadarr[1]*1}`;
             }
             let newheadarr=newhead.split('-');
-            if(newheadarr[0]>19 || newheadarr[0]==''){
-                alert('游戏结束！');
+            if(newheadarr[0]>19 || newheadarr[0]==''||newheadarr[1]>19|| newheadarr[1]==''||this.flag[newhead]){
                 clearInterval(this.t);
-                return ;
-            }
-            if(newheadarr[1]>19|| newheadarr[1]==''){
                 alert('游戏结束！');
-                clearInterval(this.t);
-                return ;
-            }
-            
-            let oldtail=this.snake.shift();
-            delete this.flag[oldtail];
-            document.getElementById(oldtail).classList.remove('snake');
-            this.snake.push(newhead);
-            this.flag[newhead]=true;
+            }//判断自己咬自己，撞墙
+            if(newhead==this.food){
+                this.snake.push(newhead);
+                this.flag[newhead]=true;
+                document.getElementById(this.food).classList.remove('food');
+                this.dropFood();
+                this.score++;
+                this.scoreObj.innerText=`得分：${this.score}`;
+            }else {
+                let oldtail=this.snake.shift();
+                delete this.flag[oldtail];
+                document.getElementById(oldtail).classList.remove('snake');
+                this.snake.push(newhead);
+                this.flag[newhead]=true;
+            }//吃食物
             this.drawSnake();
         }.bind(this),500);
     },//蛇的移动
@@ -86,6 +90,7 @@ Snake.prototype={
             var x=Math.floor(Math.random()*20);
             var y=Math.floor(Math.random()*20);
         }while (this.flag[`${x}-${y}`]);
+        this.food=`${x}-${y}`;
         document.getElementById(`${x}-${y}`).classList.add('food');
     }//投放食物
 

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>滚轮事件</title>
+    <style>
+        body{
+            height: 1000px;
+        }
+        .box{
+            width: 400px;
+            height: 400px;
+            background: rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+<script>
+    let box=document.querySelector('.box');
+/*    box.addEventListener('mousewheel',function (e) {
+        e.preventDefault();//阻止浏览器的默认行为，此处是阻止浏览器滚动条移动
+
+        let w=this.offsetWidth;
+        if (e.wheelDelta>0){
+            this.style.width=`${w+20}px`
+        }else if (e.wheelDelta<0){
+            this.style.width=`${w-20}px`
+        }
+        console.log(e.wheelDelta);//滚轮方向，向上滚为正，向下滚为负,返回数字，一般为正负120或150
+    })//谷歌内核
+    box.addEventListener('DOMMouseScroll',function (e) {
+        console.log(e.detail);//滚轮方向，向上滚为负，向下滚为正,返回数字，一般为正负3
+    })//火狐适用*/
+
+    mousewheel(box,function () {
+        let w=this.offsetWidth;
+        this.style.width=`${w+20}px`
+    },function () {
+        let w=this.offsetWidth;
+        this.style.width=`${w-20}px`
+    });//对以下函数的调用
+
+
+/*
+* 为了兼容，可以把上述两个事件封装起来，写成以下函数
+* */
+    function mousewheel(element,upfn,downfn) {
+        element.addEventListener('mousewheel',fn);
+        element.addEventListener('DOMMouseScroll',fn);
+        function fn(e) {
+            e.preventDefault();
+            let dir=e.wheelDelta||e.detail;
+            if (dir==-120||dir==3){
+                downfn.call(element);
+            }else if (dir==120||dir==-3){
+                upfn.call(element);
+            }
+        }
+    }
+</script>
+</html>

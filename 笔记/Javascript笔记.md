@@ -3070,6 +3070,73 @@ console.log(arr1.delReapeatB());//[4,5,1,2,3]
 	console.log(suiji2(arr,5));
 ```
 
+#### 日期Date
+
+> Date 对象用于处理日期和时间。
+
+##### 创建Date 对象
+
+```js
+var myDate=new Date();//注释：Date 对象会自动把当前日期和时间保存为其初始值。
+```
+
+##### Date 对象方法
+
+> 注意：获得的月份比实际的大1，同样设置的时候就得写小1；
+>
+> ​	只有星期不可设置，因为在确定了年月日之后，那么星期就是固定的
+
+| 方法                                       | 描述                                |
+| ---------------------------------------- | --------------------------------- |
+| [Date()](http://www.w3school.com.cn/jsref/jsref_Date.asp) | 返回当日的日期和时间。                       |
+| [getDate()](http://www.w3school.com.cn/jsref/jsref_getDate.asp) | 从 Date 对象返回一个月中的某一天 (1 ~ 31)。     |
+| [getDay()](http://www.w3school.com.cn/jsref/jsref_getDay.asp) | 从 Date 对象返回一周中的某一天 (0 ~ 6)。       |
+| [getMonth()](http://www.w3school.com.cn/jsref/jsref_getMonth.asp) | 从 Date 对象返回月份 (0 ~ 11)。           |
+| [getFullYear()](http://www.w3school.com.cn/jsref/jsref_getFullYear.asp) | 从 Date 对象以四位数字返回年份。               |
+| [getYear()](http://www.w3school.com.cn/jsref/jsref_getYear.asp) | 请使用 getFullYear() 方法代替。           |
+| [getHours()](http://www.w3school.com.cn/jsref/jsref_getHours.asp) | 返回 Date 对象的小时 (0 ~ 23)。           |
+| [getMinutes()](http://www.w3school.com.cn/jsref/jsref_getMinutes.asp) | 返回 Date 对象的分钟 (0 ~ 59)。           |
+| [getSeconds()](http://www.w3school.com.cn/jsref/jsref_getSeconds.asp) | 返回 Date 对象的秒数 (0 ~ 59)。           |
+| [getMilliseconds()](http://www.w3school.com.cn/jsref/jsref_getMilliseconds.asp) | 返回 Date 对象的毫秒(0 ~ 999)。           |
+| [getTime()](http://www.w3school.com.cn/jsref/jsref_getTime.asp) | 返回 1970 年 1 月 1 日至今的毫秒数。          |
+| [getTimezoneOffset()](http://www.w3school.com.cn/jsref/jsref_getTimezoneOffset.asp) | 返回本地时间与格林威治标准时间 (GMT) 的分钟差。       |
+| [getUTCDate()](http://www.w3school.com.cn/jsref/jsref_getUTCDate.asp) | 根据世界时从 Date 对象返回月中的一天 (1 ~ 31)。   |
+| [getUTCDay()](http://www.w3school.com.cn/jsref/jsref_getUTCDay.asp) | 根据世界时从 Date 对象返回周中的一天 (0 ~ 6)。    |
+| [getUTCMonth()](http://www.w3school.com.cn/jsref/jsref_getUTCMonth.asp) | 根据世界时从 Date 对象返回月份 (0 ~ 11)。      |
+| [getUTCFullYear()](http://www.w3school.com.cn/jsref/jsref_getUTCFullYear.asp) | 根据世界时从 Date 对象返回四位数的年份。           |
+| [getUTCHours()](http://www.w3school.com.cn/jsref/jsref_getUTCHours.asp) | 根据世界时返回 Date 对象的小时 (0 ~ 23)。      |
+| [getUTCMinutes()](http://www.w3school.com.cn/jsref/jsref_getUTCMinutes.asp) | 根据世界时返回 Date 对象的分钟 (0 ~ 59)。      |
+| [getUTCSeconds()](http://www.w3school.com.cn/jsref/jsref_getUTCSeconds.asp) | 根据世界时返回 Date 对象的秒钟 (0 ~ 59)。      |
+| [getUTCMilliseconds()](http://www.w3school.com.cn/jsref/jsref_getUTCMilliseconds.asp) | 根据世界时返回 Date 对象的毫秒(0 ~ 999)。      |
+| [parse()](http://www.w3school.com.cn/jsref/jsref_parse.asp) | 返回1970年1月1日午夜到指定日期（字符串）的毫秒数。      |
+| [setDate()](http://www.w3school.com.cn/jsref/jsref_setDate.asp) | 设置 Date 对象中月的某一天 (1 ~ 31)。        |
+| [setMonth()](http://www.w3school.com.cn/jsref/jsref_setMonth.asp) | 设置 Date 对象中月份 (0 ~ 11)。           |
+| [setFullYear()](http://www.w3school.com.cn/jsref/jsref_setFullYear.asp) | 设置 Date 对象中的年份（四位数字）。             |
+| [setYear()](http://www.w3school.com.cn/jsref/jsref_setYear.asp) | 请使用 setFullYear() 方法代替。           |
+| [setHours()](http://www.w3school.com.cn/jsref/jsref_setHours.asp) | 设置 Date 对象中的小时 (0 ~ 23)。          |
+| [setMinutes()](http://www.w3school.com.cn/jsref/jsref_setMinutes.asp) | 设置 Date 对象中的分钟 (0 ~ 59)。          |
+| [setSeconds()](http://www.w3school.com.cn/jsref/jsref_setSeconds.asp) | 设置 Date 对象中的秒钟 (0 ~ 59)。          |
+| [setMilliseconds()](http://www.w3school.com.cn/jsref/jsref_setMilliseconds.asp) | 设置 Date 对象中的毫秒 (0 ~ 999)。         |
+| [setTime()](http://www.w3school.com.cn/jsref/jsref_setTime.asp) | 以毫秒设置 Date 对象。                    |
+| [setUTCDate()](http://www.w3school.com.cn/jsref/jsref_setUTCDate.asp) | 根据世界时设置 Date 对象中月份的一天 (1 ~ 31)。   |
+| [setUTCMonth()](http://www.w3school.com.cn/jsref/jsref_setUTCMonth.asp) | 根据世界时设置 Date 对象中的月份 (0 ~ 11)。     |
+| [setUTCFullYear()](http://www.w3school.com.cn/jsref/jsref_setUTCFullYear.asp) | 根据世界时设置 Date 对象中的年份（四位数字）。        |
+| [setUTCHours()](http://www.w3school.com.cn/jsref/jsref_setutchours.asp) | 根据世界时设置 Date 对象中的小时 (0 ~ 23)。     |
+| [setUTCMinutes()](http://www.w3school.com.cn/jsref/jsref_setUTCMinutes.asp) | 根据世界时设置 Date 对象中的分钟 (0 ~ 59)。     |
+| [setUTCSeconds()](http://www.w3school.com.cn/jsref/jsref_setUTCSeconds.asp) | 根据世界时设置 Date 对象中的秒钟 (0 ~ 59)。     |
+| [setUTCMilliseconds()](http://www.w3school.com.cn/jsref/jsref_setUTCMilliseconds.asp) | 根据世界时设置 Date 对象中的毫秒 (0 ~ 999)。    |
+| [toSource()](http://www.w3school.com.cn/jsref/jsref_tosource_boolean.asp) | 返回该对象的源代码。                        |
+| [toString()](http://www.w3school.com.cn/jsref/jsref_toString_date.asp) | 把 Date 对象转换为字符串。                  |
+| [toTimeString()](http://www.w3school.com.cn/jsref/jsref_toTimeString.asp) | 把 Date 对象的时间部分转换为字符串。             |
+| [toDateString()](http://www.w3school.com.cn/jsref/jsref_toDateString.asp) | 把 Date 对象的日期部分转换为字符串。             |
+| [toGMTString()](http://www.w3school.com.cn/jsref/jsref_toGMTString.asp) | 请使用 toUTCString() 方法代替。           |
+| [toUTCString()](http://www.w3school.com.cn/jsref/jsref_toUTCString.asp) | 根据世界时，把 Date 对象转换为字符串。            |
+| [toLocaleString()](http://www.w3school.com.cn/jsref/jsref_toLocaleString.asp) | 根据本地时间格式，把 Date 对象转换为字符串。         |
+| [toLocaleTimeString()](http://www.w3school.com.cn/jsref/jsref_toLocaleTimeString.asp) | 根据本地时间格式，把 Date 对象的时间部分转换为字符串。    |
+| [toLocaleDateString()](http://www.w3school.com.cn/jsref/jsref_toLocaleDateString.asp) | 根据本地时间格式，把 Date 对象的日期部分转换为字符串。    |
+| [UTC()](http://www.w3school.com.cn/jsref/jsref_utc.asp) | 根据世界时返回 1970 年 1 月 1 日 到指定日期的毫秒数。 |
+| [valueOf()](http://www.w3school.com.cn/jsref/jsref_valueOf_date.asp) | 返回 Date 对象的原始值。                   |
+
 ## BOM(浏览器对象模型)
 
 window、地址栏、screen、frames、历史、navigator
@@ -3584,7 +3651,7 @@ console.log(box.offsetTop)
 </html>
 ```
 
-#### 获取样式
+#### 获取元素样式
 
 ##### 获取行内样式
 
@@ -3713,6 +3780,20 @@ getComputedStyle(对象名,null);只能获取，不能设置
 </script>
 ```
 
+#### 获取元素属性
+
+##### 获取标准属性
+
+obj.属性名;
+
+obj.keys();//返回对象的所有可枚举属性，是一个数组
+
+for...in也可以列举被遍历对象的属性
+
+##### 获取自定义属性
+
+obj.getAttribute('属性名');
+
 ### 修改元素
 
 #### 修改属性
@@ -3734,6 +3815,12 @@ getComputedStyle(对象名,null);只能获取，不能设置
 #### 修改样式
 
 ##### classList
+
+> element.classList.add()
+>
+> element.classList.remove()
+>
+> element.classList.toggle()
 
 ```js
 obj.classList.add('.box');//向obj添加box类
@@ -3811,9 +3898,9 @@ a标签的跳转与click冲突的话写
 
 dblclick
 
-mouseover/mouseenter
+mouseover/mouseout
 
-mouseout/mouseleave
+mouseenter/mouseleave
 
 mousedown
 
@@ -3823,36 +3910,11 @@ mousemove
 
 ##### 键盘
 
-> key返回按下的键，keyCode返回所按的键盘码，但是不区分大小写，键盘码为大写的值
->
-> shift、ctrl、alt可以直接写shiftkey\ctrlkey\altkey访问
->
-> 用&&判断两个键按下
-
 keydown
 
 keyup
 
 keypress
-
-```
-let input =document.querySelector('input');
-	input.addEventListener('keydown', function(e){// 同样可以通过e可访问对象
-	console.log(e.key,e.keyCode);
-	// key返回按下的键，keyCode返回所按得键盘码，但是不区分大小写，键盘码为大写的值
-}, false)
-```
-
-###### 常用键值
-
-- Enter13
-- Control 17
-- Shift 16
-- Alt 18
-- ArrowLeft 37
-- ArrowUp 38
-- ArrowRight 39
-- ArrowDown 40
 
 ##### 表单
 
@@ -3895,7 +3957,7 @@ load资源加载完毕后，写上这个之后可以把JS代码写在页面的�
 
 > 参见20170920的“this的指向问题”
 
-#### 指向
+#### 指向问题
 
 - 一般函数谁调用，this就指向谁
 - 箭头函数没有this，所以谁定义就指向谁
@@ -3940,6 +4002,7 @@ load资源加载完毕后，写上这个之后可以把JS代码写在页面的�
 
 - 定义`that=this;`，然后里面的函数中所用this的地方都用that
 - 使用函数的bind方法，在里面的函数后加`.bind()`，参数写希望this指向的对象即可
+- `call();`,`apply();`冒充
 
 ### 使用构造函数封装动画
 
@@ -4008,7 +4071,7 @@ box.removeEventListener('click', function(){
 
 > 在事件处理函数中传一个参数，它即代表事件处理函数
 >
-> 只在作为事件函数时，这个参数才代表事件对象
+> **只在作为事件函数时，这个参数才代表事件对象**
 
 ```js
 			box.addEventListener('mousemove', 
@@ -4019,6 +4082,8 @@ box.removeEventListener('click', function(){
 ```
 
 #### 属性
+
+##### 获取位置
 
 相对于浏览器的位置
 
@@ -4040,6 +4105,71 @@ box.removeEventListener('click', function(){
 - screenX
 - screenY
 
+
+> 例子：拖拽、放大镜...
+
+#### 鼠标
+
+##### mouseover/mouseout
+
+> 有子元素的话，移入子元素相当于出去父元素再回来
+>
+> 原因是会触发事件的冒泡
+
+##### mouseenter/mouseleave
+
+> 有子元素的话，移入子元素还认为在父元素里，不会出去再回来
+>
+> 不会触发事件冒泡
+
+##### mousewheel/DOMMouseScroll
+
+> mousewheel：适用于谷歌浏览器
+>
+> DOMMouseScroll：适用于火狐浏览器
+
+mousewheel
+
+> e.wheelDelta//识别滚轮方向，返回数字，向上滚为正，向下滚为负，一般为正负120或150
+
+DOMMouseScroll
+
+> e.detail//识别滚轮方向，向上滚为负，向下滚为正,返回数字，一般为正负3
+
+#### 键盘
+
+> key返回按下的键，keyCode返回所按的键盘码，但是不区分大小写，键盘码为大写的值
+>
+> shift、ctrl、alt可以直接写shiftkey\ctrlkey\altkey访问
+>
+> 用&&判断两个键按下
+
+##### 键盘码e.keyCode
+
+返回键盘的unicode码，不分大小写
+
+##### 键名e.key
+
+键名
+
+```
+let input =document.querySelector('input');
+	input.addEventListener('keydown', function(e){// 同样可以通过e可访问对象
+	console.log(e.key,e.keyCode);
+	// key返回按下的键，keyCode返回所按得键盘码，但是不区分大小写，键盘码为大写的值
+}, false)
+```
+
+##### 常用键值
+
+- Enter13
+- Control 17
+- Shift 16
+- Alt 18
+- ArrowLeft 37
+- ArrowUp 38
+- ArrowRight 39
+- ArrowDown 40
 
 ### 事件流
 
@@ -4074,13 +4204,17 @@ ie低版本不支持addEventListener，只有冒泡型事件流，没有捕获�
 				console.log(2);
 			}
 		son.detachEvent('onclick', fn)//删除该事件
-#### 事件流的属性
+#### 事件流的方法
 
 `e.stopPropagation();`//可以阻止事件流,自己还发生，但不向上传播了
+
+`e.preventDefault();`//阻止浏览器的默认行为
 
 `e.target;`//真正的事件源，可以获得到底是谁触发的事件
 
 `e.currentTarget;`//返回真正绑定该事件的对象
+
+`e.type`//返回事件类型
 
 #### 事件委派
 
@@ -4088,11 +4222,13 @@ ie低版本不支持addEventListener，只有冒泡型事件流，没有捕获�
 
 一般有两种情况：
 
-1、页面中有大量重复元素添加相同的事件
+**1、页面中有大量重复元素添加相同的事件**
 
-2、页面中的元素是JS动态创建的
+**2、页面中的元素是JS动态创建的**
 
 优点：简化算法，提升效率和减少CPU负担
+
+> 例子：通讯录、可编辑表格
 
 ## 本地存储
 
@@ -4131,6 +4267,8 @@ Cookie 保存以下几方面的信息。
         //清除所有历史记录
 ```
 
+> 例子：可编辑表格
+
 ### session storage
 
 > 会话存储，浏览器关闭之后就没了，页面间无法共享，只能在本窗口使用
@@ -4150,12 +4288,6 @@ Cookie 保存以下几方面的信息。
         let result=JSON.parse(localStorage.getItem('student'));
         //JSON.parse()将字符串转换成json对象，如果之前是'可能会报错，所以最好和JSON.stringify()配合使用
 ```
-
-
-
-
-
-
 
 
 

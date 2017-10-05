@@ -895,9 +895,9 @@ p.desc{
 	height: 420px;
 	margin: 0 auto;
 	position: relative;
-	overflow: hidden;
+	/*overflow: hidden;*/
 }
-.nei ,.nei2{
+.nei{
 	width: 296px;
 	height: 420px;
 	float: left;
@@ -905,17 +905,25 @@ p.desc{
 	overflow: hidden;
 	margin-right: 14px;
 	background: #fff;
+	position: relative;
+	left: 0;
+	top: 0;
 }
-.neirong .nei2{
-	margin-right: 0px;
+.nei:last-child{
+	margin-right: 0;
+}
+.neiwrap{
+	width: 888px;
+	height: 420px;
+	position: absolute;
+	left: -592px;
+	top: 0;
 }
 .nei1{
 	width: 296px;
 	height: 420px;
 	border-top: 1px solid #ffac13;
-	position: absolute;
-	top: 0;
-	left: 0;
+	float: left;
 }
 .neit{
 	font-size: 15px;
@@ -964,38 +972,33 @@ p.desc{
 	margin: 0 auto;
 	margin-top: 16px;
 }
-.yuan{
-	width: 78px;
+.yuanwrap{
+	width: 80px;
 	height: 10px;
 	margin: 0 auto;
-/* 	background: red; */
 	margin-top: 30px;
 	position: absolute;
 	bottom: 15px;
 	left: 108px;
 }
-.yuan1,.yuan2,.yuan3{
-	width: 6px;
-	height: 6px;
+.yuan{
+	width: 8px;
+	height: 8px;
 	border-radius: 50%;
 	margin-right: 28px;
 	background: #b0b0b0;
 	float: left;
-}
-.yuan .yuan2,.yuan .yuan3{
 	margin-top: 2px;
 }
-.yuan .yuan1{
+.yuan:last-child{
+	margin-right: 0px;
+}
+.yuanwrap .yuan1{
+	box-sizing: border-box;
     border: 2px solid #ff7010;
     background: #ffffff;
 }
-.yuan .yuan3{
-	margin-right: 0px;	
-}
-.yuan a{
-	float: left;
-}
-.yuan2:hover,.yuan3:hover{
+.yuan:hover{
 	background: #ff6700;
 }
 .jiantouz,.jiantouy{
@@ -1379,3 +1382,6 @@ dt:hover{
 	margin-right: 0px;
 }
 /* 底部结束 */
+.red{
+	background-color: #ff0000;
+}

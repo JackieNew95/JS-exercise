@@ -146,10 +146,45 @@ window.onload = function() {
     }
 
     /*
-    * 内容
+    * 内容列表的变换
     * */
-
-
-
+    let neis=document.querySelectorAll('.nei');
+    let neiwraps=document.querySelectorAll('.neiwrap');
+    let neirongbtnzs=document.querySelectorAll('.nei>.jiantouz');
+    let neirongbtnys=document.querySelectorAll('.nei>.jiantouy');
+    let flagnei=0;
+    let i=0;
+    neis.forEach(element=>{
+        element.addEventListener('click',function (e) {
+            let ctargets=e.currentTarget;
+            let yuanwraps=ctargets.getElementsByClassName('yuanwrap')[0];
+            let yuans=yuanwraps.getElementsByClassName('yuan');
+            console.log(yuans);
+            let targets=e.target;
+            let wraps=$('.neiwrap',targets.parentNode);
+            if(targets.className=='jiantouz'){
+                if (flagnei>0){
+                    flagnei--;
+                    yuans[i].classList.remove('yuan1');
+                    i--;
+                    yuans[i].classList.add('yuan1');
+                }else {
+                    return ;
+                }
+                wraps[0].style.left=`${-1*296*flagnei}px`;
+            }
+            if(targets.className=='jiantouy'){
+                if (flagnei<2){
+                    flagnei++;
+                    yuans[i].classList.remove('yuan1');
+                    i++;
+                    yuans[i].classList.add('yuan1');
+                }else {
+                    return ;
+                }
+                wraps[0].style.left=`${-1*296*flagnei}px`;
+            }
+        })
+    })
 }
 
