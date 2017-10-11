@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百分比</title>
+    <style>
+        canvas{
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="300" height="300"></canvas>
+</body>
+<script>
+    let canvas=document.querySelector('canvas');
+    let ctx=canvas.getContext('2d');
+/*
+
+    let t=setInterval(fn,16,80);//回调函数，时间周期，函数参数
+    let num=1;
+    function fn(n) {
+        num++;
+        if(num==n){
+            clearInterval(t);
+        }
+        let rad=Math.PI/50*num;
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.beginPath();
+        ctx.arc(150,150,100,-Math.PI/2,rad-Math.PI/2);
+        ctx.lineWidth=10;
+        ctx.lineCap='round';
+        ctx.stroke();
+        ctx.font='20px sans-serif';
+        ctx.textAlign='center';
+        ctx.fillText(`${num}%`,150,150);
+    }
+*/
+
+/*
+    let t=setTimeout(fn,16,80);//回调函数，时间周期，函数参数
+    let num=1;
+    function fn(n) {
+        num++;
+        if(num==n){
+            clearTimeout(t);
+        }else {
+            t=setTimeout(fn,16,80);//递归
+        }
+        let rad=Math.PI/50*num;
+        ctx.clearRect(0,0,canvas.width,canvas.height);
+        ctx.beginPath();
+        ctx.arc(150,150,100,-Math.PI/2,rad-Math.PI/2);
+        ctx.lineWidth=10;
+        ctx.lineCap='round';
+        ctx.stroke();
+        ctx.font='20px sans-serif';
+        ctx.textAlign='center';
+        ctx.fillText(`${num}%`,150,150);
+    }
+    */
+
+    let t;
+    let num=1;
+    requestAnimationFrame(fn);
+    let n=80;
+    function fn() {
+        num++;
+        if (num == n) {
+            cancelAnimationFrame(t);
+        } else {
+            t = requestAnimationFrame(fn);
+        }
+        let rad = Math.PI / 50 * num;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.beginPath();
+        ctx.arc(150, 150, 100, -Math.PI / 2, rad - Math.PI / 2);
+        ctx.lineWidth = 10;
+        ctx.lineCap = 'round';
+        ctx.stroke();
+        ctx.font = '20px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(`${num}%`, 150, 150);
+    }
+</script>
+</html>

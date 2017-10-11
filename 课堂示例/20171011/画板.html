@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>画板</title>
+    <link rel="stylesheet" href="css/huaban.css">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+</head>
+<body>
+    <main>
+        <div class="left">
+            <ul>
+                <li id="line" class="iconfont icon-xian" active="true"></li>
+                <li id="dash" class="iconfont icon-xuxian"></li>
+                <li id="pencil" class="iconfont icon-pencil"></li>
+                <li id="square" class="iconfont icon-changfangxing"></li>
+                <li id="circle" class="iconfont icon-weibiaoti38"></li>
+                <li id="poly" class="iconfont icon-duobianxing"></li>
+                <li id="polyJ" class="iconfont icon-xing"></li>
+                <li id="word" class="iconfont icon-wenzi"></li>
+                <div class="fg"></div>
+                <li id="styleS" class="iconfont icon-biankuangse"></li>
+                <li id="styleSC">
+                    <input type="color">
+                </li>
+                <li id="styleF" class="iconfont icon-yanse1"></li>
+                <li id="styleFC">
+                    <input type="color">
+                </li>
+                <div class="fg"></div>
+                <li id="cancel" class="iconfont icon-chexiao"></li>
+                <li id="eraser" class="iconfont icon-xiangpica_s"></li>
+                <li id="cut" class="iconfont icon-caijian"></li>
+                <li id="save">保存</li>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="top">
+                <ul>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="bottom">
+                <canvas width="100" height="100"></canvas>
+                <div class="eraserme"></div>
+                <div class="cutme"></div>
+                <div class="opacity"></div>
+            </div>
+        </div>
+
+    </main>
+</body>
+<script src="js/huaban.js"></script>
+<script src="js/index.js"></script>
+</html>

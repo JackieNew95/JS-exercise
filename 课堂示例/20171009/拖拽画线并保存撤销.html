@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽画线并保存撤销</title>
+    <style>
+        canvas{
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="600" height="300">
+
+    </canvas>
+</body>
+<script>
+    window.onload=function () {
+        let canvas=document.querySelector('canvas');
+        let ctx=canvas.getContext('2d');
+        let arr=[];
+        canvas.onmousedown=function (e) {
+            let cx=e.offsetX;
+            let cy=e.offsetY;
+            canvas.onmousemove=function (e) {
+                let ox=e.offsetX;
+                let oy=e.offsetY;
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                if(arr.length){//如果存在历史记录的话
+                    ctx.putImageData(arr[arr.length-1],0,0);//放回最后一个历史记录
+                }
+                ctx.beginPath();
+                ctx.moveTo(cx,cy);
+                ctx.lineTo(ox,oy);
+                ctx.stroke();
+            };
+            canvas.onmouseup=function () {
+                let data=ctx.getImageData(0,0,canvas.width,canvas.height);//获取画布像素数据
+                arr.push(data);//存储在数组里
+                canvas.onmousemove=null;
+                canvas.onmouseup=null;
+            }
+        };
+        document.body.onkeydown=function (e) {
+            if(e.ctrlKey&&e.keyCode==90){
+                if(arr.length){
+                    arr.pop();
+                    ctx.clearRect(0,0,canvas.width,canvas.height);
+                    ctx.putImageData(arr[arr.length-1],0,0);
+                }
+            }
+        }//ctrl+z撤销
+    }
+</script>
+</html>

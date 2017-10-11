@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>poly</title>
+    <style>
+        canvas{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<canvas width="300" height="300">
+    
+</canvas>
+</body>
+<script>
+    window.onload=function () {
+        let canvas=document.querySelector('canvas');
+        let ctx=canvas.getContext('2d');
+        /*
+        * 绘制正多边形思路
+        * 在正圆里找到相交点
+        * 每个点都在圆上
+        * 都可以通过角度表示位置
+        * */
+        poly(4)
+        function poly(n) {
+            let rad=Math.PI*2/n;
+            ctx.beginPath();
+            ctx.moveTo(250,150);
+            for(let i=0;i<n;i++){
+                let x=150+100*Math.cos(rad*i);
+                let y=150+100*Math.sin(rad*i);
+                ctx.lineTo(x,y);
+            }
+            ctx.closePath();
+            ctx.stroke();
+        }
+        
+    }
+</script>
+</html>

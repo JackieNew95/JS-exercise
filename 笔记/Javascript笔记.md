@@ -4289,11 +4289,215 @@ Cookie 保存以下几方面的信息。
         //JSON.parse()将字符串转换成json对象，如果之前是'可能会报错，所以最好和JSON.stringify()配合使用
 ```
 
+## canvas
 
+### 基本用法
 
+#### 替换
 
+> canvas里面不嵌套标签，是行内块标签
 
+```html
+<canvas width="300px" height="150px"><!--一般不用css控制，因为会将内容同步放大，相当于放大镜-->
+        浏览器版本太低，请升级浏览器！<!--canvas,H5新标签,所以遇到低版本浏览器会写一些替换内容--></canvas>
+```
 
+#### 属性
+
+width
+
+height
+
+> 一般不用css控制，因为会将内容同步放大，相当于放大镜，尺寸就不准了
+
+```html
+    <canvas width="300px" height="150px">浏览器版本太低，请升级浏览器！</canvas>
+```
+
+#### 画图环境
+
+```js
+let ctx=canvas.getContext('2d');//拿到绘图环境，然后用ctx上的方法绘图,画出来是位图，放大失真
+```
+
+#### 画矩形
+
+```js
+        ctx.fillRect(0,0,300,150);//绘制矩形（填充），位置x，位置y，宽，高
+        ctx.strokeRect(300,150,300,150);//绘制矩形（描边），位置x，位置y，宽，高
+        ctx.clearRect(10,10,280,130);//擦除矩形，位置x，位置y，宽，高
+```
+
+#### 样式
+
+```js
+ctx.fillStyle='skyblue';//填充属性，必须先设置样式，再绘制，否则无效
+ctx.strokeStyle='red';//描边属性，必须先设置样式，再绘制，否则无效
+```
+
+#### 路径
+
+- 开始路径`ctx.beginPath();//开始路径`
+- 移动，绘图`ctx.moveTo(50,50);//开始坐标` `ctx.lineTo(50,150);//画线到的坐标`
+- 闭合路径（不必须）`ctx.closePath();//闭合路径`
+- 填充或描边`ctx.stroke();//描边` `ctx.fill();//填充`
+
+```js
+      	let canvas=document.querySelector('canvas');
+        let ctx=canvas.getContext('2d');//拿到绘图环境，然后用ctx上的方法绘图,画出来是位图，放大失真
+        ctx.beginPath();//开始路径
+        ctx.moveTo(50,50);//开始坐标
+        ctx.lineTo(50,150);//画线到的坐标
+        ctx.lineTo(150,150);//画线到的坐标
+        ctx.lineTo(50,50);//画线到的坐标
+        ctx.closePath();//闭合路径
+        ctx.stroke();//描边
+        ctx.beginPath();//开始路径
+        ctx.moveTo(70,50);//开始坐标
+        ctx.lineTo(170,50);//画线到的坐标
+        ctx.lineTo(170,150);//画线到的坐标
+        ctx.fill();//填充
+//绘制两个不规则三角形
+```
+
+```js
+  ctx.arc(300,150,100,0,Math.PI*2);
+  //圆心坐标x，圆心坐标y，半径，开始弧度，结束弧度,方向（true逆时针，false顺时针（默认））
+  ctx.fill();
+  //绘制圆形
+```
+
+#### 方法
+
+```js
+let data=ctx.getImageData(0,0,canvas.width,canvas.height);
+//获取指定区域像素数据，位置x，位置y，宽，高
+ctx.putImageData(data,0,0);//放回像素数据，数据，位置x，位置y
+ctx.setLineDash([10,5]);//虚线，实线长，虚线长
+```
+
+#### 样式
+
+##### 颜色、样式和阴影
+
+| 属性                                       | 描述                    |
+| ---------------------------------------- | --------------------- |
+| fillStyle                                | 设置或返回用于填充绘画的颜色、渐变或模式。 |
+| strokeStyle                              | 设置或返回用于笔触的颜色、渐变或模式。   |
+| [shadowColor](http://www.runoob.com/tags/canvas-shadowcolor.html) | 设置或返回用于阴影的颜色。         |
+| [shadowBlur](http://www.runoob.com/tags/canvas-shadowblur.html) | 设置或返回用于阴影的模糊级别。       |
+| [shadowOffsetX](http://www.runoob.com/tags/canvas-shadowoffsetx.html) | 设置或返回阴影与形状的水平距离。      |
+| [shadowOffsetY](http://www.runoob.com/tags/canvas-shadowoffsety.html) | 设置或返回阴影与形状的垂直距离。      |
+
+| 方法                                       | 描述                    |
+| ---------------------------------------- | --------------------- |
+| [createLinearGradient()](http://www.runoob.com/tags/canvas-createlineargradient.html) | 创建线性渐变（用在画布内容上）。      |
+| [createPattern()](http://www.runoob.com/tags/canvas-createpattern.html) | 在指定的方向上重复指定的元素。       |
+| [createRadialGradient()](http://www.runoob.com/tags/canvas-createradialgradient.html) | 创建放射状/环形的渐变（用在画布内容上）。 |
+| [addColorStop()](http://www.runoob.com/tags/canvas-addcolorstop.html) | 规定渐变对象中的颜色和停止位置。      |
+
+##### 线条样式
+
+| 属性                                       | 描述                                       |
+| ---------------------------------------- | ---------------------------------------- |
+| lineCap                                  | 设置或返回线条的结束端点样式，round圆头， square方头         |
+| lineJoin                                 | 设置或返回两条线相交时，所创建的拐角类型。bevel斜角, round圆角, miter默认尖角 |
+| lineWidth                                | 设置或返回当前的线条宽度。                            |
+| [miterLimit](http://www.runoob.com/tags/canvas-miterlimit.html) | 设置或返回最大斜接长度。                             |
+
+##### 矩形
+
+| 方法                                       | 描述              |
+| ---------------------------------------- | --------------- |
+| [rect()](http://www.runoob.com/tags/canvas-rect.html) | 创建矩形。           |
+| fillRect(起始位置x,y,宽,高)                    | 绘制"被填充"的矩形。     |
+| [strokeRect()](http://www.runoob.com/tags/canvas-strokerect.html) | 绘制矩形（无填充，描边）。   |
+| clearRect(起始位置x,y,宽,高)                   | 在给定的矩形内清除指定的像素。 |
+
+##### 路径
+
+| 方法                                       | 描述                                 |
+| ---------------------------------------- | ---------------------------------- |
+| fill()                                   | 填充当前绘图（路径）。                        |
+| stroke()                                 | 绘制已定义的路径。                          |
+| beginPath()                              | 起始一条路径，或重置当前路径。                    |
+| moveTo()                                 | 把路径移动到画布中的指定点，不创建线条。               |
+| closePath()                              | 创建从当前点回到起始点的路径。看情况，可写可不写           |
+| lineTo()                                 | 添加一个新点，然后在画布中创建从该点到最后指定点的线条。       |
+| [clip()](http://www.runoob.com/tags/canvas-clip.html) | 从原始画布剪切任意形状和尺寸的区域。                 |
+| [quadraticCurveTo()](http://www.runoob.com/tags/canvas-quadraticcurveto.html) | 创建二次贝塞尔曲线。                         |
+| [bezierCurveTo()](http://www.runoob.com/tags/canvas-beziercurveto.html) | 创建三次贝塞尔曲线。                         |
+| arc(圆心x,y,半径,起始弧度,结束弧度)                  | 创建弧/曲线（用于创建圆形或部分圆）。                |
+| [arcTo()](http://www.runoob.com/tags/canvas-arcto.html) | 创建两切线之间的弧/曲线。                      |
+| [isPointInPath()](http://www.runoob.com/tags/canvas-ispointinpath.html) | 如果指定的点位于当前路径中，则返回 true，否则返回 false。 |
+
+##### 转换
+
+| 方法                                       | 描述                             |
+| ---------------------------------------- | ------------------------------ |
+| [scale()](http://www.runoob.com/tags/canvas-scale.html) | 缩放当前绘图至更大或更小。                  |
+| [rotate()](http://www.runoob.com/tags/canvas-rotate.html) | 旋转当前绘图。                        |
+| [translate()](http://www.runoob.com/tags/canvas-translate.html) | 重新映射画布上的 (0,0) 位置。             |
+| [transform()](http://www.runoob.com/tags/canvas-transform.html) | 替换绘图的当前转换矩阵。                   |
+| [setTransform()](http://www.runoob.com/tags/canvas-settransform.html) | 将当前转换重置为单位矩阵。然后运行 transform()。 |
+
+##### 文本
+
+| 属性                                       | 描述                               |
+| ---------------------------------------- | -------------------------------- |
+| font                                     | 设置或返回文本内容的当前字体属性，粗细、大小、字体等。      |
+| textAlign                                | 设置或返回文本内容的当前对齐方式，对齐的基准点就是位置的那个点。 |
+| [textBaseline](http://www.runoob.com/tags/canvas-textbaseline.html) | 设置或返回在绘制文本时使用的当前文本基线。            |
+
+| 方法                                       | 描述               |
+| ---------------------------------------- | ---------------- |
+| fillText(文字内容,位置x,位置y,大小)                | 在画布上绘制"被填充的"文本。  |
+| strokeText(文字内容,位置x,位置y,大小)              | 在画布上绘制文本（无填充描边）。 |
+| [measureText()](http://www.runoob.com/tags/canvas-measuretext.html) | 返回包含指定文本宽度的对象。   |
+
+##### 图像绘制
+
+| 方法                                       | 描述              |
+| ---------------------------------------- | --------------- |
+| [drawImage()](http://www.runoob.com/tags/canvas-drawimage.html) | 向画布上绘制图像、画布或视频。 |
+
+##### 像素操作
+
+| 属性                                       | 描述                               |
+| ---------------------------------------- | -------------------------------- |
+| [width](http://www.runoob.com/tags/canvas-imagedata-width.html) | 返回 ImageData 对象的宽度。              |
+| [height](http://www.runoob.com/tags/canvas-imagedata-height.html) | 返回 ImageData 对象的高度。              |
+| [data](http://www.runoob.com/tags/canvas-imagedata-data.html) | 返回一个对象，其包含指定的 ImageData 对象的图像数据。 |
+
+| 方法                                       | 描述                                  |
+| ---------------------------------------- | ----------------------------------- |
+| [createImageData()](http://www.runoob.com/tags/canvas-createimagedata.html) | 创建新的、空白的 ImageData 对象。              |
+| getImageData()                           | 返回 ImageData 对象，该对象为画布上指定的矩形复制像素数据。 |
+| putImageData()                           | 把图像数据（从指定的 ImageData 对象）放回画布上。      |
+
+##### 合成
+
+| 属性                                       | 描述                     |
+| ---------------------------------------- | ---------------------- |
+| [globalAlpha](http://www.runoob.com/tags/canvas-globalalpha.html) | 设置或返回绘图的当前 alpha 或透明值。 |
+| [globalCompositeOperation](http://www.runoob.com/tags/canvas-globalcompositeoperation.html) | 设置或返回新图像如何绘制到已有的图像上。   |
+
+##### 其他
+
+| 方法            | 描述               |
+| ------------- | ---------------- |
+| save()        | 保存当前环境的状态。       |
+| restore()     | 返回之前保存过的路径状态和属性。 |
+| createEvent() |                  |
+| getContext()  |                  |
+| toDataURL()   |                  |
+
+#### 刷新频率（其他）
+
+```js
+let t=requestAnimationFrame(fn);//获得屏幕刷新频率，里面传回调函数，跟setTimeOut一样只执行一次
+cancelAnimationFrame(t);//清除请求屏幕刷频率
+```
 
 
 

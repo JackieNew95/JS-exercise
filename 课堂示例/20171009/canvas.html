@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        canvas{
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas width="600" height="300"><!--一般不用css控制，直接在这儿写-->
+        浏览器版本太低，请升级浏览器！<!--canvas,H5新标签,所以遇到低版本浏览器会写一些替换内容-->
+    </canvas>
+</body>
+<script>
+    window.onload=function () {
+        let canvas=document.querySelector('canvas');
+        let ctx=canvas.getContext('2d');//拿到绘图环境，然后用ctx上的方法绘图,画出来是位图，放大失真
+//        ctx.fillRect(0,0,300,150);//绘制矩形（填充），位置x，位置y，宽，高
+//        ctx.strokeRect(300,150,300,150);//绘制矩形（描边），位置x，位置y，宽，高
+//        ctx.clearRect(10,10,280,130);//擦除矩形，位置x，位置y，宽，高
+
+/*        ctx.fillStyle='skyblue';//填充属性，必须先设置样式，再绘制，否则无效
+        ctx.fillRect(150,0,300,300);
+        ctx.clearRect(170,20,260,260);
+        ctx.fillStyle='lightgreen';
+        ctx.fillRect(190,40,220,220);
+        ctx.clearRect(210,60,180,180);
+        ctx.strokeStyle='red';//描边属性，必须先设置样式，再绘制，否则无效
+        ctx.strokeRect(230,80,140,140);*/
+
+/*        for(let i=0;i<5;i++){
+            for(let j=0;j<10;j++){
+                ctx.fillStyle=`rgb(${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)},${Math.floor(Math.random()*256)})`;
+                ctx.fillRect(j*60,i*60,60,60);
+            }
+        }*/
+
+/*        ctx.beginPath();//开始路径
+        ctx.moveTo(50,50);//开始坐标
+        ctx.lineTo(50,150);//画线到的坐标
+        ctx.lineTo(150,150);//画线到的坐标
+        ctx.lineTo(50,50);//画线到的坐标
+        ctx.closePath();//闭合路径
+        ctx.stroke();//描边
+
+        ctx.beginPath();//开始路径
+        ctx.moveTo(70,50);//开始坐标
+        ctx.lineTo(170,50);//画线到的坐标
+        ctx.lineTo(170,150);//画线到的坐标
+        ctx.fill();//填充
+        //绘制不规则三角形*/
+    }
+</script>
+</html>

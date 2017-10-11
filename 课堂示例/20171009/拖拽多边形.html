@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽画多边形</title>
+    <style>
+        canvas{
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="300">
+
+</canvas>
+</body>
+<script>
+    window.onload=function () {
+        let canvas=document.querySelector('canvas');
+        let ctx=canvas.getContext('2d');
+        canvas.onmousedown=function (e) {
+            let cx=e.offsetX;
+            let cy=e.offsetY;
+            canvas.onmousemove=function (e) {
+                let ox=e.offsetX;
+                let oy=e.offsetY;
+                let r=Math.sqrt(Math.pow(ox-cx,2)+Math.pow(oy-cy,2));
+                poly(cx,cy,4,r);
+            };
+            canvas.onmouseup=function () {
+                canvas.onmousemove=null;
+                canvas.onmouseup=null;
+            }
+        };
+        function poly(cx,cy,n,r) {
+            let rad=Math.PI*2/n;
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            ctx.beginPath();
+            ctx.moveTo(cx+r,cy);
+            for(let i=0;i<n;i++){
+                let x=cx+r*Math.cos(rad*i);
+                let y=cy+r*Math.sin(rad*i);
+                ctx.lineTo(x,y);
+            }
+            ctx.closePath();
+            ctx.stroke();
+        }
+    }
+</script>
+</html>

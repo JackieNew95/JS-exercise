@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽画多角形</title>
+    <style>
+        canvas{
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="300">
+
+</canvas>
+</body>
+<script>
+    window.onload=function () {
+        let canvas=document.querySelector('canvas');
+        let ctx=canvas.getContext('2d');
+        canvas.onmousedown=function (e) {
+            let cx=e.offsetX;
+            let cy=e.offsetY;
+            canvas.onmousemove=function (e) {
+                let ox=e.offsetX;
+                let oy=e.offsetY;
+                let r=Math.sqrt(Math.pow(ox-cx,2)+Math.pow(oy-cy,2));
+                polyJ(cx,cy,8,r);
+            };
+            canvas.onmouseup=function () {
+                canvas.onmousemove=null;
+                canvas.onmouseup=null;
+            }
+        };
+        function polyJ(cx,cy,n,r) {
+            let rad=Math.PI/n;
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            ctx.beginPath();
+            ctx.moveTo(cx+r,cy);
+            for(let i=0;i<2*n;i++){
+                let r1;
+                r1=i%2==0?r:r/2;
+                let x=cx+r1*Math.cos(rad*i);
+                let y=cy+r1*Math.sin(rad*i);
+                ctx.lineTo(x,y);
+            }
+            ctx.closePath();
+            ctx.stroke();
+        }
+    }
+</script>
+</html>

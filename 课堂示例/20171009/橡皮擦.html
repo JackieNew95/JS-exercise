@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>橡皮擦</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 600px;
+            height: 600px;
+            border: 1px solid blue;
+        }
+        canvas{
+            border: 1px solid green;
+        }
+        .opacity{
+            width: 600px;
+            height: 600px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .eraser{
+            width: 50px;
+            height: 50px;
+            background: #FFFFFF;
+            border: 1px solid red;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <canvas width="600" height="600"></canvas>
+    <div class="eraser"></div>
+    <div class="opacity"></div>
+</div>
+</body>
+<script>
+    window.onload=function () {
+        let canvas=document.querySelector('canvas');
+        let opacity=document.querySelector('.opacity');
+        let eraser=document.querySelector('.eraser');
+        let ctx=canvas.getContext('2d');
+        let arr=[];
+        polyJ(100,5);
+        function polyJ(r,n) {
+            let rad=Math.PI/n;
+            ctx.beginPath();
+            ctx.moveTo(150+r,150);
+            for(let i=0;i<2*n;i++){
+                let r1;
+                r1=i%2==0?r:r/2;
+                let x=150+r1*Math.cos(rad*i);
+                let y=150+r1*Math.sin(rad*i);
+                ctx.lineTo(x,y);
+            }
+            ctx.closePath();
+            ctx.stroke();
+        }
+        opacity.onmousedown=function (e) {
+            let cx=e.offsetX;
+            let cy=e.offsetY;
+            eraser.style.display='block';
+            opacity.onmousemove=function (e) {
+                let ox=e.offsetX-25;
+                let oy=e.offsetY-25;
+                eraser.style.left=ox+'px';
+                eraser.style.top=oy+'px';
+                ctx.clearRect(ox,oy,50,50);
+            };
+            opacity.onmouseup=function () {
+                eraser.style.display='none';
+                let data=ctx.getImageData(0,0,canvas.width,canvas.height);
+                arr.push(data);
+                opacity.onmousemove=null;
+                opacity.onmouseup=null;
+            }
+        };
+        document.body.onkeydown=function (e) {
+            if(e.ctrlKey&&e.keyCode==90){
+                if(arr.length){
+                    arr.pop();
+                    ctx.clearRect(0,0,canvas.width,canvas.height);
+                    ctx.putImageData(arr[arr.length-1],0,0);
+                }
+            }
+        }
+    }
+</script>
+</html>

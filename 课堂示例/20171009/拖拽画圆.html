@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽画圆</title>
+    <style>
+        canvas{
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+<canvas width="600" height="300">
+
+</canvas>
+</body>
+<script>
+    window.onload=function () {
+        let canvas=document.querySelector('canvas');
+        let ctx=canvas.getContext('2d');
+        canvas.onmousedown=function (e) {
+            let cx=e.offsetX;
+            let cy=e.offsetY;
+            canvas.onmousemove=function (e) {
+                let ox=e.offsetX;
+                let oy=e.offsetY;
+                let r=Math.sqrt(Math.pow(ox-cx,2)+Math.pow(oy-cy,2));
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                ctx.beginPath();
+                ctx.moveTo(cx+r,cy);
+                ctx.arc(cx,cy,r,0,Math.PI*2);
+                ctx.stroke();
+            };
+            canvas.onmouseup=function () {
+                canvas.onmousemove=null;
+                canvas.onmouseup=null;
+            }
+        };
+
+    }
+</script>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="图层_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="2240.759px" height="800px" viewBox="0 0 2240.759 800" enable-background="new 0 0 2240.759 800" xml:space="preserve">
+<g id="mask">
+
+	<filter id="dropshadow" height="800px">
+		<feGaussianBlur in="SourceAlpha" stdDeviation="15"/>
+		<feOffset dx="0" dy="0" result="offsetblur"/>
+		<feComponentTransfer>
+			<feFuncA type="linear" slope="0.7"/>
+		</feComponentTransfer>
+		<feMerge> 
+			<feMergeNode/>
+			<feMergeNode in="SourceGraphic"/>
+		</feMerge>
+	</filter>
+		
+	<g style="filter:url(#dropshadow)">
+		<path fill="#ffffff" d="M2172.932,364.693L1986.041,35.219c-1.06-2.145-2.237-4.211-3.523-6.215
+			c-11.242-17.46-30.624-29.001-52.666-29.004l0,0H-28v800h1957.852c156.24,0,282.906-128.914,282.906-287.943
+			C2212.759,458.198,2198.217,407.806,2172.932,364.693z"/>
+	</g>
+</g>
+</svg>
