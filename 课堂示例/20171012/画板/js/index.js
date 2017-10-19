@@ -65,6 +65,12 @@ window.onload=function () {
             if(this.id=='reverse'){
             	pal.reverse();
             }
+            if(this.id=='gray'){
+            	pal.gray();
+            }
+            if(this.id=='new'){
+            	pal.new(element);
+            }
             if(this.id=='poly'||this.id=='polyJ'){
                 num=prompt('请输入多边（角）形边（角）数：',5);
             }

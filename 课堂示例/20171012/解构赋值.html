@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>json简写，解构赋值</title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+//		json简写
+		let obj={
+			name:'zhangsan',
+			age:14
+		};
+		let name='lisi';
+		let age=20;
+		let obj1={name,age};
+		console.log(obj1);//{name: "lisi", age: 20}
+		
+//		解构赋值
+		let arr=[1,2,3,4];
+		let [x,y,z,w]=arr;
+		console.log(x,y,z,w);//1 2 3 4
+	</script>
+</html>

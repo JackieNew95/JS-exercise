@@ -130,10 +130,10 @@
     background: url("../img/3l.png") 0 -240px no-repeat;
 }
 .nav_home b{
-    background: url("../img/be.png") 50% -72px no-repeat;
+    background: url("../img/be.png") 50% 3px no-repeat;
 }
 .nav_about b{
-    background: url("../img/be.png") 50% -12px no-repeat;
+    background: url("../img/be.png") 50% -88px no-repeat;
 }
 .nav_product b{
     background: url("../img/be.png") 50% -28px no-repeat;

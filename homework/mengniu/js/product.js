@@ -5,6 +5,9 @@ let navbglist=document.querySelector('.nav_bg_list');//列表背景颜色
 let navbgcolor=['#2A9B38','#FF972D','#FF6155','#49C0E3','#00A244'];//主题色
 let navbgtop=['63','169','275','381','487'];//列表背景颜色位置
 let navitemi=document.querySelectorAll('.nav_item>u>i');//每个导航的图标
+let navitemb=document.querySelectorAll('.nav_item>u>b');//每个导航的标题
+let navitemby=[72,88,103,118,132];//每个导航标题的高度
+let navitembyb=[3,-12,-28,-43,-57];//每个导航标题原来的高度
 let flag=2;//哪个页面
 
 nav1.forEach(function (element,index) {
@@ -34,6 +37,8 @@ nav1.forEach(function (element,index) {
         }
         if(flag!=index){
             navitemi[index].style.backgroundPositionX='-45px';
+            navitemb[index].style.backgroundPositionY=`${-1*navitemby[index]}px`;
+            
         }//保证当前页面的样式不受影响
     });
     element.addEventListener('mouseleave',function (e) {
@@ -61,6 +66,8 @@ nav1.forEach(function (element,index) {
         }
         if(flag!=index){
             navitemi[index].style.backgroundPositionX='0';
+            navitemb[index].style.backgroundPositionY=`${navitembyb[index]}px`;
+
         }//保证当前页面的样式不受影响
     });
 });

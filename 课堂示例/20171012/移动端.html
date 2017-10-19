@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		
+		<style>
+			html{
+				font-size: 100px;//rem的基准大小
+			}
+			.box{
+				width: 200px;
+				height: 200px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+	<script>
+		window.addEventListener('load',function(){
+			let box=document.querySelector('.box');
+			box.addEventListener('touchstart',function(){
+				this.style.background='green';
+			})//开始触摸
+			box.addEventListener('touchmove',function(e){
+				this.style.background='blue';
+				console.dir(e)
+				/*
+				 touches 触摸的总个数
+				 targetTouches 触摸触发事件的个数
+				 changedTouches 触摸移动的个数
+				 * */
+			})//滑动触摸
+			box.addEventListener('touchend',function(){
+				this.style.background='red';
+				console.log('end');
+			})//触摸结束
+			box.addEventListener('touchcancel',function(){
+				
+			})//触摸取消,不常用
+			box.addEventListener('click',function(){
+				console.log('click');//PC端事件会比移动端事件延迟300毫秒
+			})
+		})
+	</script>
+	<!--onload资源接在完毕
+	docContext???结构加载完毕-->
+</html>

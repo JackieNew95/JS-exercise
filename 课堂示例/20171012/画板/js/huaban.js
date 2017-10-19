@@ -286,6 +286,31 @@ class Palette{
 		}
 		this.ctx.clearRect(0,0,this.cw,this.ch);
     	this.ctx.putImageData(imgdata,0,0);
+    	this.history.push(this.ctx.getImageData(0,0,this.cw,this.ch));
+    }
+    gray(){
+    	let imgdata=this.ctx.getImageData(0,0,this.cw,this.ch);
+    	for(let i=0;i<imgdata.data.length;i+=4){
+    		let temp=0;
+			for(let j=0;j<3;j++){
+				temp+=imgdata.data[i+j];
+				if(j==2){
+					imgdata.data[i+j]=imgdata.data[i+j-1]=imgdata.data[i+j-2]=temp/3;
+				}
+			}
+		}
+		this.ctx.clearRect(0,0,this.cw,this.ch);
+    	this.ctx.putImageData(imgdata,0,0);
+    	this.history.push(this.ctx.getImageData(0,0,this.cw,this.ch));
+    }
+    new(ele){
+    	let flag=window.confirm('是否保存当前画布？',true);
+    	if(flag){
+    		let data=this.canvas.toDataURL('image/png');
+			ele.childNodes[1].href=data;
+			ele.childNodes[1].download='tu.png';
+    	}
+    	this.clearAll();
     }
     save(ele){
     	let data=this.canvas.toDataURL('image/png');
