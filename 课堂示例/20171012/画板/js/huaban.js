@@ -107,7 +107,11 @@ class Palette{
         this.ctx.beginPath();
         let w=ox-cx;
         let h=oy-cy;
-        this.ctx.strokeRect(cx,cy,w,h);
+        if(this.style=='fill'){
+            this.ctx.fillRect(cx,cy,w,h);
+        }else if(this.style=='stroke'){
+            this.ctx.strokeRect(cx,cy,w,h);
+        }
     }
     styleS(){
         this.style='stroke';
