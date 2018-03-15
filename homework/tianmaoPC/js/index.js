@@ -73,7 +73,7 @@ function move(){
     let flag=true;
 
     window.addEventListener('scroll',function(){
-		let scrollTop=document.body.scrollTop;
+		let scrollTop=document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
 		floorArr.forEach((ele,index)=>{
 			if(scrollTop+innerHeight>=ele+200){
 				let floorimg=floor[index].getElementsByTagName('img');
