@@ -1,2 +1,2 @@
-# JS-in-UEK
-JS练习、笔记、示例
+# JS-exercise
+JS学习笔记、demo
