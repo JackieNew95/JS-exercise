@@ -155,7 +155,7 @@ function move(){
     let topsearch=document.querySelector('.topsearch');
     let asideleft=document.querySelector('.aside-left');
     window.addEventListener('scroll',function () {
-        let scrollTop=document.body.scrollTop;
+        let scrollTop=document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
         if(scrollTop>=500){
             topsearch.style.top='0';
             asideleft.style.left='0';
