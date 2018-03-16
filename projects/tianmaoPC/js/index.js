@@ -118,7 +118,7 @@ function move(){
     for(let i=0;i<asideLefts.length;i++){
         asideLefts[i].onclick=function () {
             flag=false;
-            animate(document.documentElement || document.body ,{scrollTop:floorArr[i]},()=>{flag=true});
+            animate(document.documentElement,{scrollTop:floorArr[i]},()=>{flag=true});
             for(let j=0;j<color.length;j++){
                 asideLefts[j].style.background='none';
             }
